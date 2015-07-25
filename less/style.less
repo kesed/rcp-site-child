@@ -1,0 +1,70 @@
+/*
+Theme Name: Restrict Content Pro
+Template: trustedd
+Theme URI:
+Author: Andrew Munro, Sumobi
+Author URI: http://sumobi.com
+Description:
+Version: 1.0
+Tags:
+License: GNU General Public License
+License URI: license.txt
+*/
+
+
+// import styles from the parent theme
+//@import url('../trustedd/style.css');
+
+// we want to override the variables and compile our own color like this
+@import '../trustedd/less/variables';
+@import '../trustedd/less/common-imports';
+
+// @primary-color: @purple;
+// @accent-color: @purple;
+// @light-grey: #f7f7f7;
+
+// @heading-color: #373737;
+
+// @body-text-color: #787878;
+// @breakpoint: 820px;
+
+//@link-hover-color: red;
+
+@green: #85d085;
+@purple: #b685c9;
+@newpurple: #564DA2;
+//@background-color: @purple;
+@link-hover-color: @purple;
+
+
+#logo path {
+	fill: #0096E6;
+}
+
+body {
+	font-family: 'Graphik Web', Helvetica, Arial, Verdana, sans-serif;
+}
+
+// fonts
+@import 'fonts';
+
+// typograsphy
+@import 'typography';
+
+// pricing tables
+@import 'pricing';
+
+// homepage styling
+@import 'home';
+
+// styles for features tables
+@import 'features';
+
+// styles for testimonials
+@import 'testimonials';
+
+// styles for how it works
+@import 'how-it-works';
+
+// styles for gravity forms
+@import 'gravity-forms';

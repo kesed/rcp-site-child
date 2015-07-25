@@ -1,0 +1,172 @@
+// custom styles for the homepage
+
+#safe {
+    height: 150px;
+}
+
+.how-it-works svg {
+    margin-bottom: 2rem;
+}
+
+#payment-integrations {
+
+    .grid-child {
+        align-self: center;
+    }
+}
+
+.home #content section#showcase {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#showcase {
+
+    .grid {
+         max-width: 700px;
+         margin: 0 auto;
+    }
+
+    object {
+        height: 100px;
+    }
+
+    .overlay {
+        opacity: 0;
+        position: absolute;
+        display: -webkit-flex;
+        display: flex;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        font-weight: 500;
+        cursor: default;
+    	-webkit-transition: opacity 0.1s linear;
+    	transition: opacity 0.1s linear;
+    }
+
+    .grid-wrap:hover .overlay {
+        opacity:1;
+    }
+
+    .grid-wrap:hover object {
+        opacity: 0;
+    }
+
+    object {
+        opacity: 1;
+        -webkit-transition: opacity 0.1s linear;
+    	transition: opacity 0.1s linear;
+    }
+    .grid-child {
+        display: -webkit-flex;
+        display: flex;
+    }
+
+    .grid-wrap {
+        margin: 1rem;
+        position: relative;
+         display: -webkit-flex;
+         display: flex;
+         -webkit-justify-content: center;
+         justify-content: center;
+         padding: 0;
+        flex-flow: column;
+    }
+
+    footer {
+        font-style: italic;
+        margin: 1.5rem 0 0 0;
+        color: @body-text-color;
+    }
+}
+
+.home {
+
+    section {
+        padding: 0 2rem;
+    }
+
+    .hero {
+        background: #fff;
+    }
+
+}
+
+
+@media only screen and ( max-width : 480px ) {
+
+    #payment-integrations .grid-child {
+        padding: 2rem 0;
+    }
+
+}
+
+// Small Devices, Tablets
+@media only screen and ( min-width : 481px ) {
+
+    #payment-integrations div img {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+    }
+
+}
+
+// Small Devices, Tablets
+@media only screen and ( min-width : 768px ) {
+
+
+
+
+    .home {
+        #page {
+            height: 100%;
+        }
+
+        .hero {
+            height: 100%;
+            min-height: 100%;
+            width: 100%;
+
+            display: -webkit-flex;
+            display: flex;
+
+            -webkit-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+
+            object {
+                height: 150px;
+                margin-bottom: 2rem;
+            }
+
+        }
+
+        .hero h2 {
+            margin-bottom: 0;
+        }
+
+        .hero-wrapper {
+            height: 100%;
+            width: 100%;
+            display: -webkit-flex;
+            display: flex;
+
+            -webkit-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+
+            -webkit-justify-content: space-between;
+        	justify-content: space-between;
+        }
+
+    }
+
+}

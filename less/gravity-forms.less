@@ -1,0 +1,253 @@
+form.mailing-list {
+    max-width: 500px;
+    margin: 0 auto;
+
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    li {
+        padding: 0;
+    }
+
+   .gform_ajax_spinner {
+       position: absolute;
+       left: 120%;
+       top: 50%;
+       margin: -16px 0 0 -16px;
+   }
+
+   .gform_footer {
+       position: relative;
+   }
+
+    .gfield_label,
+    .validation_message {
+        display: none;
+    }
+
+    .validation_error {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+.gform_ajax_spinner {
+	display: inline-block;
+	-moz-animation: edd-icon-spin 2s infinite linear;
+	-o-animation: edd-icon-spin 2s infinite linear;
+	-webkit-animation: edd-icon-spin 2s infinite linear;
+	animation: edd-icon- spin 2s infinite linear;
+}
+
+@-moz-keyframes edd-icon-spin {
+    0% { -moz-transform: rotate(0deg) }
+    100% { -moz-transform: rotate(360deg) }
+}
+
+@-webkit-keyframes edd-icon-spin {
+    0% { -webkit-transform: rotate(0deg) }
+    100% { -webkit-transform: rotate(360deg) }
+}
+
+@-o-keyframes edd-icon-spin {
+    0% { -o-transform: rotate(0deg) }
+    100% { -o-transform: rotate(360deg) }
+}
+
+@-ms-keyframes edd-icon-spin {
+    0% { -ms-transform: rotate(0deg) }
+    100% { -ms-transform: rotate(360deg) }
+}
+
+@keyframes edd-icon-spin {
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(360deg) }
+}
+
+// Small Devices, Tablets
+@media only screen and ( min-width : 481px ) {
+    form.mailing-list {
+        .gform_body,
+        input,
+        .ginput_container,
+        .gfield,
+        .gform_fields {
+            display: -webkit-flex;
+            display: flex;
+        }
+    }
+}
+
+// Small Devices, Tablets
+@media only screen and ( max-width : 480px ) {
+
+    form.mailing-list {
+        flex-flow: column;
+    }
+
+}
+
+// general styles
+
+// support form
+form.support {
+
+    // default gravity form styling
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+    //    line-height: 1;
+    }
+
+    .validation_error {
+        padding: 2rem;
+        background: @purple;
+        color: #fff;
+    }
+
+    .gfield_description.validation_message {
+        color: @purple;
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 1rem 0 0 0;
+    }
+
+    .gfield.notice {
+        background: @purple;
+        color: #fff;
+        line-height: 1.5;
+
+        a {
+            color: #fff;
+            border: none;
+        }
+    }
+
+    .gform_body .gfield:hover {
+    //    background: red;
+    //    box-shadow: 0 0 2px @light-grey;
+    }
+
+    .gform_body input[type="text"],
+    .gform_body input[type="email"],
+    .gform_body input[type="url"],
+    .gform_body textarea {
+        border: 2px solid @light-grey;
+        .transition( all 0.1s linear);
+
+    }
+
+    .gform_body input:focus,
+    .gform_body textarea:focus {
+        border: 2px solid @purple;
+    }
+
+
+
+    .gform_body > ul {
+        border: 2px solid @light-grey;
+        border-bottom: none;
+        margin-bottom: 2rem;
+    }
+
+    .gform_body label {
+        margin-bottom: 0.5rem;
+    }
+
+    .gform_body > ul > li {
+        padding: 1.5rem 2rem;
+    //    padding: 0 0 2rem 0;
+    //    margin-bottom: 2rem;
+        border-bottom: 2px solid @light-grey;
+
+        label {
+        //    font-weight: 400;
+        }
+    }
+
+    .gform_button {
+        width: auto;
+    }
+
+    .complete {
+        background: green;
+    }
+
+    .gform_footer {
+    //    text-align: center;
+    }
+
+    .gfield_radio {
+        li {
+            padding: 0.25rem 0;
+        }
+
+        input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+
+        label {
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+
+        // "other" field
+        input {
+            width: auto;
+        }
+    }
+
+    .gfield_required {
+        margin-left: 0.5rem;
+    }
+
+    .gfield_required,
+    .gf_clear {
+        display: none;
+    }
+
+    .gform_fileupload_multifile .gform_drop_area {
+        border: 4px dashed @medium-grey;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    // side by side inputs
+    .ginput_complex {
+        display: -webkit-flex;
+        display: flex;
+
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+
+        span {
+            width: 48%;
+        }
+    }
+
+    // labels under inputs
+    .ginput_complex label,
+    .gfield_description {
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+        color: #999;
+    }
+
+    .button.gform_button_select_files {
+        width: auto;
+    }
+
+    .gform_drop_instructions {
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+}
