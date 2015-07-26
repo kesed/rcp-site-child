@@ -28,30 +28,6 @@ module.exports = function(grunt) {
         }
       },
 
-    // Add banner to style.css
-    usebanner: {
-       addbanner: {
-          options: {
-            position: 'top',
-            banner: '/*\nTheme Name: Restrict Content Pro\n' +
-                    'Template: trustedd\n' +
-                    'Theme URI: http://easydigitaldownloads.com/downloads/trustedd/\n' +
-                    'Author: Andrew Munro\n' +
-                    'Author URI: http://sumobi.com\n' +
-                    'Description: Build a business your customers trust\n' +
-                    'License: GNU General Public License\n' +
-                    'License URI: license.txt\n' +
-                    '*/',
-            linebreak: true
-          },
-          files: {
-            src: [ 'style.css' ]
-          }
-        }
-    },
-
-
-
     // LESS CSS
     less: {
       style: {
@@ -59,9 +35,7 @@ module.exports = function(grunt) {
           compress: true
         },
         files: {
-          "style.css": "less/style.less",
-          "css/editor-style.css": "less/editor-style.less",
-          "css/docs.css": "less/helpscout-docs.less"
+          "style.css": "less/style.less"
         }
       }
     },
@@ -87,15 +61,34 @@ module.exports = function(grunt) {
       }
     },
 
+    // Add banner to style.css
+    usebanner: {
+       addbanner: {
+          options: {
+            position: 'top',
+            banner: '/*\nTheme Name: Restrict Content Pro\n' +
+                    'Template: trustedd\n' +
+                    'Theme URI: http://easydigitaldownloads.com/downloads/trustedd/\n' +
+                    'Author: Andrew Munro\n' +
+                    'Author URI: http://sumobi.com\n' +
+                    'Description: Build a business your customers trust\n' +
+                    'License: GNU General Public License\n' +
+                    'License URI: license.txt\n' +
+                    '*/',
+            linebreak: true
+          },
+          files: {
+            src: [ 'style.css' ]
+          }
+        }
+    },
+
     // watch our project for changes
     watch: {
       // JS
       js: {
         files: ['js/src/**/*.js'],
         tasks: ['concat:js', 'uglify:js'],
-        options: {
-      //    livereload: true,
-        }
       },
        svgstore: {
          files: ['svgs/*.svg'],
@@ -105,9 +98,6 @@ module.exports = function(grunt) {
       css: {
         files: ['less/*.less'],
         tasks: ['less:style'],
-        options: {
-       //   livereload: true,
-        }
       },
       // Add banner
       addbanner: {
@@ -116,7 +106,7 @@ module.exports = function(grunt) {
          options: {
           spawn: false
         }
-      }
+      },
 
     }
   });

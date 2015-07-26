@@ -1,6 +1,6 @@
 {
   "name": "rcp",
-  "version": "1.5.3",
+  "version": "1.0",
   "Dependencies": {
      "grunt-cli": "latest"
   },
@@ -9,8 +9,8 @@
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-less": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-svgstore": "^0.3.3",
-    "grunt-banner": "^0.2.3",
+    "grunt-svgstore": "latest",
+    "grunt-banner": "latest",
     "matchdep": "*"
   }
 }
