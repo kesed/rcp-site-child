@@ -214,9 +214,46 @@ get_header(); ?>
 		<h1>Restrict Content Pro in action</h1>
 		<p><a href="<?php echo site_url( 'screenshots'); ?>">View more screenshots</a></p>
 
-		<?php echo do_shortcode( '[gallery size="large" ids="23,24,25, 26, 27 ,28"]' ); ?>
+		<?php
+		// show 6 images from the screenshots page
+		$page = get_page_by_title( 'Screenshots' );
+
+		$args = array(
+			'post_mime_type' => 'image',
+			'numberposts'    => 3,
+			'post_parent'    => $page->ID,
+			'post_type'      => 'attachment'
+		);
+
+		$gallery = get_children( $args );
+
+		?>
+
+		<div class="gallery gallery-columns-3 gallery-size-large">
+
+		<?php foreach( $gallery as $image ) { ?>
+
+			<figure class="gallery-item">
+				<div class="gallery-icon landscape">
+					<a href="<?php echo wp_get_attachment_url( $image->ID ); ?>">
+						<?php echo wp_get_attachment_image( $image->ID, 'large' ); ?>
+					</a>
+				</div>
+
+				<?php if ( $image->post_excerpt ) : ?>
+					<figcaption class="wp-caption-text gallery-caption"><?php echo $image->post_excerpt; ?></figcaption>
+				<?php endif; ?>
+			</figure>
+
+		<?php } ?>
+		</div>
+
+		<?php
+		//echo do_shortcode( '[gallery size="large" ids="23,24,25, 26, 27 ,28"]' );
+		?>
 		</div>
 	</section>
+
 
 <section id="payment-integrations">
 	<div class="wrapper slim aligncenter">
@@ -225,11 +262,11 @@ get_header(); ?>
 	</div>
 
 	<div class="wrapper aligncenter">
-		<div>
+
 			<img src="<?php echo get_stylesheet_directory_uri() . '/images/stripe.svg'; ?>" alt="Stripe" />
 			<img src="<?php echo get_stylesheet_directory_uri() . '/images/braintree.svg'; ?>" alt="Braintree" />
 			<img src="<?php echo get_stylesheet_directory_uri() . '/images/paypal.svg'; ?>" alt="PayPal" />
-		</div>
+
 	</div>
 </section>
 
