@@ -27,7 +27,7 @@ function rcp_setup() {
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'pricing.php' );
 
 	// EDD functions
-	if ( trustedd_is_edd_active() ) {
+	if ( function_exists( 'trustedd_is_edd_active' ) && trustedd_is_edd_active() ) {
 		require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'edd-functions.php' );
 		require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'download-meta.php' );
 	}
