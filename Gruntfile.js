@@ -67,7 +67,7 @@ module.exports = function(grunt) {
           options: {
             position: 'top',
             banner: '/*\nTheme Name: Restrict Content Pro\n' +
-                    'Template: rcp-parent\n' +
+                    'Template: rcp-site-parent\n' +
                     'Theme URI: http://easydigitaldownloads.com/downloads/trustedd/\n' +
                     'Author: Andrew Munro\n' +
                     'Author URI: http://sumobi.com\n' +
