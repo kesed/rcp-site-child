@@ -75,7 +75,7 @@ function rcp_download_developer() {
 ?>
     <?php if ( $developer_url && $developer ) : ?>
     <li>
-		<a href="<?php echo esc_url( $developer_url ); ?>" class="download-meta-link">
+		<a href="<?php echo esc_url( $developer_url ); ?>" class="download-meta-link" target="_blank">
 			<img src="<?php echo get_stylesheet_directory_uri() . '/images/download-developer.svg'; ?>" width="24" height="24">
 			<span><?php echo $developer; ?></span>
 		</a>
@@ -90,4 +90,4 @@ function rcp_download_developer() {
 
 	<?php endif; ?>
 <?php }
-add_action( 'trustedd_product_info', 'rcp_download_developer' );
+add_action( 'trustedd_download_meta', 'rcp_download_developer' );
