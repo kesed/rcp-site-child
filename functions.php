@@ -32,6 +32,11 @@ function rcp_setup() {
 		require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'download-meta.php' );
 	}
 
+	// Register footer menu
+	register_nav_menus( array(
+		'footer'   => __( 'Footer Menu', 'rcp' ),
+	) );
+
 }
 add_action( 'after_setup_theme', 'rcp_setup' );
 
@@ -44,9 +49,18 @@ function rcp_wp_nav_menu_items( $items, $args ) {
 
     if ( 'primary' == $args->theme_location ) {
     	$home = ! is_front_page() ? rcp_nav_home() : '';
+
+		return $home . $items;
     }
 
-	return $home . $items;
+	if ( 'footer' == $args->theme_location ) {
+
+    	$changelog = rcp_nav_changelog();
+
+		return $items . $changelog;
+    }
+
+	return $items;
 
 }
 add_filter( 'wp_nav_menu_items', 'rcp_wp_nav_menu_items', 10, 2 );
@@ -75,11 +89,44 @@ function rcp_nav_home() {
 <?php }
 
 /**
+ * Prepend home link to main navigation
+ *
+ * @since  1.0
+ */
+function rcp_nav_changelog() {
+	 ob_start();
+	?>
+
+	<li class="menu-item home">
+		<a id="rcp-changelog" href="#" data-effect="mfp-move-from-bottom">Changelog</a>
+	</li>
+
+	<?php $content = ob_get_contents();
+    ob_end_clean();
+
+    return $content;
+
+    ?>
+
+<?php }
+
+/**
+ * Add a notice underneath the pricing table
+ * @since 1.0.0
+ */
+function rcp_pricing_table_notice() {
+	?>
+	<p class="trustedd-notice">After choosing a pricing option you will be redirected to PippinsPlugins.com for payment.</p>
+<?php
+}
+add_action( 'edd_pricing_table_bottom', 'rcp_pricing_table_notice' );
+
+/**
  * Modify front page
  *
  * @since 1.0.0
 */
-function front_page_mods() {
+function rcp_front_page_mods() {
 
 	if ( is_front_page() ) {
 
@@ -96,7 +143,14 @@ function front_page_mods() {
 	}
 
 }
-add_action( 'template_redirect', 'front_page_mods' );
+add_action( 'template_redirect', 'rcp_front_page_mods' );
+
+/**
+ * Prevent tabbing from one form to another accidentally
+ *
+ * @since 1.0.0
+*/
+add_filter( 'gform_tabindex', '__return_false' );
 
 /**
  * Add hero
@@ -106,6 +160,7 @@ add_action( 'template_redirect', 'front_page_mods' );
 function rcp_hero() {
 ?>
 	<div class="hero">
+
 		<div class="hero-wrapper">
 		<?php do_action( 'trustedd_hero' ); ?>
 		</div>
@@ -161,6 +216,7 @@ function rcp_hero_middle() {
 			<div class="intro aligncenter mb-4">
 				<?php /* <h1>Restrict WordPress content, <br/>like never before.</h1> */?>
 				<h1>A simple, yet powerful membership plugin for WordPress.</h1>
+
 					<?php /* 	<h1>Powerful WordPress Memberships are finally simple.</h1>*/?>
 				<?php /* <h2>Restrict Content Pro is a powerful membership plugin for WordPress that makes it easy to show content to your members.</h2> */ ?>
 
@@ -218,6 +274,7 @@ function rcp_hero_bottom() {
 
 		<div class="wrapper aligncenter">
 			<a href="#pricing" class="button huge mb-4">Let's go!</a>
+
 		</div>
 
 	</section>
@@ -263,10 +320,151 @@ add_filter( 'the_title', 'rcp_the_title', 10, 2 );
  *
  * @since 1.0
 */
-function affwp_gform_ajax_spinner_url( $uri, $form ) {
-
-
+function rcp_gform_ajax_spinner_url( $uri, $form ) {
 	return get_stylesheet_directory_uri() . '/images/spinner.svg';
-
 }
-add_filter( 'gform_ajax_spinner_url', 'affwp_gform_ajax_spinner_url', 10, 2 );
+add_filter( 'gform_ajax_spinner_url', 'rcp_gform_ajax_spinner_url', 10, 2 );
+
+/**
+ * Load our site navigation
+ *
+ * @since 1.0
+ */
+function rcp_footer_navigation() {
+
+	// if ( is_front_page() ) {
+	// 	return;
+	// }
+	?>
+
+<div class="wrapper footer-links">
+
+		<div class="grid columns-2">
+
+				<div class="grid-child">
+
+					<?php /*
+					<nav id="footer-navigation" role="navigation">
+						<h3>Getting around</h3>
+						<?php
+							wp_nav_menu(
+								array(
+									'menu_id'        => 'footer-menu',
+									'menu_class'     => 'menu',
+									'theme_location' => 'footer',
+									'container'      => '',
+								)
+							);
+						?>
+					</nav>
+					*/ ?>
+				</div>
+
+
+
+				<div class="grid-child">
+
+					<section id="sign-up">
+
+						<div class="wrapper">
+
+							<h3>Psst! Want to receive updates?</h3>
+
+
+							<?php
+								if ( function_exists( 'gravity_form' ) ) {
+									gravity_form( 1, false, false, false, '', true );
+								}
+							?>
+
+							<p>Unsubscribe at any time. No spam.</p>
+						</div>
+					</section>
+
+					<div id="mascot">
+
+						<div id="mascot-group">
+
+							<div id="mascot-animate">
+								<div id="mascot-body">
+									<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot.png'; ?>" />
+								</div>
+								<div id="mascot-wing">
+									<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-wing.png'; ?>" />
+								</div>
+								<div id="mascot-wing-2">
+									<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-wing.png'; ?>" />
+								</div>
+							</div>
+
+							<div id="mascot-shadow">
+								<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-shadow.png'; ?>" />
+							</div>
+						</div>
+
+					</div>
+
+
+
+				</div>
+		</div>
+
+	</div>
+
+
+	<?php
+}
+add_action( 'trustedd_footer_start', 'rcp_footer_navigation' );
+
+
+
+/**
+ * Changelog
+ */
+function rcp_product_changelog() {
+
+	//$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
+
+	// if ( ! ( is_singular( 'download' ) || $changelog || ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) || is_front_page() ) ) {
+	// 	return;
+	// }
+
+	?>
+
+
+	<script type="text/javascript">
+
+		 jQuery(document).ready(function($) {
+
+		$('#rcp-changelog').magnificPopup({
+			iframe: {
+			  markup: '<div class="mfp-iframe-scaler" id="test">'+
+			            '<div class="mfp-close"></div>'+
+			            '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>'+
+			          '</div>', // HTML markup of popup, `mfp-close` will be replaced by the close button
+				  },
+			type: 'iframe',
+			items: {
+		      src: 'https://pippinsplugins.com/products/restrict-content-pro/?changelog=1'
+		    },
+			fixedContentPos: true,
+			fixedBgPos: true,
+			overflowY: 'scroll',
+			closeBtnInside: true,
+			preloader: false,
+			callbacks: {
+				beforeOpen: function() {
+				this.st.mainClass = this.st.el.attr('data-effect');
+				}
+			},
+			midClick: true,
+			removalDelay: 300
+        });
+
+
+		});
+	</script>
+
+	<?php
+}
+add_action( 'wp_footer', 'rcp_product_changelog', 100 );
