@@ -270,19 +270,4 @@ get_header(); ?>
 	</div>
 </section>
 
-<section id="sign-up" class="feature">
-	<div class="wrapper slim aligncenter">
-
-		<h1>Join our mailing list</h1>
-		<p>We'll keep you informed of what's happening around the place. <br />Sent a few times a month, unsubscribe at any time, no spam.</p>
-
-		<?php
-			if ( function_exists( 'gravity_form' ) ) {
-				gravity_form( 1, false, false, false, '', true );
-			}
-		?>
-
-	</div>
-</section>
-
 <?php get_footer(); ?>
