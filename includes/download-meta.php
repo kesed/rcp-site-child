@@ -13,18 +13,18 @@ function rcp_download_meta_add_fields() {
 
 	<p><strong><?php _e( 'Developer', 'trustedd' ); ?></strong></p>
 	<p>
-		<label for="trustedd-developer" class="screen-reader-text">
+		<label for="edd-download-meta-developer" class="screen-reader-text">
 			<?php _e( 'Developer', 'trustedd' ); ?>
 		</label>
-		<input class="widefat" type="text" name="trustedd_developer" id="trustedd-developer" value="<?php echo esc_attr( get_post_meta( get_the_ID(), '_trustedd_developer', true ) ); ?>" size="30" />
+		<input class="widefat" type="text" name="edd_download_meta_developer" id="edd-download-meta-developer" value="<?php echo esc_attr( get_post_meta( get_the_ID(), '_edd_download_meta_developer', true ) ); ?>" size="30" />
 	</p>
 
 	<p><strong><?php _e( 'Developer URL', 'trustedd' ); ?></strong></p>
 	<p>
-		<label for="trustedd-developer-url" class="screen-reader-text">
+		<label for="edd-download-meta-developer-url" class="screen-reader-text">
 			<?php _e( 'Developer URL', 'trustedd' ); ?>
 		</label>
-		<input class="widefat" type="text" name="trustedd_developer_url" id="trustedd-developer-url" value="<?php echo esc_attr( get_post_meta( get_the_ID(), '_trustedd_developer_url', true ) ); ?>" size="30" />
+		<input class="widefat" type="text" name="edd_download_meta_developer_url" id="edd-download-meta-developer-url" value="<?php echo esc_attr( get_post_meta( get_the_ID(), '_edd_download_meta_developer_url', true ) ); ?>" size="30" />
 	</p>
 
 <?php }
@@ -38,8 +38,8 @@ add_action( 'trustedd_download_meta_add_fields', 'rcp_download_meta_add_fields' 
 function rcp_download_meta_save( $fields ) {
 
 	$new_fields = array(
-		'trustedd_developer',
-		'trustedd_developer_url'
+		'edd_download_meta_developer',
+		'edd_download_meta_developer_url'
 	);
 
 	return array_merge( $fields, $new_fields );
@@ -54,7 +54,7 @@ add_filter( 'trustedd_download_meta_save', 'rcp_download_meta_save' );
  */
 function rcp_download_meta_santize( $new, $field ) {
 
-	if ( $field == 'trustedd_developer_url' ) {
+	if ( $field == 'edd_download_meta_developer_url' ) {
 	    $new = esc_url_raw( $_POST[ $field ] );
 	}
 
@@ -69,8 +69,8 @@ add_filter( 'trustedd_download_meta_save_fields', 'rcp_download_meta_santize', 1
  */
 function rcp_download_developer() {
 
-    $developer     = get_post_meta( get_the_ID(), '_trustedd_developer', true );
-	$developer_url = get_post_meta( get_the_ID(), '_trustedd_developer_url', true );
+    $developer     = get_post_meta( get_the_ID(), '_edd_download_meta_developer', true );
+	$developer_url = get_post_meta( get_the_ID(), '_edd_download_meta_developer_url', true );
 
 ?>
     <?php if ( $developer_url && $developer ) : ?>
