@@ -483,3 +483,19 @@ function rcp_product_changelog() {
 	<?php
 }
 add_action( 'wp_footer', 'rcp_product_changelog', 100 );
+
+/**
+ * Disable jetpack carousel comments
+ */
+function rcp_remove_comments_on_attachments( $open, $post_id ) {
+
+	$post = get_post( $post_id );
+
+	if ( $post->post_type == 'attachment' ) {
+        return false;
+    }
+
+	return $open;
+
+}
+add_filter( 'comments_open', 'rcp_remove_comments_on_attachments', 10 , 2 );
