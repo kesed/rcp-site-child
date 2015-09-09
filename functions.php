@@ -122,6 +122,21 @@ function rcp_pricing_table_notice() {
 add_action( 'edd_pricing_table_bottom', 'rcp_pricing_table_notice' );
 
 /**
+ * Adds custom classes to the array of body classes.
+ *
+ * @since 1.0
+ */
+function rcp_body_classes( $classes ) {
+
+	if ( is_page( 'about' ) ) {
+		$classes[] = 'about';
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'rcp_body_classes' );
+
+/**
  * Modify front page
  *
  * @since 1.0.0
