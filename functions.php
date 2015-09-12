@@ -322,12 +322,13 @@ function rcp_the_title( $title, $id = null ) {
 	// }
 
 	if ( is_page( 'pricing' ) && $id == get_the_ID() ) {
-		$title = '<span class="entry-title-primary">30 Day Money Back Guarantee</span><span class="entry-subtitle">We stand behind our product 100% - <a href="#">see our refund policy</a></span>';
+		$title = '<span class="entry-title-primary">30 Day Money Back Guarantee</span><span class="entry-subtitle">We stand behind our product 100% - <a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">see our refund policy</a></span>';
 	}
 
     return $title;
 }
 add_filter( 'the_title', 'rcp_the_title', 10, 2 );
+
 
 
 /**
@@ -396,6 +397,7 @@ function rcp_footer_navigation() {
 						</div>
 					</section>
 
+
 					<div id="mascot">
 
 						<div id="mascot-group">
@@ -431,6 +433,37 @@ function rcp_footer_navigation() {
 }
 add_action( 'trustedd_footer_start', 'rcp_footer_navigation' );
 
+/**
+ * Load the lightbox
+ */
+function rcp_load_lightbox( $lightbox ) {
+
+	// load lightbox on pricing page
+	if ( is_page( 'pricing' ) || is_front_page() ) {
+		$lightbox = true;
+	}
+
+	return $lightbox;
+}
+add_filter( 'trustedd_enable_popup', 'rcp_load_lightbox' );
+
+/**
+ * Embed the refund policy
+ */
+function rcp_embed_refund_policy() {
+
+
+	$refund_policy = get_page_by_title( 'refund policy' );
+	?>
+	<div id="refund-policy" class="popup entry-content mfp-with-anim mfp-hide">
+		<h1>
+			<?php echo $refund_policy->post_title; ?>
+		</h1>
+
+		<?php echo stripslashes( wpautop( $refund_policy->post_content, true ) ); ?>
+	</div>
+	<?php
+}
 
 
 /**
@@ -451,30 +484,36 @@ function rcp_product_changelog() {
 
 		 jQuery(document).ready(function($) {
 
-		$('#rcp-changelog').magnificPopup({
-			iframe: {
-			  markup: '<div class="mfp-iframe-scaler" id="test">'+
-			            '<div class="mfp-close"></div>'+
-			            '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>'+
-			          '</div>', // HTML markup of popup, `mfp-close` will be replaced by the close button
-				  },
-			type: 'iframe',
-			items: {
-		      src: 'https://pippinsplugins.com/products/restrict-content-pro/?changelog=1'
-		    },
-			fixedContentPos: true,
-			fixedBgPos: true,
-			overflowY: 'scroll',
-			closeBtnInside: true,
-			preloader: false,
-			callbacks: {
-				beforeOpen: function() {
-				this.st.mainClass = this.st.el.attr('data-effect');
-				}
-			},
-			midClick: true,
-			removalDelay: 300
-        });
+
+			$('#rcp-changelog').magnificPopup({
+				iframe: {
+				  markup: '<div class="mfp-iframe-scaler" id="test">'+
+				            '<div class="mfp-close"></div>'+
+				            '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>'+
+				          '</div>',
+					  },
+				type: 'iframe',
+				items: {
+			      src: 'https://pippinsplugins.com/products/restrict-content-pro/?changelog=1'
+			    },
+				fixedContentPos: true,
+				fixedBgPos: true,
+				overflowY: 'scroll',
+				closeBtnInside: true,
+				preloader: false,
+				callbacks: {
+					beforeOpen: function() {
+					this.st.mainClass = this.st.el.attr('data-effect');
+					}
+				},
+				midClick: true,
+				removalDelay: 300
+	        });
+
+		// if ( is_page( 'pricing' ) ) {
+		//
+		// }
+
 
 
 		});
@@ -482,7 +521,43 @@ function rcp_product_changelog() {
 
 	<?php
 }
-add_action( 'wp_footer', 'rcp_product_changelog', 100 );
+//add_action( 'wp_footer', 'rcp_product_changelog', 100 );
+
+
+
+
+/**
+ * Magnific Popup
+ */
+function affwp_magnific_popup() {
+
+	$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
+
+	//$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
+	//$affiliate_area = function_exists( 'affiliate_wp' ) ? is_page( affiliate_wp()->settings->get( 'affiliates_page' ) ) : '';
+
+	if ( ! ( is_page( 'pricing' ) || is_front_page() || is_singular( 'download' ) || is_page( 'account' ) ) ) {
+		return;
+	}
+
+	if ( is_singular( 'download' ) && ! $changelog ) {
+		return;
+	}
+
+	?>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+
+
+
+		});
+	</script>
+
+	<?php
+}
+//add_action( 'wp_footer', 'affwp_magnific_popup', 100 );
+
 
 /**
  * Disable jetpack carousel comments
