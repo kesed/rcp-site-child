@@ -20,8 +20,6 @@ get_header(); ?>
 
 	<?php echo do_shortcode( '[edd_pricing_table]' ); ?>
 
-	<?php rcp_embed_refund_policy(); ?>
-
 	<section class="">
 		<div class="wrapper">
 			<h2 class="aligncenter">Frequently asked questions</h2>

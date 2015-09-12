@@ -322,7 +322,7 @@ function rcp_the_title( $title, $id = null ) {
 	// }
 
 	if ( is_page( 'pricing' ) && $id == get_the_ID() ) {
-		$title = '<span class="entry-title-primary">30 Day Money Back Guarantee</span><span class="entry-subtitle">We stand behind our product 100% - <a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">see our refund policy</a></span>';
+		$title = '<span class="entry-title-primary">30 Day Money Back Guarantee</span><span class="entry-subtitle">We stand behind our product 100% ' . rcp_show_refund_policy_link() . '</span>';
 	}
 
     return $title;
@@ -433,6 +433,8 @@ function rcp_footer_navigation() {
 }
 add_action( 'trustedd_footer_start', 'rcp_footer_navigation' );
 
+
+
 /**
  * Load the lightbox
  */
@@ -448,9 +450,29 @@ function rcp_load_lightbox( $lightbox ) {
 add_filter( 'trustedd_enable_popup', 'rcp_load_lightbox' );
 
 /**
+ * Show refund policy link
+ */
+function rcp_show_refund_policy_link() {
+
+	ob_start();
+	?>
+
+	- <a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">see our refund policy</a>
+
+	<?php
+
+	return ob_get_clean();
+}
+
+/**
  * Embed the refund policy
  */
 function rcp_embed_refund_policy() {
+
+	// only show the refund policy on the homepage and the pricing page
+	if ( ! ( is_page( 'pricing' ) || is_front_page() ) ) {
+		return;
+	}
 
 	$refund_policy = get_page_by_title( 'refund policy' );
 
@@ -468,6 +490,8 @@ function rcp_embed_refund_policy() {
 	</div>
 	<?php
 }
+add_action( 'wp_footer', 'rcp_embed_refund_policy' );
+
 
 /**
  * Changelog
