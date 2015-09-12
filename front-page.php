@@ -161,11 +161,11 @@ get_header(); ?>
 <section id="pricing">
 	<div class="wrapper wide aligncenter">
 		<h1>30 Day Money Back Guarantee</h1>
-		<p>We stand behind our product 100% - see our refund policy</p>
+		<p>We stand behind our product 100% - see our refund We stand behind our product 100% - <a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">see our refund policy</a></p>
 		<?php echo do_shortcode( '[edd_pricing_table]' ); ?>
 	</div>
 </section>
-
+<?php rcp_embed_refund_policy(); ?>
 <section class="feature">
 		<div class="wrapper">
 			<!-- <h1 class="aligncenter">Testimonials</h1> -->
