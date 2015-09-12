@@ -452,8 +452,12 @@ add_filter( 'trustedd_enable_popup', 'rcp_load_lightbox' );
  */
 function rcp_embed_refund_policy() {
 
-
 	$refund_policy = get_page_by_title( 'refund policy' );
+
+	if ( ! $refund_policy ) {
+		return;
+	}
+
 	?>
 	<div id="refund-policy" class="popup entry-content mfp-with-anim mfp-hide">
 		<h1>
@@ -464,7 +468,6 @@ function rcp_embed_refund_policy() {
 	</div>
 	<?php
 }
-
 
 /**
  * Changelog
