@@ -227,30 +227,11 @@ get_header(); ?>
 
 		$gallery = get_children( $args );
 
+		$gallery_ids = implode( ', ', wp_list_pluck( $gallery, 'ID' ) );
+
+		echo do_shortcode( '[gallery size="large" ids="' . $gallery_ids . '"]' );
 		?>
 
-		<div class="gallery gallery-columns-3 gallery-size-large">
-
-		<?php foreach( $gallery as $image ) { ?>
-
-			<figure class="gallery-item">
-				<div class="gallery-icon landscape">
-					<a href="<?php echo wp_get_attachment_url( $image->ID ); ?>">
-						<?php echo wp_get_attachment_image( $image->ID, 'large' ); ?>
-					</a>
-				</div>
-
-				<?php if ( $image->post_excerpt ) : ?>
-					<figcaption class="wp-caption-text gallery-caption"><?php echo $image->post_excerpt; ?></figcaption>
-				<?php endif; ?>
-			</figure>
-
-		<?php } ?>
-		</div>
-
-		<?php
-		//echo do_shortcode( '[gallery size="large" ids="23,24,25, 26, 27 ,28"]' );
-		?>
 		</div>
 	</section>
 
