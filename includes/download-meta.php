@@ -5,6 +5,68 @@
 */
 
 /**
+ * Add documentation icon
+ */
+function rcp_download_meta_icon_documentation() {
+	?>
+
+	<img src="<?php echo get_template_directory_uri() . '/images/download-documentation.svg'; ?>" width="24" />
+
+	<?php
+}
+add_action( 'edd_download_meta_documentation', 'rcp_download_meta_icon_documentation' );
+
+/**
+ * Add last updated icon
+ */
+function rcp_download_meta_icon_last_updated() {
+	?>
+
+	<img src="<?php echo get_template_directory_uri() . '/images/download-last-updated.svg'; ?>" width="24" />
+
+	<?php
+}
+add_action( 'edd_download_meta_last_updated', 'rcp_download_meta_icon_last_updated' );
+
+/**
+ * Add release date icon
+ */
+function rcp_download_meta_icon_release_date() {
+	?>
+
+	<img src="<?php echo get_template_directory_uri() . '/images/download-released.svg'; ?>" width="24" />
+
+	<?php
+}
+add_action( 'edd_download_meta_release_date', 'rcp_download_meta_icon_release_date' );
+
+/**
+ * Add changelog icon
+ */
+function rcp_download_meta_icon_changelog() {
+	?>
+
+	<img src="<?php echo get_template_directory_uri() . '/images/download-changelog.svg'; ?>" width="24" />
+
+	<?php
+}
+add_action( 'edd_download_meta_changelog', 'rcp_download_meta_icon_changelog' );
+
+/**
+ * Add version icon
+ */
+function rcp_download_meta_icon_version() {
+	?>
+
+	<img src="<?php echo get_template_directory_uri() . '/images/download-version.svg'; ?>" width="24" />
+
+	<?php
+}
+add_action( 'edd_download_meta_version', 'rcp_download_meta_icon_version' );
+
+
+
+/**
  * Add new fields
  * @since 1.0.0
 */
@@ -74,20 +136,53 @@ function rcp_download_developer() {
 
 ?>
     <?php if ( $developer_url && $developer ) : ?>
-    <li>
+    <div class="download-meta">
 		<a href="<?php echo esc_url( $developer_url ); ?>" class="download-meta-link" target="_blank">
 			<img src="<?php echo get_stylesheet_directory_uri() . '/images/download-developer.svg'; ?>" width="24" height="24">
 			<span><?php echo $developer; ?></span>
 		</a>
-	</li>
+	</div>
 
 <?php elseif( $developer ) : ?>
 
-		<li>
+		<div class="download-meta">
 			<img src="<?php echo get_stylesheet_directory_uri() . '/images/download-developer.svg'; ?>" width="24" height="24">
 			<span><?php echo $developer; ?></span>
-		</li>
+		</div>
 
 	<?php endif; ?>
 <?php }
-add_action( 'trustedd_download_meta', 'rcp_download_developer' );
+add_action( 'edd_download_meta', 'rcp_download_developer' );
+
+/**
+ * Changelog
+ *
+ * @since 1.0.0
+ */
+function rcp_download_meta_changelog() {
+
+	// changelog
+	$changelog = function_exists( 'edd_download_meta_has_edd_sl_enabled' ) && edd_download_meta_has_edd_sl_enabled() ? stripslashes( wpautop( get_post_meta( get_the_ID(), '_edd_sl_changelog', true ), true ) ) : '';
+
+?>
+
+	<?php if ( $changelog ) : ?>
+		<div class="download-meta">
+
+			<a href="#changelog" class="popup-content download-meta-link" data-effect="mfp-move-from-bottom">
+
+				<?php do_action( 'edd_download_meta_changelog' ); ?>
+
+				<span>View Changelog</span>
+			</a>
+
+			<div id="changelog" class="popup entry-content mfp-with-anim mfp-hide">
+				<h1>Changelog</h1>
+				<?php echo $changelog; ?>
+			</div>
+
+		</div>
+		<?php endif; ?>
+
+<?php }
+add_action( 'edd_download_meta', 'rcp_download_meta_changelog', 10 );
