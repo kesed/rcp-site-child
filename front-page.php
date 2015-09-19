@@ -215,21 +215,24 @@ get_header(); ?>
 		<p><a href="<?php echo site_url( 'screenshots'); ?>">View more screenshots</a></p>
 
 		<?php
-		// show 6 images from the screenshots page
+		// show 3 images from the screenshots page
 		$page = get_page_by_title( 'Screenshots' );
 
-		$args = array(
-			'post_mime_type' => 'image',
-			'numberposts'    => 3,
-			'post_parent'    => $page->ID,
-			'post_type'      => 'attachment'
-		);
+		if ( $page ) {
+			$args = array(
+				'post_mime_type' => 'image',
+				'numberposts'    => 3,
+				'post_parent'    => $page->ID,
+				'post_type'      => 'attachment'
+			);
 
-		$gallery = get_children( $args );
+			$gallery = get_children( $args );
 
-		$gallery_ids = implode( ', ', wp_list_pluck( $gallery, 'ID' ) );
+			$gallery_ids = implode( ', ', wp_list_pluck( $gallery, 'ID' ) );
 
-		echo do_shortcode( '[gallery size="large" ids="' . $gallery_ids . '"]' );
+			echo do_shortcode( '[gallery size="large" ids="' . $gallery_ids . '"]' );
+		}
+
 		?>
 
 		</div>
