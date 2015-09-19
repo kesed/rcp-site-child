@@ -8,12 +8,9 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 	define( 'RCP_INCLUDES_DIR', trailingslashit( get_stylesheet_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
 }
 
-// microdata
-// todo Add this back in
-remove_action( 'loop_start', 'edd_microdata_wrapper_open', 10 );
-remove_action( 'loop_end', 'edd_microdata_wrapper_close', 10 );
-remove_filter( 'the_content', 'edd_microdata_description', 10 );
-remove_filter( 'the_title', 'edd_microdata_title', 10, 2 );
+if ( ! defined( 'RCP_THEME_VERSION' ) ) {
+	define( 'RCP_THEME_VERSION', '1.0' );
+}
 
 /**
  * Setup
@@ -173,6 +170,11 @@ add_filter( 'gform_tabindex', '__return_false' );
  * @since 1.0.0
 */
 function rcp_hero() {
+
+	if ( ! is_front_page() ) {
+		return;
+	}
+
 ?>
 	<div class="hero">
 
@@ -491,6 +493,20 @@ function rcp_embed_refund_policy() {
 	<?php
 }
 add_action( 'wp_footer', 'rcp_embed_refund_policy' );
+
+/**
+ * Enqueue scripts
+ *
+ * @since  1.0
+ */
+function rcp_enqueue_scripts() {
+
+	// in addition to the parent theme's JS we load our own
+	wp_register_script( 'rcp-js', get_stylesheet_directory_uri() . '/js/rcp.min.js', array( 'jquery' ), RCP_THEME_VERSION, true );
+	wp_enqueue_script( 'rcp-js' );
+
+}
+add_action( 'wp_enqueue_scripts', 'rcp_enqueue_scripts' );
 
 
 /**
