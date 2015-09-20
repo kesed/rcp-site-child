@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<div class="primary content-area">
+<div class="content-area">
 	<div class="wrapper wide">
 
 	<?php

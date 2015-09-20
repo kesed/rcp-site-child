@@ -1,97 +1,87 @@
 // custom styles for the homepage
 
-#safe {
-    height: 150px;
+.home #content section {
+	padding: 4rem 0;
 }
 
-.how-it-works svg {
-    margin-bottom: 2rem;
+.home #content section.feature {
+	padding: 4rem 2rem;
 }
 
-#payment-integrations {
-
-    // .grid-child {
-    //     align-self: center;
-    // }
+.home #content section.hero {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 
+.intro .wrapper {
+    display: -webkit-flex;
+    display: flex;
 
-// .intro {
-//     position: relative;
-// }
-
-.home #content section#showcase {
-    padding-left: 0;
-    padding-right: 0;
+    -webkit-align-items: flex-end;
+	-ms-flex-align: flex-end;
+	align-items: flex-end;
 }
 
-#showcase {
+#vault {
+    display: none;
 
-    .grid {
-         max-width: 700px;
-         margin: 0 auto;
-    }
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
 
-    object {
-        height: 100px;
-    }
+    height: 250px;
+}
 
-    .overlay {
-        opacity: 0;
-        position: absolute;
-        display: -webkit-flex;
-        display: flex;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        padding: 2rem;
-        -webkit-align-items: center;
-        align-items: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        font-size: 1.1rem;
-        font-weight: 500;
-        cursor: default;
-    	-webkit-transition: opacity 0.1s linear;
-    	transition: opacity 0.1s linear;
+#get-started {
+    margin: 0 auto 0 0;
+
+    .button {
+        margin-bottom: 2rem;
     }
 
-    .grid-wrap:hover .overlay {
-        opacity:1;
+    p {
+        margin-bottom: 0;
     }
+}
 
-    .grid-wrap:hover object {
-        opacity: 0;
-    }
 
-    object {
-        opacity: 1;
-        -webkit-transition: opacity 0.1s linear;
-    	transition: opacity 0.1s linear;
-    }
-    .grid-child {
-        display: -webkit-flex;
-        display: flex;
-    }
+// make a section stand out
+section.feature {
+	background: @light-grey;
+	margin-left: -2rem;
+	margin-right: -2rem;
 
-    .grid-wrap {
-        margin: 1rem;
-        position: relative;
-         display: -webkit-flex;
-         display: flex;
-         -webkit-justify-content: center;
-         justify-content: center;
-         padding: 0;
-        flex-flow: column;
-    }
+	&.special {
+		background: @accent-color;
 
-    footer {
-        font-style: italic;
-        margin: 1.5rem 0 0 0;
-        color: @body-text-color;
-    }
+		h1 {
+			color: #fff;
+		}
+	}
+}
+
+.intro h1 {
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 1.1;
+	color: #373737;
+    margin-bottom: 4rem;
+}
+
+.intro h2 {
+	color: #a2a2a2;
+	font-weight: 400;
+}
+
+@media only screen and ( min-width : 768px ) {
+	.home #content section {
+		padding: 4rem 2rem;
+	}
+
+	.intro h1 {
+		font-size: 4rem;
+	}
 }
 
 .home {
@@ -115,70 +105,22 @@
     vertical-align: middle;
 }
 
+@media only screen and ( min-width : 992px ) {
+    #get-started {
+        max-width: 50%;
+    }
 
-@media only screen and ( max-width : 480px ) {
-
-}
-
-// Small Devices, Tablets
-@media only screen and ( min-width : 481px ) {
-
-
-}
-
-@media only screen and ( min-height : 960px ) {
-    .home .hero {
-        min-height: 100%;
-        height: 100%;
+    #vault {
+        display: block;
     }
 }
 
 // Small Devices, Tablets
 @media only screen and ( min-width : 768px ) {
 
-
-
-
-    .home {
-        #page {
-            height: 100%;
-        }
-
-        .hero {
-
-
-            width: 100%;
-
-            display: -webkit-flex;
-            display: flex;
-
-            -webkit-flex-flow: column nowrap;
-            flex-flow: column nowrap;
-
-            object {
-                height: 150px;
-                margin-bottom: 2rem;
-            }
-
-        }
-
-        .hero h2 {
-            margin-bottom: 0;
-        }
-
-        .hero-wrapper {
-            height: 100%;
-            width: 100%;
-            display: -webkit-flex;
-            display: flex;
-
-            -webkit-flex-flow: column nowrap;
-            flex-flow: column nowrap;
-
-            -webkit-justify-content: space-between;
-        	justify-content: space-between;
-        }
-
+    .home #content section.hero {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
 }

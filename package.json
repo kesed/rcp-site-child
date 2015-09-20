@@ -1,5 +1,6 @@
 {
   "name": "rcp",
+  "parentTheme": "rcp-parent-theme",
   "version": "1.0",
   "Dependencies": {
      "grunt-cli": "latest"

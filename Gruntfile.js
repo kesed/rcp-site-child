@@ -67,7 +67,7 @@ module.exports = function(grunt) {
           options: {
             position: 'top',
             banner: '/*\nTheme Name: Restrict Content Pro\n' +
-                    'Template: rcp-parent-theme\n' +
+                    'Template: <%= pkg.parentTheme %>\n' +
                     'Theme URI: http://easydigitaldownloads.com/downloads/trustedd/\n' +
                     'Author: Andrew Munro\n' +
                     'Author URI: http://sumobi.com\n' +
@@ -96,7 +96,8 @@ module.exports = function(grunt) {
       },
       // CSS
       css: {
-        files: ['less/*.less'],
+        // compile CSS when any .less file is compiled in this theme and also the parent theme
+        files: ['less/*.less', '../<%= pkg.parentTheme %>/less/*.less'],
         tasks: ['less:style'],
       },
       // Add banner

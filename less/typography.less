@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6 {
+.site-title, h1, h2, h3, h4, h5, h6 {
 	font-family: 'Graphik Web', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
 }
 
@@ -15,4 +15,16 @@ figcaption {
 .main-navigation a {
 	font-weight: 500;
 	font-size: 1.2rem;
+}
+
+.site-title {
+	font-size: 1.2rem;
+	font-weight: 500;
+	display: none;
+}
+
+@media all and ( min-width: 768px ) {
+    .site-title {
+		display: block;
+	}
 }

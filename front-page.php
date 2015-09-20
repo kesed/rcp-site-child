@@ -4,6 +4,41 @@
  */
 get_header(); ?>
 
+<section class="hero">
+	<div class="wrapper wide">
+		<div class="intro">
+			<?php /* <h1>Restrict WordPress content, <br/>like never before.</h1> */?>
+			<h1>A simple, yet powerful membership plugin for WordPress.</h1>
+
+			<div class="wrapper">
+
+				<div id="get-started">
+				<a href="#pricing" class="scroll button huge">Get started now</a>
+
+				<p>Lock away your prized content and give access to your valued members. See some of the features below and learn why businesses trust Restrict Content Pro.</p>
+				</div>
+
+				<object id="vault" type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri() . '/images/step-one.svg'; ?>">Your browser does not support SVGs</object>
+
+			</div>
+
+
+				<?php /* 	<h1>Powerful WordPress Memberships are finally simple.</h1>*/?>
+			<?php /* <h2>Restrict Content Pro is a powerful membership plugin for WordPress that makes it easy to show content to your members.</h2> */ ?>
+
+			<?php /*
+			<div class="wrapper aligncenter">
+				<a href="#pricing" class="button huge mb-4">Let's go!</a>
+
+			</div>
+			*/ ?>
+
+		</div>
+	</div>
+
+
+
+</section>
 
 <section class="">
 	<div class="wrapper wide">
@@ -211,7 +246,7 @@ get_header(); ?>
 
 	<section>
 		<div class="wrapper wide aligncenter">
-		<h1>Restrict Content Pro in action</h1>
+		<h1>See Restrict Content Pro</h1>
 		<p><a href="<?php echo site_url( 'screenshots'); ?>">View more screenshots</a></p>
 
 		<?php

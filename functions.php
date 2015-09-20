@@ -134,30 +134,6 @@ function rcp_body_classes( $classes ) {
 add_filter( 'body_class', 'rcp_body_classes' );
 
 /**
- * Modify front page
- *
- * @since 1.0.0
-*/
-function rcp_front_page_mods() {
-
-	if ( is_front_page() ) {
-
-		// remove the header
-		remove_action( 'trustedd_header', 'trustedd_header' );
-
-		add_action( 'trustedd_hero', 'trustedd_header' );
-
-		// remove trustedd site branding
-		remove_action( 'trustedd_masthead', 'trustedd_site_branding' );
-	} else {
-		// site logo
-		remove_action( 'trustedd_masthead', 'trustedd_site_branding' );
-	}
-
-}
-add_action( 'template_redirect', 'rcp_front_page_mods' );
-
-/**
  * Prevent tabbing from one form to another accidentally
  *
  * @since 1.0.0
@@ -184,7 +160,7 @@ function rcp_hero() {
 	</div>
 <?php
 }
-add_action( 'trustedd_header', 'rcp_hero' );
+//add_action( 'trustedd_content_start', 'rcp_hero', 2 );
 
 /**
  * Load our new site logo
@@ -194,7 +170,7 @@ add_action( 'trustedd_header', 'rcp_hero' );
 function rcp_header_logo() {
 
 	?>
-	<div class="site-branding">
+
 		<a id="logo" title="<?php echo get_bloginfo( 'name' ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 			<svg width="64" height="64" viewBox="0 0 172 173" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
 				<title><?php echo get_bloginfo( 'name' ); ?></title>
@@ -208,11 +184,11 @@ function rcp_header_logo() {
 			    */ ?>
 			</svg>
 		</a>
-	</div>
+
 	<?php
 
 }
-add_action( 'trustedd_masthead', 'rcp_header_logo' );
+add_action( 'trustedd_site_branding_start', 'rcp_header_logo' );
 
 
 /**
@@ -220,7 +196,7 @@ add_action( 'trustedd_masthead', 'rcp_header_logo' );
  *
  * @since 1.0.0
  */
-function rcp_hero_middle() {
+function rcp_hero_middle2() {
 
 	if ( ! is_front_page() ) {
 		return;
@@ -273,7 +249,47 @@ function rcp_hero_middle() {
 	<?php
 
 }
-add_action( 'trustedd_hero', 'rcp_hero_middle', 11 );
+//add_action( 'trustedd_hero', 'rcp_hero_middle2', 11 );
+
+/**
+ * Hero
+ *
+ * @since 1.0.0
+ */
+function rcp_hero_middle() {
+
+	if ( ! is_front_page() ) {
+		return;
+	}
+
+	?>
+
+	<section>
+		<div class="wrapper wide">
+			<div class="intro aligncenter mb-4">
+				<?php /* <h1>Restrict WordPress content, <br/>like never before.</h1> */?>
+				<h1>A simple, yet powerful membership plugin for WordPress.</h1>
+
+				<object type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri() . '/images/step-one.svg'; ?>">Your browser does not support SVGs</object>
+
+					<?php /* 	<h1>Powerful WordPress Memberships are finally simple.</h1>*/?>
+				<?php /* <h2>Restrict Content Pro is a powerful membership plugin for WordPress that makes it easy to show content to your members.</h2> */ ?>
+
+				<div class="wrapper aligncenter">
+					<a href="#pricing" class="button huge mb-4">Let's go!</a>
+
+				</div>
+
+			</div>
+		</div>
+
+
+
+	</section>
+	<?php
+
+}
+//add_action( 'trustedd_hero', 'rcp_hero_middle', 11 );
 
 
 /**
@@ -298,7 +314,7 @@ function rcp_hero_bottom() {
 	<?php
 
 }
-add_action( 'trustedd_hero', 'rcp_hero_bottom', 12 );
+//add_action( 'trustedd_hero', 'rcp_hero_bottom', 12 );
 
 function rcp_gforms_change_validation_message( $message, $form ) {
     return "<div class='validation_error'><p>Oops! want to try entering your email again?</p></div>";
