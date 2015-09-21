@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.0.1' );
+	define( 'RCP_THEME_VERSION', '1.0.2' );
 }
 
 /**
@@ -366,85 +366,47 @@ add_filter( 'gform_ajax_spinner_url', 'rcp_gform_ajax_spinner_url', 10, 2 );
  */
 function rcp_footer_navigation() {
 
-	// if ( is_front_page() ) {
-	// 	return;
-	// }
-	?>
+?>
 
 <div class="wrapper footer-links">
 
-		<div class="grid columns-2">
+	<section id="sign-up">
+		<h3>Psst! Want to receive updates?</h3>
 
-				<div class="grid-child">
+		<?php
+			if ( function_exists( 'gravity_form' ) ) {
+				gravity_form( 1, false, false, false, '', true );
+			}
+		?>
 
-					<?php /*
-					<nav id="footer-navigation" role="navigation">
-						<h3>Getting around</h3>
-						<?php
-							wp_nav_menu(
-								array(
-									'menu_id'        => 'footer-menu',
-									'menu_class'     => 'menu',
-									'theme_location' => 'footer',
-									'container'      => '',
-								)
-							);
-						?>
-					</nav>
-					*/ ?>
-				</div>
+		<p>Unsubscribe at any time. No spam.</p>
 
+		<div id="mascot">
 
+			<div id="mascot-group">
 
-				<div class="grid-child">
-
-					<section id="sign-up">
-
-						<div class="wrapper">
-
-							<h3>Psst! Want to receive updates?</h3>
-
-
-							<?php
-								if ( function_exists( 'gravity_form' ) ) {
-									gravity_form( 1, false, false, false, '', true );
-								}
-							?>
-
-							<p>Unsubscribe at any time. No spam.</p>
-						</div>
-					</section>
-
-
-					<div id="mascot">
-
-						<div id="mascot-group">
-
-							<div id="mascot-animate">
-								<div id="mascot-body">
-									<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot.png'; ?>" />
-								</div>
-								<div id="mascot-wing">
-									<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-wing.png'; ?>" />
-								</div>
-								<div id="mascot-wing-2">
-									<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-wing.png'; ?>" />
-								</div>
-							</div>
-
-							<div id="mascot-shadow">
-								<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-shadow.png'; ?>" />
-							</div>
-						</div>
-
+				<div id="mascot-animate">
+					<div id="mascot-body">
+						<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot.png'; ?>" />
 					</div>
-
-
-
+					<div id="mascot-wing">
+						<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-wing.png'; ?>" />
+					</div>
+					<div id="mascot-wing-2">
+						<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-wing.png'; ?>" />
+					</div>
 				</div>
+
+				<div id="mascot-shadow">
+					<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-shadow.png'; ?>" />
+				</div>
+			</div>
+
 		</div>
 
-	</div>
+	</section>
+
+</div>
 
 
 	<?php

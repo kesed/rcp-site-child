@@ -6,21 +6,6 @@
         border-bottom: none;
     }
 
-    #sign-up {
-        position: relative;
-        padding: 0;
-    }
-
-    #sign-up .wrapper {
-           margin: 0;
-           padding: 2rem;
-    }
-
-
-    form.mailing-list {
-
-    }
-
     form.mailing-list {
         -webkit-justify-content: flex-start;
         justify-content: flex-start;
@@ -30,17 +15,25 @@
     }
 
     .gform_body {
-        flex: 2;
+    //    flex: 2;
+//        flex: 1 0 1rem;
+        flex: 1 0 auto;
     }
 
     .gform_footer {
-        flex: 1;
+//        flex: 1;
+        flex: 0 0 auto;
     }
 
     input {
         border-color: darken( #EDD3F2, 5% );
         font-size: 0.875rem;
         width: 100%;
+
+
+        -webkit-appearance: none; // prevent the dropshadow on input field
+        border-radius: 0; // prevent rounded corners in iOS
+
     }
 
     .footer-links {
@@ -48,8 +41,17 @@
         max-width: 980px;
     }
 
-    .grid-child:nth-child(2) {
+    // #sign-up .wrapper {
+    //     margin: 0;
+    //     padding: 2rem;
+    // }
+
+    // mailchimp sign up form
+    #sign-up {
         position: relative;
+        background: #EDD3F2;
+        margin: 0 auto;
+        padding: 2rem;
 
         h3 {
             font-weight: 500;
@@ -60,16 +62,6 @@
             color: #AD85B1;
         }
 
-        section {
-//            background: @light-grey;
-        //    background: #D8F5DF;
-            background: #EDD3F2;
-        //    padding: 4rem;
-        //    margin: 0 -2rem 0 -2rem;
-        //    margin: 0 -2rem 0 -4rem;
-            margin: 0;
-        }
-
         p {
             font-size: 1rem;
             margin-top: 1rem;
@@ -78,14 +70,59 @@
         }
     }
 
+//     .grid-child:nth-child(2) {
+//         position: relative;
+//
+//         h3 {
+//             font-weight: 500;
+//         }
+//
+//         h3, p {
+// //            color: #2C886B;
+//             color: #AD85B1;
+//         }
+//
+//         section {
+// //            background: @light-grey;
+//         //    background: #D8F5DF;
+//             background: #EDD3F2;
+//         //    padding: 4rem;
+//         //    margin: 0 -2rem 0 -2rem;
+//         //    margin: 0 -2rem 0 -4rem;
+//             margin: 0;
+//         }
+//
+//
+//     }
+
 }
 
 .site-info {
     padding: 4rem 0;
 }
 
-@media only screen and ( min-width : 1280px ) {
-    .site-footer #sign-up .wrapper {
-       max-width: 415px;
+@media only screen and ( min-width : 992px ) {
+    .site-footer #sign-up {
+        max-width: 600px;
+    }
+
+   form.mailing-list {
+       max-width: 84%;
    }
+
+   #mascot {
+       position: absolute;
+       bottom: -3rem;
+       left: 85%;
+       display: block;
+       width: 200px;
+   }
+
+
+}
+
+@media only screen and ( min-width : 480px ) {
+    .site-footer .gform_body input {
+        border-right: none;
+    }
 }

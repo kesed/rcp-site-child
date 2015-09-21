@@ -8,7 +8,7 @@ get_header(); ?>
 	<div class="wrapper wide">
 		<div class="intro">
 			<?php /* <h1>Restrict WordPress content, <br/>like never before.</h1> */?>
-			<h1>A simple, yet powerful membership plugin for WordPress.</h1>
+			<h1>A simple, yet powerful membership solution for WordPress.</h1>
 
 			<div class="wrapper">
 
