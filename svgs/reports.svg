@@ -6,15 +6,15 @@
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="113---Chart-Presentation-(Webby)" sketch:type="MSLayerGroup" transform="translate(1.000000, 1.000000)">
-            <path d="M0,0 L58,0 L58,6 L0,6 L0,0 Z" id="Fill-1" fill="#D0E8F9" sketch:type="MSShapeGroup"></path>
+            <path class="shading" d="M0,0 L58,0 L58,6 L0,6 L0,0 Z" id="Fill-1" fill="#D0E8F9" sketch:type="MSShapeGroup"></path>
             <path d="M0,0 L58,0 L58,6 L0,6 L0,0 Z" id="Stroke-2" stroke="#0096E6" stroke-width="2" sketch:type="MSShapeGroup"></path>
             <path d="M0,48 L58,48 M29,48 L29,51" id="Stroke-3" stroke="#0096E6" stroke-width="2" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
-            <path d="M32,55 C32,56.657 30.657,58 29,58 C27.343,58 26,56.657 26,55 C26,53.343 27.343,52 29,52 C30.657,52 32,53.343 32,55 L32,55 Z" id="Fill-4" fill="#D0E8F9" sketch:type="MSShapeGroup"></path>
+            <path class="shading" d="M32,55 C32,56.657 30.657,58 29,58 C27.343,58 26,56.657 26,55 C26,53.343 27.343,52 29,52 C30.657,52 32,53.343 32,55 L32,55 Z" id="Fill-4" fill="#D0E8F9" sketch:type="MSShapeGroup"></path>
             <path d="M32,55 C32,56.657 30.657,58 29,58 C27.343,58 26,56.657 26,55 C26,53.343 27.343,52 29,52 C30.657,52 32,53.343 32,55 L32,55 Z" id="Stroke-5" stroke="#0096E6" stroke-width="2" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
             <path d="M2,6 L56,6 L56,48 L2,48 L2,6 Z" id="Fill-6" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
             <path d="M2,6 L56,6 L56,48 L2,48 L2,6 Z" id="Stroke-7" stroke="#0096E6" stroke-width="2" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
             <path d="M35,43 L35,40 M39,43 L39,36 M43,43 L43,38 M47,43 L47,31 M51,43 L51,35 M9,38 L19,38 M9,42 L24,42" id="Stroke-8" stroke="#0096E6" stroke-width="2" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
-            <path d="M29,21.5 C29,27.299 24.299,32 18.5,32 C12.701,32 8,27.299 8,21.5 C8,15.701 12.701,11 18.5,11 C24.299,11 29,15.701 29,21.5 L29,21.5 Z" id="Fill-9" fill="#D0E8F9" sketch:type="MSShapeGroup"></path>
+            <path class="shading" d="M29,21.5 C29,27.299 24.299,32 18.5,32 C12.701,32 8,27.299 8,21.5 C8,15.701 12.701,11 18.5,11 C24.299,11 29,15.701 29,21.5 L29,21.5 Z" id="Fill-9" fill="#D0E8F9" sketch:type="MSShapeGroup"></path>
             <path d="M29,21.5 C29,27.299 24.299,32 18.5,32 C12.701,32 8,27.299 8,21.5 C8,15.701 12.701,11 18.5,11 C24.299,11 29,15.701 29,21.5 L29,21.5 Z" id="Stroke-10" stroke="#0096E6" stroke-width="2" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
             <path d="M18.014,11.011 C18.008,11.016 18.005,11.02 18,11.025 L18,21.963 C18,21.984 18.016,22 18.037,22 L28.975,22 C28.98,21.995 28.984,21.992 28.989,21.986 C29.268,15.803 24.197,10.732 18.014,11.011 L18.014,11.011 Z M18,22 L25.408,29.408 L18,22 Z M38,17 L46,17 L38,17 Z M48,12 L51,12 L48,12 Z M38,12 L40,12 L38,12 Z" id="Stroke-11" stroke="#0096E6" stroke-width="2" stroke-linecap="round" sketch:type="MSShapeGroup"></path>
         </g>

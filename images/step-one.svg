@@ -12,6 +12,19 @@
 
 <style type="text/css">
      <![CDATA[
+
+	 #Page-1 path {
+	 	stroke: #2A76D2;
+	 }
+
+	 #Page-1 line {
+	   stroke: #2A76D2;
+	}
+
+	path.shade {
+		fill: #CFE0F4;
+	}
+
     #dial {
        -webkit-animation-name: spin;
        -webkit-animation-duration: 4000ms;
@@ -138,41 +151,41 @@ transform:rotate(120deg);
 			C8.334,11,9,11.666,9,12.487v9.026C9,22.334,8.334,23,7.513,23H2v6h5.513C8.334,29,9,29.666,9,30.487v9.026
 			C9,40.334,8.334,41,7.513,41H2v7.944C2,50.632,3.368,52,5.056,52h49.888C56.632,52,58,50.632,58,48.944V3.056
 			C58,1.368,56.632,0,54.944,0L54.944,0z"/>
-		<path id="Stroke-30" sketch:type="MSShapeGroup" fill="none" stroke="#0096E6" stroke-width="2" d="M54.944,0H5.056
+		<path id="Stroke-30" sketch:type="MSShapeGroup" fill="none" stroke="#622CC8" stroke-width="2" d="M54.944,0H5.056
 			C3.368,0,2,1.368,2,3.056V11h5.513C8.334,11,9,11.666,9,12.487v9.026C9,22.334,8.334,23,7.513,23H2v6h5.513
 			C8.334,29,9,29.666,9,30.487v9.026C9,40.334,8.334,41,7.513,41H2v7.944C2,50.632,3.368,52,5.056,52h49.888
 			C56.632,52,58,50.632,58,48.944V3.056C58,1.368,56.632,0,54.944,0L54.944,0z"/>
 		<path id="Fill-31" sketch:type="MSShapeGroup" fill="#FFFFFF" d="M53,5H7v6c1.105,0,2,0.895,2,2v8c0,1.105-0.895,2-2,2v6
 			c1.105,0,2,0.895,2,2v8c0,1.105-0.895,2-2,2v6h46V5L53,5z"/>
-		<path id="Stroke-32" sketch:type="MSShapeGroup" fill="none" stroke="#0096E6" stroke-width="2" d="M53,5H7v6c1.105,0,2,0.895,2,2
+		<path id="Stroke-32" sketch:type="MSShapeGroup" fill="none" stroke="#622CC8" stroke-width="2" d="M53,5H7v6c1.105,0,2,0.895,2,2
 			v8c0,1.105-0.895,2-2,2v6c1.105,0,2,0.895,2,2v8c0,1.105-0.895,2-2,2v6h46V5L53,5z"/>
-		<path id="Fill-65" sketch:type="MSShapeGroup" fill="#D0E8F9" d="M7.513,23H1.487C0.666,23,0,22.334,0,21.513v-9.026
+		<path class="shade" id="Fill-65" sketch:type="MSShapeGroup" fill="#D0E8F9" d="M7.513,23H1.487C0.666,23,0,22.334,0,21.513v-9.026
 			C0,11.666,0.666,11,1.487,11h6.026C8.334,11,9,11.666,9,12.487v9.026C9,22.334,8.334,23,7.513,23L7.513,23z"/>
-		<path id="Stroke-66" sketch:type="MSShapeGroup" fill="none" stroke="#0096E6" stroke-width="2" d="M7.513,23H1.487
+		<path id="Stroke-66" sketch:type="MSShapeGroup" fill="none" stroke="#622CC8" stroke-width="2" d="M7.513,23H1.487
 			C0.666,23,0,22.334,0,21.513v-9.026C0,11.666,0.666,11,1.487,11h6.026C8.334,11,9,11.666,9,12.487v9.026
 			C9,22.334,8.334,23,7.513,23L7.513,23z"/>
-		<path id="Fill-67" sketch:type="MSShapeGroup" fill="#D0E8F9" d="M7.513,41H1.487C0.666,41,0,40.334,0,39.513v-9.026
+		<path class="shade" id="Fill-67" sketch:type="MSShapeGroup" fill="#D0E8F9" d="M7.513,41H1.487C0.666,41,0,40.334,0,39.513v-9.026
 			C0,29.666,0.666,29,1.487,29h6.026C8.334,29,9,29.666,9,30.487v9.026C9,40.334,8.334,41,7.513,41L7.513,41z"/>
-		<path id="Stroke-68" sketch:type="MSShapeGroup" fill="none" stroke="#0096E6" stroke-width="2" d="M7.513,41H1.487
+		<path id="Stroke-68" sketch:type="MSShapeGroup" fill="none" stroke="#622CC8" stroke-width="2" d="M7.513,41H1.487
 			C0.666,41,0,40.334,0,39.513v-9.026C0,29.666,0.666,29,1.487,29h6.026C8.334,29,9,29.666,9,30.487v9.026
 			C9,40.334,8.334,41,7.513,41L7.513,41z"/>
 
         <g id="dial">
-			<path id="Fill-69" sketch:type="MSShapeGroup" fill="#D0E8F9" d="M37,26c0,6.075-4.925,11-11,11s-11-4.925-11-11s4.925-11,11-11
+			<path class="shade" id="Fill-69" sketch:type="MSShapeGroup" fill="#D0E8F9" d="M37,26c0,6.075-4.925,11-11,11s-11-4.925-11-11s4.925-11,11-11
 				S37,19.925,37,26L37,26z"/>
-			<path id="Stroke-70" sketch:type="MSShapeGroup" fill="none" stroke="#0096E6" stroke-width="2" d="M37,26
+			<path id="Stroke-70" sketch:type="MSShapeGroup" fill="none" stroke="#622CC8" stroke-width="2" d="M37,26
 				c0,6.075-4.925,11-11,11s-11-4.925-11-11s4.925-11,11-11S37,19.925,37,26L37,26z"/>
 			<path id="Fill-71" sketch:type="MSShapeGroup" fill="#FFFFFF" d="M26,30c-2.206,0-4-1.794-4-4s1.794-4,4-4c2.206,0,4,1.794,4,4
 				S28.206,30,26,30L26,30z"/>
-			<path id="Stroke-72" sketch:type="MSShapeGroup" fill="none" stroke="#0096E6" stroke-width="2" d="M26,30c-2.206,0-4-1.794-4-4
+			<path id="Stroke-72" sketch:type="MSShapeGroup" fill="none" stroke="#622CC8" stroke-width="2" d="M26,30c-2.206,0-4-1.794-4-4
 				s1.794-4,4-4c2.206,0,4,1.794,4,4S28.206,30,26,30L26,30z"/>
-			<path id="Stroke-124" sketch:type="MSShapeGroup" fill="none" stroke="#0096E6" stroke-width="2" stroke-linecap="round" d="
+			<path id="Stroke-124" sketch:type="MSShapeGroup" fill="none" stroke="#622CC8" stroke-width="2" stroke-linecap="round" d="
 				M26,15v3 M26,34v3 M37,26h-3 M18,26h-3 M18.222,18.222l2.121,2.121 M31.657,31.657l2.121,2.121 M33.778,18.222l-2.121,2.121
 				 M20.343,31.657l-2.121,2.121"/>
 
 		</g>
-		<line fill="none" stroke="#0096E6" stroke-width="2" stroke-linecap="round" x1="48" y1="17" x2="48" y2="35"/>
-		<path id="Path" sketch:type="MSShapeGroup" fill="none" stroke="#0096E6" stroke-width="2" stroke-linecap="round" d="M49,38h-2.5
+		<line fill="none" stroke="#622CC8" stroke-width="2" stroke-linecap="round" x1="48" y1="17" x2="48" y2="35"/>
+		<path id="Path" sketch:type="MSShapeGroup" fill="none" stroke="#622CC8" stroke-width="2" stroke-linecap="round" d="M49,38h-2.5
 			c-1.381,0-2.5-1.119-2.5-2.5v-19c0-1.381,1.119-2.5,2.5-2.5H49"/>
 	</g>
 </g>
