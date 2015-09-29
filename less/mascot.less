@@ -3,12 +3,6 @@
 	display: none;
 }
 
-@media only screen and ( min-width : 480px ) {
-
-
-
-}
-
 #mascot-group {
     position: relative;
 }
@@ -23,14 +17,17 @@
     top: 152px;
     right: 0;
     z-index: 2;
-}
+	width: 56px;
+	height: 38px;
 
-#mascot-wing-2 {
-    position: absolute;
-    top: 152px;
-    right: 0;
-    z-index: 1;
-    opacity: 0.3;
+	-webkit-transform-origin: center left;
+	transform-origin: center left;
+
+	// -webkit-transform: skewX(0);
+	// -webkit-transform-origin: 0 50%;
+	// transform-origin: 50%;
+
+
 }
 
 #mascot-shadow {
@@ -39,8 +36,14 @@
 }
 
 #mascot-animate {
+
+	top: 0;
+	transform: translateY(0);
+
     -webkit-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
+
+	position: relative;
 }
 
 .site-footer:hover #mascot-shadow {
@@ -48,6 +51,16 @@
 }
 
 .site-footer:hover #mascot-animate {
+	// -webkit-transition: all 0.5s ease-out;
+	// transition: all 0.5s ease-out;
+
+	// alternate
+	-webkit-transform: translateY(-50px) rotate(-5deg);
+	transform: translateY(-50px) rotate(-5deg);
+
+
+
+
     -webkit-animation-name: fly;
     -webkit-animation-duration: 2000ms;
     -webkit-animation-iteration-count: infinite;
@@ -62,128 +75,149 @@
     animation-duration: 2000ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+
+
+
+
 }
 
 .site-footer:hover #mascot-wing {
     -webkit-animation-name: flap;
-    -webkit-animation-duration: 200ms;
+    -webkit-animation-duration: 20ms;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
 
     -ms-animation-name: flap;
-    -ms-animation-duration: 200ms;
+    -ms-animation-duration: 20ms;
     -ms-animation-iteration-count: infinite;
     -ms-animation-timing-function: linear;
 
     animation-name: flap;
-    animation-duration: 200ms;
+    animation-duration: 20ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
 
-.site-footer:hover #mascot-wing-2 {
-    -webkit-animation-name: flap-2;
-    -webkit-animation-duration: 200ms;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
 
-    -ms-animation-name: flap-2;
-    -ms-animation-duration: 200ms;
-    -ms-animation-iteration-count: infinite;
-    -ms-animation-timing-function: linear;
+@-webkit-keyframes fly {
 
-    animation-name: flap-2;
-    animation-duration: 200ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    0% {
+		top: 0;
+	//	-webkit-transform-origin: center left;
+    }
+
+    50% {
+		top: -10px;
+	//	-webkit-transform-origin: center left;
+    }
+
+    100% {
+		top: 0;
+	//	-webkit-transform-origin: center left;
+    }
+
 }
 
 @keyframes fly {
 
     0% {
-        transform: translateY(-25px) rotate(-7deg);
-    }
-
-    20% {
-        transform: translateY(-25px) rotate(-7deg);
-
-    }
-
-    25% {
-        transform: translateY(-35px) rotate(-7deg);
-
+		top: 0;
     }
 
     50% {
-        transform: translateY(-20px) rotate(-5deg);
-
-    }
-
-    75% {
-        transform: translateY(-30px) rotate(-7deg);
-
-    }
-
-    85% {
-        transform: translateY(-25px) rotate(-7deg);
+		top: -10px;
     }
 
     100% {
-        transform: translateY(-25px) rotate(-7deg);
+		top: 0;
     }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@-webkit-keyframes flap {
+
+	// -webkit-transform: skewY(-30deg);
+	// top: 146px;
+
+	// -webkit-transform: skewY(30deg);
+	// top: 166px;
+
+
+
+    25% {
+		-webkit-transform: skewY(30deg);
+	//	transform: skewY(30deg);
+
+
+
+	// -webkit-transform-origin: center left;
+
+
+//		right: 7px;
+		top: 162px;
+    }
+
+
+    75% {
+		-webkit-transform: skewY(-30deg);
+
+
+	//	-webkit-transform-origin: center left;
+	//	transform: skewY(-30deg);
+	//	right: 20px;
+		top: 162px;
+    }
+
+
 
 }
 
 @keyframes flap {
 
     0% {
-        transform: rotate(-15deg);
+
     }
 
     25% {
-    //    transform: translateY(-35px) rotate(-7deg);
+		-webkit-transform: skewY(30deg);
+		transform: skewY(30deg);
 
+	//	right: 7px;
+		top: 162px;
     }
 
     50% {
-        transform: rotate(0);
 
     }
 
     75% {
-    //    transform: translateY(-30px) rotate(-7deg);
-
+		-webkit-transform: skewY(-30deg);
+		transform: skewY(-30deg);
+	//	right: 0;
+		top: 162px;
     }
 
     100% {
-        transform: rotate(-15deg);
-    }
 
-}
-
-@keyframes flap-2 {
-
-    0% {
-        transform: rotate(-50deg);
-    }
-
-    25% {
-    //    transform: translateY(-35px) rotate(-7deg);
-
-    }
-
-    50% {
-        transform: rotate(0);
-
-    }
-
-    75% {
-    //    transform: translateY(-30px) rotate(-7deg);
-
-    }
-
-    100% {
-        transform: rotate(-50deg);
     }
 
 }

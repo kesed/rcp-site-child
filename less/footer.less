@@ -17,11 +17,14 @@
     .gform_body {
     //    flex: 2;
 //        flex: 1 0 1rem;
+        -webkit-flex: 1 0 auto;
         flex: 1 0 auto;
+
     }
 
     .gform_footer {
 //        flex: 1;
+        -webkit-flex: 0 0 auto;
         flex: 0 0 auto;
     }
 
@@ -50,16 +53,20 @@
     #sign-up {
         position: relative;
         background: #EDD3F2;
+        background: @secondary-color;
         margin: 0 auto;
         padding: 2rem;
 
+        input {
+            border: none;
+        }
         h3 {
             font-weight: 500;
         }
 
         h3, p {
 //            color: #2C886B;
-            color: #AD85B1;
+            color: #6F94C1;
         }
 
         p {

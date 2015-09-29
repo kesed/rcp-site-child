@@ -18,18 +18,65 @@
 //@link-hover-color: red;
 
 
-@accent-color: #b685c9;
-@primary-color: @accent-color;
+//@accent-color: #b685c9;
+
+// blue
+@primary-color: #2a76d2;
+
+// lighter blue
+@secondary-color: #CFE0F4;
+
+// green
+@accent-color: #84C876;
+
+// orange
+//@accent-color: #F1973E;
+
+// primary blue: #2a76d2
+// lighter blue: #cfe0f4
+
+
+
+
+
 
 @green: #85d085;
 @purple: #b685c9;
 @newpurple: #564DA2;
 //@background-color: @purple;
-@link-hover-color: @purple;
+@link-hover-color: @primary-color;
 @background-color: #e6eaec;
+//@background-color: #EAEAEA;
+//@background-color: #E6EFF2;
+
+@svg-primary: #2A76D2;
+@svg-shading: #CFE0F4;
+
+.features ellipse,
+.features line,
+.features circle,
+.features path {
+	stroke: @svg-primary;
+
+}
+
+.features .fill {
+	fill: @svg-primary;
+	stroke: none;
+}
+
+.features .shading {
+	fill: @svg-shading;
+}
+
+
+
+
+
 
 #logo path {
-	fill: #0096E6;
+	fill: #2A76D2;
+
 }
 
 
@@ -84,6 +131,8 @@ body {
 
 @import 'mascot';
 @import 'footer';
+
+//@import 'edd';
 
 
 

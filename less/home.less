@@ -18,9 +18,9 @@
     display: -webkit-flex;
     display: flex;
 
-    -webkit-align-items: flex-end;
-	-ms-flex-align: flex-end;
-	align-items: flex-end;
+    // -webkit-align-items: flex-end;
+	// -ms-flex-align: flex-end;
+	// align-items: flex-end;
 }
 
 #vault {
@@ -31,6 +31,7 @@
     flex: 0 1 auto;
 
     height: 250px;
+//	margin-left: 5rem;
 }
 
 #get-started {
@@ -63,9 +64,10 @@ section.feature {
 
 .intro h1 {
 	font-size: 2rem;
-	font-weight: 700;
+	font-weight: 600;
 	line-height: 1.1;
 	color: #373737;
+//	color: #220f5f;
     margin-bottom: 4rem;
 }
 
@@ -74,15 +76,6 @@ section.feature {
 	font-weight: 400;
 }
 
-@media only screen and ( min-width : 768px ) {
-	.home #content section {
-		padding: 4rem 2rem;
-	}
-
-	.intro h1 {
-		font-size: 4rem;
-	}
-}
 
 .home {
 
@@ -105,22 +98,40 @@ section.feature {
     vertical-align: middle;
 }
 
+@media only screen and ( min-width : 768px ) {
+	.home #content section {
+		padding: 4rem 2rem;
+	}
+
+	.intro h1 {
+		font-size: 3rem;
+	}
+}
+
+
 @media only screen and ( min-width : 992px ) {
-    #get-started {
-        max-width: 50%;
+
+	#get-started {
+        max-width: 65%;
     }
 
     #vault {
         display: block;
     }
+
+
+
 }
 
-// Small Devices, Tablets
-@media only screen and ( min-width : 768px ) {
 
-    .home #content section.hero {
-        padding-top: 0;
-        padding-bottom: 0;
-    }
+@media only screen and ( min-width : 1150px ) {
+	.home #content section.hero {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+
+	.intro h1 {
+		font-size: 3.6rem;
+	}
 
 }
