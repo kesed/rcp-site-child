@@ -8,19 +8,20 @@ get_header(); ?>
 	<div class="wrapper wide">
 		<div class="intro">
 			<?php /* <h1>Restrict WordPress content, <br/>like never before.</h1> */?>
-			<h1>A simple, yet powerful membership solution for WordPress.</h1>
+			<!-- <h1>A simple, yet powerful membership solution for WordPress.</h1> -->
 
 			<div class="wrapper">
 
 				<div id="get-started">
-				<a href="#pricing" class="scroll button huge">Get started now</a>
-
-				<p>Lock away your prized content and give access to your valued members. See some of the features below and learn why businesses trust Restrict Content Pro.</p>
+				<h1>A simple, yet powerful membership solution for WordPress.</h1>
+				<a href="#pricing" class="scroll button huge">Restrict your content</a>
 				</div>
 
 				<object id="vault" type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri() . '/images/step-one.svg'; ?>">Your browser does not support SVGs</object>
 
 			</div>
+
+
 
 
 				<?php /* 	<h1>Powerful WordPress Memberships are finally simple.</h1>*/?>
@@ -37,11 +38,12 @@ get_header(); ?>
 	</div>
 
 
-
 </section>
 
 <section class="">
 	<div class="wrapper wide">
+		<h1 class="aligncenter">Lock away your exclusive content.<br/> Give access to valued members.</h1>
+		<p class="aligncenter">See some of the features below and learn why businesses trust Restrict Content Pro.</p>
 
 		<div class="grid features columns-2">
 
@@ -56,8 +58,7 @@ get_header(); ?>
 
 						<div>
 							<h4>Discount Codes</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>Create an unlimited number of discount codes and offer percentage or flat rate based discounts.</p>
 						</div>
 					</div>
 				</div>
@@ -73,8 +74,10 @@ get_header(); ?>
 
 						<div>
 							<h4>Built-in Integrations</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>Accept credit cards with Stripe, Braintree, or PayPal Website Payments Pro. Restrict Content Pro also supports PayPal Standard and Express, as well as multiple payment options at the same time.</p>
+
+
+
 						</div>
 					</div>
 				</div>
@@ -89,8 +92,10 @@ get_header(); ?>
 
 						<div>
 							<h4>Reports</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>Elegant and easy-to-use reports to show you exactly how well your membership site is performing. Easily see the current month’s performance, or any other time period.</p>
+
+
+
 						</div>
 					</div>
 				</div>
@@ -104,8 +109,7 @@ get_header(); ?>
 						</div>
 						<div>
 							<h4>Data Export</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>Generate a CSV of all active members of any particular subscription level, or a CSV of every member in the system. You can also generate a CSV of every payment that has been made.</p>
 						</div>
 					</div>
 				</div>
@@ -121,8 +125,10 @@ get_header(); ?>
 
 						<div>
 							<h4>Extensive Help</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>Contextual help inside the WordPress admin provides you relevant information at your finger tips.</p>
+
+
+
 						</div>
 					</div>
 				</div>
@@ -136,8 +142,8 @@ get_header(); ?>
 						</div>
 						<div>
 							<h4>Live Demonstration</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>To help provide a better idea of what Restrict Content Pro looks like for subscribers, <a href="http://pippinsplugins.com/demo-rcp" target="_blank">visit the live demonstration site</a> and test our the registration process yourself.</p>
+
 						</div>
 					</div>
 				</div>
@@ -151,8 +157,7 @@ get_header(); ?>
 						</div>
 						<div>
 							<h4>Unlimited Subscription Packages</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>Create an unlimited number of subscription packages. You can easily create free, trial, and premium subscriptions.</p>
 						</div>
 					</div>
 				</div>
@@ -166,8 +171,7 @@ get_header(); ?>
 						</div>
 						<div>
 							<h4>Members Management</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>Easily view all active, pending, expired, cancelled, and free users.</p>
 						</div>
 					</div>
 				</div>
@@ -181,8 +185,7 @@ get_header(); ?>
 						</div>
 						<div>
 							<h4>Simple Set up</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>Restrict Content Pro makes it extremely easy to deliver premium content to your subscribers.</p>
 						</div>
 					</div>
 
