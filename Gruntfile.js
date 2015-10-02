@@ -56,7 +56,9 @@ module.exports = function(grunt) {
       },
       default : {
         files: {
-          'images/svg-defs.svg': ['svgs/*.svg'],
+            // svgs in the combined folder will be combined into the svg-defs.svg file
+            // usage: <svg><use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-name-of-svg'; ?>"></use></svg>
+            'images/svg-defs.svg': ['images/svgs/combined/*.svg'],
         }
       }
     },
@@ -83,6 +85,21 @@ module.exports = function(grunt) {
         }
     },
 
+    svgmin: { //minimize SVG files
+        options: {
+            plugins: [
+                { removeViewBox: false },
+                { removeUselessStrokeAndFill: false }
+            ]
+        },
+        dist: {
+            expand: true,
+            cwd: 'images/svgs/original',
+            src: ['*.svg'],
+            dest: 'images/svgs'
+        }
+    },
+
     // watch our project for changes
     watch: {
       // JS
@@ -90,10 +107,19 @@ module.exports = function(grunt) {
         files: ['js/src/**/*.js'],
         tasks: ['concat:js', 'uglify:js'],
       },
+
+      // svgstore
        svgstore: {
-         files: ['svgs/*.svg'],
+         files: ['images/svgs/combined/*.svg'],
          tasks: ['svgstore:default']
       },
+
+      // svgmin
+      svgmin: {
+          files: ['images/svgs/original/*.svg'],
+          tasks: ['svgmin:dist']
+      },
+
       // CSS
       css: {
         // compile CSS when any .less file is compiled in this theme and also the parent theme
@@ -115,5 +141,5 @@ module.exports = function(grunt) {
   // Saves having to declare each dependency
   require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks );
 
-  grunt.registerTask('default', ['concat', 'uglify', 'less', 'svgstore', 'usebanner' ]);
+  grunt.registerTask('default', ['concat', 'uglify', 'less', 'svgstore', 'svgmin', 'usebanner' ]);
 };

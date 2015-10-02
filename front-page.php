@@ -51,9 +51,11 @@ get_header(); ?>
 					<div class="grid-wrap">
 
 						<div>
-							<svg width="63.5" height="55.501">
-								<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-discount'; ?>"></use>
-							</svg>
+
+								<svg width="63.5" height="55.501">
+									<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-discount'; ?>"></use>
+								</svg>
+
 						</div>
 
 						<div>

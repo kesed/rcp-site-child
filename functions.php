@@ -9,31 +9,8 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.0.3' );
+	define( 'RCP_THEME_VERSION', '1.0.4' );
 }
-
-
-function rcp_edd_add_wrapper_before() {
-	echo '<div id="test">';
-}
-//add_action( 'edd_download_before', 'rcp_edd_add_wrapper_before' );
-
-function rcp_edd_add_wrapper_after() {
-	echo '</div>';
-}
-//add_action( 'edd_download_after', 'rcp_edd_add_wrapper_after' );
-
-
-function rcp_edd_add_wrapper_after2() {
-	?>
-	<div class="overlay">
-		<p>some information here</p>
-	</div>
-
-	<?php
-}
-//add_action( 'edd_download_after', 'rcp_edd_add_wrapper_after2' );
-
 
 /**
  * Setup
@@ -409,17 +386,8 @@ function rcp_footer_navigation() {
 			<div id="mascot-group">
 
 				<div id="mascot-animate">
-					<div id="mascot-body">
-						<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot.png'; ?>" />
-					</div>
-					<div id="mascot-wing">
-						<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-wing.png'; ?>" />
-					</div>
-					<?php /*
-					<div id="mascot-wing-2">
-						<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-wing.png'; ?>" />
-					</div>
-					*/ ?>
+					<div id="mascot-body"></div>
+					<div id="mascot-wing"></div>
 				</div>
 
 				<div id="mascot-shadow">

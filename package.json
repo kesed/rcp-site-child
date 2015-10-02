@@ -11,6 +11,7 @@
     "grunt-contrib-less": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-svgstore": "latest",
+    "grunt-svgmin": "latest",
     "grunt-banner": "latest",
     "matchdep": "*"
   }

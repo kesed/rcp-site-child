@@ -1,0 +1,43 @@
+// color A/B test
+
+@alt-accent-color: #b685c9;
+@sign-up-bg: #EDD3F2;
+@sign-up-text: #A471AE;
+
+.alt {
+
+    .button,
+    input[type=submit],
+    #submit {
+        background: @alt-accent-color;
+    }
+
+    .button:hover,
+    .button:focus,
+    input[type=submit]:hover {
+        text-decoration: none;
+        color: #fff;
+        background: darken( @alt-accent-color, 8% );
+        border: none;
+    }
+
+    .site-footer #sign-up {
+        background: @sign-up-bg;
+
+        h3, p {
+            color: @sign-up-text;
+        }
+    }
+
+    #mascot-body {
+    	background: url( 'images/mascot.png' ) 0 0 no-repeat;
+        background-size: 200px 308px;
+    }
+
+    #mascot-wing {
+    	background: url( 'images/mascot-wing.png' ) 0 0 no-repeat;
+    	background-size: 56px 38px;
+
+    }
+
+}

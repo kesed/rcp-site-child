@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="43px" height="59px"
+	 viewBox="0 0 43 59" enable-background="new 0 0 43 59" xml:space="preserve">
+<title>49 - Joystick (Webby)</title>
+<desc>Created with Sketch.</desc>
+<g id="Page-1" sketch:type="MSPage">
+	<g id="_x34_9---Joystick-_x28_Webby_x29_" transform="translate(1.000000, 1.000000)" sketch:type="MSLayerGroup">
+		<path id="Fill-1143" sketch:type="MSShapeGroup" fill="#CFE0F4" stroke="#2A76D2" stroke-miterlimit="10" d="M30.163,10.326
+			c0,5.612-4.55,10.162-10.163,10.162S9.837,15.938,9.837,10.326c0-5.613,4.55-10.163,10.163-10.163S30.163,4.713,30.163,10.326
+			L30.163,10.326z"/>
+		<path id="Stroke-1144" sketch:type="MSShapeGroup" fill="none" stroke="#2A76D2" stroke-width="2" d="M30.163,10.326
+			c0,5.612-4.55,10.162-10.163,10.162S9.837,15.938,9.837,10.326c0-5.613,4.55-10.163,10.163-10.163S30.163,4.713,30.163,10.326
+			L30.163,10.326z"/>
+		<path id="Stroke-1145" sketch:type="MSShapeGroup" fill="none" stroke="#2A76D2" stroke-width="2" stroke-linecap="round" d="
+			M14,10c0-2.764,2.236-5,5-5"/>
+		<path id="Fill-1146" sketch:type="MSShapeGroup" fill="#FFFFFF" stroke="#2A76D2" stroke-miterlimit="10" d="M35.679,16h-7.247
+			c-1.826,2.708-4.921,4.488-8.432,4.488c-3.511,0-6.606-1.78-8.432-4.488H5.321C2.382,16,0,18.382,0,21.321v30.358
+			C0,54.618,2.382,57,5.321,57h30.358C38.618,57,41,54.618,41,51.679V21.321C41,18.382,38.618,16,35.679,16L35.679,16z"/>
+		<path id="Stroke-1147" sketch:type="MSShapeGroup" fill="none" stroke="#2A76D2" stroke-width="2" d="M35.679,16h-7.247
+			c-1.826,2.708-4.921,4.488-8.432,4.488c-3.511,0-6.606-1.78-8.432-4.488H5.321C2.382,16,0,18.382,0,21.321v30.358
+			C0,54.618,2.382,57,5.321,57h30.358C38.618,57,41,54.618,41,51.679V21.321C41,18.382,38.618,16,35.679,16L35.679,16z"/>
+		<path id="Fill-1639" sketch:type="MSShapeGroup" fill="#FFFFFF" stroke="#2A76D2" stroke-miterlimit="10" d="M20,20.488
+			c-1.044,0-2.052-0.158-3-0.451v15.126c0,1.657,1.343,3,3,3c1.657,0,3-1.343,3-3V20.037C22.052,20.33,21.044,20.488,20,20.488
+			L20,20.488z"/>
+		<path id="Stroke-1640" sketch:type="MSShapeGroup" fill="none" stroke="#2A76D2" stroke-width="2" d="M20,20.488
+			c-1.044,0-2.052-0.158-3-0.451v15.126c0,1.657,1.343,3,3,3c1.657,0,3-1.343,3-3V20.037C22.052,20.33,21.044,20.488,20,20.488
+			L20,20.488z"/>
+		<path id="Fill-1641" sketch:type="MSShapeGroup" fill="#CFE0F4" stroke="#2A76D2" stroke-miterlimit="10" d="M10,49.233
+			C10,50.761,8.761,52,7.233,52c-1.529,0-2.768-1.239-2.768-2.767c0-1.529,1.239-2.768,2.768-2.768
+			C8.761,46.465,10,47.704,10,49.233L10,49.233z"/>
+		<path id="Stroke-1642" sketch:type="MSShapeGroup" fill="none" stroke="#2A76D2" stroke-width="2" d="M10,49.233
+			C10,50.761,8.761,52,7.233,52c-1.529,0-2.768-1.239-2.768-2.767c0-1.529,1.239-2.768,2.768-2.768
+			C8.761,46.465,10,47.704,10,49.233L10,49.233z"/>
+		<path id="Stroke-1643" sketch:type="MSShapeGroup" fill="none" stroke="#2A76D2" stroke-width="2" stroke-linecap="round" d="
+			M29,53c4.422,0,8-3.578,8-8"/>
+		<path id="Fill-1644" sketch:type="MSShapeGroup" fill="#FFFFFF" stroke="#2A76D2" stroke-miterlimit="10" d="M23,22.362v12.801
+			c0,1.657-1.343,3-3,3c-1.657,0-3-1.343-3-3V22.362C11.269,23.718,7,28.855,7,35c0,7.18,5.82,13,13,13s13-5.82,13-13
+			C33,28.855,28.731,23.718,23,22.362L23,22.362z"/>
+		<path id="Stroke-1645" sketch:type="MSShapeGroup" fill="none" stroke="#2A76D2" stroke-width="2" d="M23,22.362v12.801
+			c0,1.657-1.343,3-3,3c-1.657,0-3-1.343-3-3V22.362C11.269,23.718,7,28.855,7,35c0,7.18,5.82,13,13,13s13-5.82,13-13
+			C33,28.855,28.731,23.718,23,22.362L23,22.362z"/>
+		<path id="Fill-1646" sketch:type="MSShapeGroup" fill="#FFFFFF" stroke="#2A76D2" stroke-miterlimit="10" d="M23,25.659v9.504
+			c0,1.657-1.343,3-3,3c-1.657,0-3-1.343-3-3v-9.504c-3.729,1.254-6.419,4.771-6.419,8.922C10.581,39.783,14.798,44,20,44
+			s9.419-4.217,9.419-9.419C29.419,30.43,26.729,26.913,23,25.659L23,25.659z"/>
+		<path id="Stroke-1647" sketch:type="MSShapeGroup" fill="none" stroke="#2A76D2" stroke-width="2" d="M23,25.659v9.504
+			c0,1.657-1.343,3-3,3c-1.657,0-3-1.343-3-3v-9.504c-3.729,1.254-6.419,4.771-6.419,8.922C10.581,39.783,14.798,44,20,44
+			s9.419-4.217,9.419-9.419C29.419,30.43,26.729,26.913,23,25.659L23,25.659z"/>
+	</g>
+</g>
+</svg>
