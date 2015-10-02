@@ -138,7 +138,7 @@ function rcp_download_developer() {
     <?php if ( $developer_url && $developer ) : ?>
     <div class="download-meta">
 		<a href="<?php echo esc_url( $developer_url ); ?>" class="download-meta-link" target="_blank">
-			<img src="<?php echo get_stylesheet_directory_uri() . '/images/download-developer.svg'; ?>" width="24" height="24">
+			<img src="<?php echo get_stylesheet_directory_uri() . '/images/svgs/download-developer.svg'; ?>" width="24" height="24">
 			<span><?php echo $developer; ?></span>
 		</a>
 	</div>
@@ -146,7 +146,7 @@ function rcp_download_developer() {
 <?php elseif( $developer ) : ?>
 
 		<div class="download-meta">
-			<img src="<?php echo get_stylesheet_directory_uri() . '/images/download-developer.svg'; ?>" width="24" height="24">
+			<img src="<?php echo get_stylesheet_directory_uri() . '/images/svgs/download-developer.svg'; ?>" width="24" height="24">
 			<span><?php echo $developer; ?></span>
 		</div>
 
