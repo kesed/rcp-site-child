@@ -40,7 +40,7 @@ get_header(); ?>
 
 </section>
 
-<section class="">
+<section class="features">
 	<div class="wrapper wide">
 		<h1 class="aligncenter">Lock away your exclusive content.<br/> Give access to valued members.</h1>
 		<p class="aligncenter">See some of the features below and learn why businesses trust Restrict Content Pro.</p>
@@ -216,43 +216,29 @@ get_header(); ?>
 	</div>
 </section>
 
-<section class="feature">
+<section class="feature testimonials">
 		<div class="wrapper">
 
-			<div class="grid columns-3 testimonials">
+			<div class="grid columns-1">
 
 				<div class="grid-child">
 					<div class="grid-wrap">
-						<blockquote>
-							<?php echo get_avatar( 'andrew@sumobi.com', '96', '', 'Andrew Munro, Sumobi' ); ?>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-						</blockquote>
+						<img class="avatar" src="<?php echo get_stylesheet_directory_uri() . '/images/testimonial-chris-lema.png'; ?>" alt="Chris Lema recommends Restrict Content Pro" />
 
-						<p class="testimonial-footer">&mdash; Andrew Munro, Sumobi</p>
+						<div class="testimonial-wrap">
+							<blockquote>
+								<p>When it comes to a fast and clean membership site, nothing is faster for end users than RCP. When it comes to extensible code that a developer will love, nothing is better than Pippin’s code.</p>
+							</blockquote>
+
+							<p class="testimonial-footer">&mdash; Chris Lema</p>
+						</div>
+
 					</div>
 				</div>
 
-				<div class="grid-child">
-					<div class="grid-wrap">
-						<blockquote>
-							<?php echo get_avatar( 'andrew@sumobi.com', '96', '', 'Andrew Munro, Sumobi' ); ?>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut enim ad minim veniam.</p>
-						</blockquote>
 
-						<p class="testimonial-footer">&mdash; Andrew Munro, Sumobi</p>
-					</div>
-				</div>
 
-				<div class="grid-child">
-					<div class="grid-wrap">
-						<blockquote>
-							<?php echo get_avatar( 'andrew@sumobi.com', '96', '', 'Andrew Munro, Sumobi' ); ?>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</blockquote>
 
-						<p class="testimonial-footer">&mdash; Andrew Munro, Sumobi</p>
-					</div>
-				</div>
 
 			</div>
 		</div>

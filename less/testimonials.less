@@ -1,14 +1,20 @@
 // testimonial styles
 // uses the basic grid.less file for base layout
 
+.home #content section.feature.testimonials {
+    padding: 0;
+}
+
 .testimonials {
+
     p {
+        font-weight: 200;
         font-size: 1rem;
     }
 
     .avatar {
-        border-radius: 100%;
-        margin-bottom: 1rem;
+        display: block;
+        margin: 0 auto;
     }
 
     .grid-child {
@@ -17,18 +23,46 @@
     }
 
     .grid-wrap {
-        background: #fff;
         text-align: center;
+        margin: 0 auto;
+    }
 
-        display: -webkit-flex;
-        display: flex;
 
-        flex-flow: column;
-        -webkit-flex-flow: column;
+
+    blockquote {
+        margin: 0;
     }
 
     .testimonial-footer {
         font-style: italic;
         margin: auto 0 0 0;
+        font-weight: 400;
+    }
+
+
+}
+
+.testimonial-wrap {
+    background: #fff;
+    padding: 1rem;
+}
+
+@media only screen and ( min-width : 480px ) {
+
+    .home #content section.feature.testimonials {
+        padding: 3rem 2rem;
+    }
+
+    .testimonial-wrap {
+        padding: 4rem;
+        margin: 0 auto;
+        max-width: 980px;
+    }
+
+    .testimonials {
+
+        p {
+            font-size: 1.2rem;
+        }
     }
 }
