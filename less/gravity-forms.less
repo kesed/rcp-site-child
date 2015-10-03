@@ -107,6 +107,8 @@ form.mailing-list {
 
 // general styles
 
+
+
 // support form
 form.support {
 
@@ -118,27 +120,33 @@ form.support {
     }
 
     .validation_error {
-        background: @purple;
-        color: #fff;
+        background: #FFE4E4;
+        color: #D97A7A;
+        padding: 2rem;
+        border: 2px solid #F8D8D8;
+        margin-bottom: 2rem;
+        font-weight: 500;
+        line-height: 1.5;
     }
 
     .gfield_description.validation_message {
-        color: @purple;
+        color: #D97A7A;
         font-size: 1rem;
         font-weight: 500;
         margin: 1rem 0 0 0;
     }
 
-    .gfield.notice {
-        background: @purple;
-        color: #fff;
-        line-height: 1.5;
-
-        a {
-            color: #fff;
-            border: none;
-        }
-    }
+    //
+    // .gfield.notice {
+    //     background: @purple;
+    //     color: #fff;
+    //     line-height: 1.5;
+    //
+    //     a {
+    //         color: #fff;
+    //         border: none;
+    //     }
+    // }
 
     .gform_body input[type="text"],
     .gform_body input[type="email"],
@@ -151,7 +159,7 @@ form.support {
 
     .gform_body input:focus,
     .gform_body textarea:focus {
-        border: 2px solid @purple;
+        border: 2px solid @primary-color;
     }
 
 

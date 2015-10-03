@@ -1,24 +1,9 @@
-// import styles from the parent theme
-//@import url('../trustedd/style.css');
+// example on just importing the styles from the parent theme
+//@import url('../rcp-parent-theme/style.css');
 
-// we want to override the variables and compile our own color like this
-
+// we want to override the variables and compile our own colos like this
 @import '../rcp-parent-theme/less/variables';
 @import '../rcp-parent-theme/less/common-imports';
-
-// @primary-color: @purple;
-// @accent-color: @purple;
-// @light-grey: #f7f7f7;
-
-// @heading-color: #373737;
-
-// @body-text-color: #787878;
-// @breakpoint: 820px;
-
-//@link-hover-color: red;
-
-
-//@accent-color: #b685c9;
 
 // blue
 @primary-color: #2a76d2;
@@ -29,40 +14,12 @@
 // green
 @accent-color: #84C876;
 
-// orange
-//@accent-color: #F1973E;
-
-// primary blue: #2a76d2
-// lighter blue: #cfe0f4
-
-
-
-
-
-
-@green: #85d085;
-@purple: #b685c9;
-@newpurple: #564DA2;
-//@background-color: @purple;
 @link-hover-color: @primary-color;
 @background-color: #e6eaec;
-//@background-color: #EAEAEA;
-//@background-color: #E6EFF2;
-
-@svg-primary: #2A76D2;
-@svg-shading: #CFE0F4;
-
-
-.features .shading {
-	fill: @svg-shading;
-}
-
 
 #logo path {
 	fill: #2A76D2;
-
 }
-
 
 body {
 	font-family: 'Graphik Web', Helvetica, Arial, Verdana, sans-serif;
@@ -89,7 +46,7 @@ body {
 // fonts
 @import 'fonts';
 
-// typograsphy
+// typography
 @import 'typography';
 
 // pricing tables
@@ -98,14 +55,11 @@ body {
 // homepage styling
 @import 'home';
 
-// styles for features tables
+// styles for features
 @import 'features';
 
 // styles for testimonials
 @import 'testimonials';
-
-// styles for how it works
-//@import 'how-it-works';
 
 // styles for gravity forms
 @import 'gravity-forms';
@@ -114,9 +68,8 @@ body {
 @import 'custom-pages';
 
 @import 'mascot';
-@import 'footer';
 
-//@import 'edd';
+@import 'footer';
 
 @import 'ab-test';
 
