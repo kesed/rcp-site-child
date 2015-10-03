@@ -193,22 +193,31 @@ get_header(); ?>
 
 
 				</div>
+
+				<div class="grid-child">
+					<div class="grid-wrap">
+						<div>
+						<svg width="43" height="59">
+							<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-member-emails'; ?>"></use>
+						</svg>
+						</div>
+						<div>
+							<h4>Member Emails</h4>
+							<p>Send welcome emails to new members, email payment receipts, and even remind members before their account expires automatically.</p>
+						</div>
+					</div>
+
+
+				</div>
+
+
 		</div>
 
 	</div>
 </section>
 
-<section id="pricing">
-	<div class="wrapper wide aligncenter">
-		<h1>30 Day Money Back Guarantee</h1>
-		<p>We stand behind our product 100% <?php echo rcp_show_refund_policy_link(); ?></p>
-		<?php echo do_shortcode( '[edd_pricing_table]' ); ?>
-	</div>
-</section>
-
 <section class="feature">
 		<div class="wrapper">
-			<!-- <h1 class="aligncenter">Testimonials</h1> -->
 
 			<div class="grid columns-3 testimonials">
 
@@ -249,7 +258,17 @@ get_header(); ?>
 		</div>
 	</section>
 
-	<section>
+<section id="pricing">
+	<div class="wrapper wide aligncenter">
+		<h1>30 Day Money Back Guarantee</h1>
+		<p>We stand behind our product 100% <?php echo rcp_show_refund_policy_link(); ?></p>
+		<?php echo do_shortcode( '[edd_pricing_table]' ); ?>
+	</div>
+</section>
+
+
+
+	<section class="">
 		<div class="wrapper wide aligncenter">
 		<h1>See Restrict Content Pro</h1>
 		<p><a href="<?php echo site_url( 'screenshots'); ?>">View more screenshots</a></p>
