@@ -217,32 +217,28 @@ get_header(); ?>
 </section>
 
 <section class="feature testimonials">
-		<div class="wrapper">
+	<div class="wrapper">
 
-			<div class="grid columns-1">
+		<div class="grid columns-1">
 
-				<div class="grid-child">
-					<div class="grid-wrap">
-						<img class="avatar" src="<?php echo get_stylesheet_directory_uri() . '/images/testimonial-chris-lema.png'; ?>" alt="Chris Lema recommends Restrict Content Pro" />
+			<div class="grid-child">
+				<div class="grid-wrap">
+					<img class="avatar" src="<?php echo get_stylesheet_directory_uri() . '/images/testimonial-chris-lema.png'; ?>" alt="Chris Lema recommends Restrict Content Pro" />
 
-						<div class="testimonial-wrap">
-							<blockquote>
-								<p>When it comes to a fast and clean membership site, nothing is faster for end users than RCP. When it comes to extensible code that a developer will love, nothing is better than Pippin’s code.</p>
-							</blockquote>
+					<div class="testimonial-wrap">
+						<blockquote>
+							<p>When it comes to a fast and clean membership site, nothing is faster for end users than RCP. When it comes to extensible code that a developer will love, nothing is better than Pippin’s code.</p>
+						</blockquote>
 
-							<p class="testimonial-footer">&mdash; Chris Lema</p>
-						</div>
-
+						<p class="testimonial-footer">&mdash; Chris Lema</p>
 					</div>
+
 				</div>
-
-
-
-
-
 			</div>
+
 		</div>
-	</section>
+	</div>
+</section>
 
 <section id="pricing">
 	<div class="wrapper wide aligncenter">
