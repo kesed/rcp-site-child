@@ -15,7 +15,7 @@ function rcp_edd_pricing_table_settings( $args ) {
 				'id'          => 7460,
 				'price'       => 42,
 				'price_option' => 0,
-				'button_link' => 'https://pippinsplugins.com/checkout/?referrer=rcp-site',
+				'button_link' => 'https://pippinsplugins.com/checkout/?referrer=rcp_site',
 				'button_class' => 'external',
 				'features' => array(
 					1 => '<strong>1 site</strong>',
@@ -28,7 +28,7 @@ function rcp_edd_pricing_table_settings( $args ) {
 				'id'          => 7460,
 				'price'       => 86,
 				'price_option' => 1,
-				'button_link' => 'https://pippinsplugins.com/checkout/?referrer=rcp-site',
+				'button_link' => 'https://pippinsplugins.com/checkout/?referrer=rcp_site',
 				'button_class' => 'external',
 				'features' => array(
 					1 => '<strong>2 to 5 sites</strong>',
@@ -41,7 +41,7 @@ function rcp_edd_pricing_table_settings( $args ) {
 				'id'          => 7460,
 				'price'       => 132,
 				'price_option' => 2,
-				'button_link' => 'https://pippinsplugins.com/checkout/?referrer=rcp-site',
+				'button_link' => 'https://pippinsplugins.com/checkout/?referrer=rcp_site',
 				'button_class' => 'external',
 				'features' => array(
 					1 => '<strong>Unlimited sites</strong>',
