@@ -221,15 +221,12 @@ form.support {
 
     // side by side inputs
     .ginput_complex {
-        display: -webkit-flex;
-        display: flex;
+
 
         -webkit-justify-content: space-between;
         justify-content: space-between;
 
-        span {
-            width: 48%;
-        }
+
     }
 
     // labels under inputs
@@ -249,4 +246,18 @@ form.support {
         display: block;
     }
 
+}
+
+
+// Small Devices, Tablets
+@media only screen and ( min-width : 768px ) {
+
+	.ginput_complex {
+        display: -webkit-flex;
+        display: flex;
+
+        span {
+            width: 48%;
+        }
+    }
 }
