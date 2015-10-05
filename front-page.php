@@ -15,7 +15,6 @@ get_header(); ?>
 				</div>
 
 				<object id="vault" type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri() . '/images/vault.svg'; ?>">Your browser does not support SVGs</object>
-
 			</div>
 
 		</div>
@@ -24,9 +23,10 @@ get_header(); ?>
 </section>
 
 <section class="features">
+
 	<div class="wrapper wide">
-		<h1 class="aligncenter">Lock away your exclusive content.<br/> Give access to valued members.</h1>
-		<p class="aligncenter">See some of the features below and learn why businesses trust Restrict Content Pro.</p>
+		<h1 >Lock away your exclusive content. Give access to valued members.</h1>
+		<p>See some of the features below and learn why businesses trust Restrict Content Pro.</p>
 
 		<div class="grid features columns-2">
 
@@ -254,7 +254,7 @@ get_header(); ?>
 
 			$gallery_ids = implode( ', ', wp_list_pluck( $gallery, 'ID' ) );
 
-			echo do_shortcode( '[gallery size="large" ids="' . $gallery_ids . '"]' );
+			echo do_shortcode( '[gallery size="thumbnail" ids="' . $gallery_ids . '"]' );
 		}
 
 		?>
