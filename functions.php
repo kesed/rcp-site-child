@@ -89,7 +89,9 @@ function rcp_nav_home() {
  */
 function rcp_edd_pricing_table_purchase_button_end() {
 	?>
-	<img class="icon-external" src="<?php echo get_stylesheet_directory_uri() . '/images/svgs/combined/external.svg'; ?>" />
+
+	<object type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri() . '/images/svgs/combined/external.svg'; ?>"></object>
+
 <?php
 }
 add_action( 'edd_pricing_table_purchase_button_end', 'rcp_edd_pricing_table_purchase_button_end' );
