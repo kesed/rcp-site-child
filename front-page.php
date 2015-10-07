@@ -247,7 +247,8 @@ get_header(); ?>
 				'post_mime_type' => 'image',
 				'numberposts'    => 3,
 				'post_parent'    => $page->ID,
-				'post_type'      => 'attachment'
+				'post_type'      => 'attachment',
+				'orderby'        => 'rand'
 			);
 
 			$gallery = get_children( $args );
