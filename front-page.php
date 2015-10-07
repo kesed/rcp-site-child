@@ -236,13 +236,14 @@ get_header(); ?>
 	<section class="">
 		<div class="wrapper wide aligncenter">
 		<h1>See Restrict Content Pro</h1>
-		<p><a href="<?php echo site_url( 'screenshots'); ?>">View more screenshots</a></p>
+		<p><a href="<?php echo site_url( 'screenshots'); ?>">View all <?php echo rcp_screenshot_count(); ?> screenshots</a></p>
 
 		<?php
 		// show 3 images from the screenshots page
 		$page = get_page_by_title( 'Screenshots' );
 
 		if ( $page ) {
+
 			$args = array(
 				'post_mime_type' => 'image',
 				'numberposts'    => 3,

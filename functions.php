@@ -306,3 +306,31 @@ function rcp_remove_comments_on_attachments( $open, $post_id ) {
 
 }
 add_filter( 'comments_open', 'rcp_remove_comments_on_attachments', 10 , 2 );
+
+/**
+ * Count how many screenshots there are
+ *
+ * @since 1.0.0
+ */
+function rcp_screenshot_count() {
+
+	$count = 0;
+
+	$page = get_page_by_title( 'Screenshots' );
+
+	$args = array(
+		'post_mime_type' => 'image',
+		'numberposts'    => -1,
+		'post_parent'    => $page->ID,
+		'post_type'      => 'attachment',
+	);
+
+	$gallery = get_children( $args );
+
+	if ( $gallery ) {
+		$count = count( $gallery );
+	}
+
+	return $count;
+
+}
