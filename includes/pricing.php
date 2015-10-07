@@ -20,7 +20,8 @@ function rcp_edd_pricing_table_settings( $args ) {
 				'features' => array(
 					1 => '<strong>1 site</strong>',
 					2 => 'Updates for <strong>1 year</strong> *',
-					3 => 'Support for <strong>1 year</strong> *'
+					3 => 'Support for <strong>1 year</strong> *',
+					4 => 'All features included'
 				)
 			),
 			'2' => array(
@@ -33,7 +34,8 @@ function rcp_edd_pricing_table_settings( $args ) {
 				'features' => array(
 					1 => '<strong>2 to 5 sites</strong>',
 					2 => 'Updates for <strong>1 year</strong> *',
-					3 => 'Support for <strong>1 year</strong> *'
+					3 => 'Support for <strong>1 year</strong> *',
+					4 => 'All features included'
 				)
 			),
 			'3' => array(
@@ -46,7 +48,8 @@ function rcp_edd_pricing_table_settings( $args ) {
 				'features' => array(
 					1 => '<strong>Unlimited sites</strong>',
 					2 => 'Updates for <strong>1 year</strong> *',
-					3 => 'Support for <strong>1 year</strong> *'
+					3 => 'Support for <strong>1 year</strong> *',
+					4 => 'All features included'
 				)
 			),
 		)
