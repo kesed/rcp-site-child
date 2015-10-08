@@ -106,7 +106,7 @@ function rcp_pricing_table_notice() {
 	?>
 	<p class="trustedd-notice aligncenter">After choosing a pricing option you will be redirected to PippinsPlugins.com for payment.</p>
 
-	<p class="trustedd-notice aligncenter">* You must renew the license after one calendar year for continued updates and support. All purchases are subject to our terms and condition of use.</p>
+	<p class="trustedd-notice aligncenter">* You must renew the license after one calendar year for continued updates and support. All purchases are subject to our terms and conditions of use.</p>
 
 <?php
 }
