@@ -127,7 +127,7 @@ get_header(); ?>
 						</div>
 						<div>
 							<h4>Live Demonstration</h4>
-							<p>To help provide a better idea of what Restrict Content Pro looks like for subscribers, <a href="http://pippinsplugins.com/demo-rcp" target="_blank">visit the live demonstration site</a> and test our the registration process yourself.</p>
+							<p>To help provide a better idea of what Restrict Content Pro looks like for subscribers, <a href="http://pippinsplugins.com/demo-rcp" target="_blank">visit the live demonstration site</a> and test the registration process yourself.</p>
 
 						</div>
 					</div>
