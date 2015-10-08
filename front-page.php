@@ -169,7 +169,7 @@ get_header(); ?>
 						</svg>
 						</div>
 						<div>
-							<h4>Simple Set up</h4>
+							<h4>Simple Setup</h4>
 							<p>Restrict Content Pro makes it extremely easy to deliver premium content to your subscribers.</p>
 						</div>
 					</div>
@@ -186,7 +186,7 @@ get_header(); ?>
 						</div>
 						<div>
 							<h4>Member Emails</h4>
-							<p>Send welcome emails to new members, email payment receipts, and even remind members before their account expires automatically.</p>
+							<p>Send welcome emails to new members, email payment receipts, and remind members before their account expires automatically.</p>
 						</div>
 					</div>
 
