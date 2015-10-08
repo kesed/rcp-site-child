@@ -240,7 +240,7 @@ get_header(); ?>
 
 <section id="pricing">
 	<div class="wrapper wide aligncenter">
-		<h1>30 Day Money Back Guarantee</h1>
+		<h1>30 Day Money Back Guarantee.</h1>
 		<p>We stand behind our product 100% <?php echo rcp_show_refund_policy_link(); ?></p>
 		<?php echo do_shortcode( '[edd_pricing_table]' ); ?>
 	</div>
