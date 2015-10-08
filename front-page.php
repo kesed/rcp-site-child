@@ -202,7 +202,7 @@ get_header(); ?>
 <section class="feature testimonials">
 	<div class="wrapper">
 
-		<div class="grid columns-1">
+		<div class="grid columns-2">
 
 			<div class="grid-child">
 				<div class="grid-wrap">
@@ -214,6 +214,21 @@ get_header(); ?>
 						</blockquote>
 
 						<p class="testimonial-footer">&mdash; Chris Lema</p>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="grid-child">
+				<div class="grid-wrap">
+					<img class="avatar" src="<?php echo get_stylesheet_directory_uri() . '/images/testimonial-travis-northcutt.png'; ?>" alt="Travis Northcutt recommends Restrict Content Pro" />
+
+					<div class="testimonial-wrap">
+						<blockquote>
+							<p>RCP is always at the top of my list when helping clients choose a membership platform. In addition to being a great plugin ​today​, the pace of improvement is impressive. RCP gets better and better all the time.</p>
+						</blockquote>
+
+						<p class="testimonial-footer">&mdash; Travis Northcutt, The Bright Agency</p>
 					</div>
 
 				</div>
