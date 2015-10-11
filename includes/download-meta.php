@@ -90,7 +90,7 @@ function rcp_download_meta_add_fields() {
 	</p>
 
 <?php }
-add_action( 'trustedd_download_meta_add_fields', 'rcp_download_meta_add_fields' );
+add_action( 'edd_download_meta_add_fields', 'rcp_download_meta_add_fields' );
 
 /**
  * Save the new fields
@@ -107,7 +107,7 @@ function rcp_download_meta_save( $fields ) {
 	return array_merge( $fields, $new_fields );
 
 }
-add_filter( 'trustedd_download_meta_save', 'rcp_download_meta_save' );
+add_filter( 'edd_download_meta_save', 'rcp_download_meta_save' );
 
 /**
  * Sanitize fields
@@ -122,10 +122,10 @@ function rcp_download_meta_santize( $new, $field ) {
 
 	return $new;
 }
-add_filter( 'trustedd_download_meta_save_fields', 'rcp_download_meta_santize', 10, 2 );
+add_filter( 'edd_download_meta_save_fields', 'rcp_download_meta_santize', 10, 2 );
 
 /**
- * Download last updated
+ * Download developer
  *
  * @since 1.0.0
  */
