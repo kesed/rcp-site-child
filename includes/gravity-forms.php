@@ -50,7 +50,7 @@ function rcp_gforms_support_add_note( $button, $form ) {
 		return $button;
 	}
 
-	$button = '<p class="note">You will receive an email confirmation that your submission was received.</p>' . $button;
+	$button = '<p class="note">You will receive an email confirmation that your submission was received.</p>' . '<div>' . $button . '</div>';
 
 	return $button;
 }
