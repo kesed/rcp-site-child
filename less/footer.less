@@ -1,9 +1,16 @@
 .site-footer {
     position: relative;
+    font-size: 0.875rem;
 
     a {
-        font-size: 1rem;
-        border-bottom: none;
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: @body-text-color;
+
+        &:hover {
+            color: @link-hover-color;
+        }
+
     }
 
     form.mailing-list {
@@ -32,16 +39,29 @@
         padding-right: 4rem;
     }
 
+
     .footer-links {
-        margin-bottom: 4rem;
-        max-width: 980px;
+        border-bottom: 2px solid @light-grey;
+    }
+
+    .footer-links ul {
+        margin-bottom: 2rem;
+    }
+
+    .footer-links li {
+        padding: 0;
+
+        a {
+            padding: 0.5rem 0;
+            display: block;
+        }
     }
 
     // mailchimp sign up form
     #sign-up {
         position: relative;
         background: @secondary-color;
-        margin: 0 auto;
+        margin: 0 auto 4rem auto;
         padding: 2rem;
 
         input {
@@ -66,10 +86,134 @@
 }
 
 .site-info {
-    padding: 4rem 0;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.footer-navigation li {
+    float: left;
+}
+
+.footer-navigation a {
+    padding: 1rem;
+}
+
+#our-sites a {
+    padding: 0;
+    
+    &:hover h4 {
+        color: @link-hover-color;
+    }
+}
+
+.footer-links h4,
+.footer-links .widgettitle,
+.footer-links .widgettitle a {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.footer-links .widgettitle a {
+    color: #373737;
+
+    &:hover {
+        color: @link-hover-color;
+    }
+}
+
+
+.footer-links .widgettitle {
+    margin-bottom: 1rem;
+}
+
+.footer-links .widgettitle a {
+    vertical-align: top;
+}
+
+#our-sites {
+    margin-bottom: 0;
+}
+
+#our-sites .affwp a:hover .mascot {
+    border: 2px solid #ed6d62;
+}
+
+#our-sites .edd a:hover .mascot {
+    border: 2px solid #2794da;
+}
+
+
+#our-sites .mascot {
+    border: 2px solid @light-grey;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+    margin-bottom: 1rem;
+    .transition( all 0.1s linear);
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.footer-links h4 {
+    margin-bottom: 1rem;
+}
+
+.footer-links p {
+    font-size: 0.875rem;
+}
+
+.footer-links .grid-child {
+    line-height: 1.62;
+}
+
+.rsswidget.has-image {
+    margin-right: 0.5rem;
+}
+
+
+// start with no padding on grid wrap
+.footer-links .grid-wrap {
+    padding: 0;
+}
+
+// start with border on top
+.footer-links .grid-child {
+    border-top: 2px solid @light-grey;
+    padding-top: 2rem;
+}
+
+
+
+// Small Devices, Tablets
+@media only screen and ( min-width : 768px ) {
+
+    .footer-links .grid.columns-4 .grid-child {
+        width: 50%;
+        padding: 2rem;
+    }
+
+    .footer-links .grid-wrap {
+        padding: 1rem;
+    }
+
+    .footer-links .grid-child:nth-of-type(2),
+    .footer-links .grid-child:nth-of-type(4) {
+        border-left: 2px solid @light-grey;
+    }
+
+    .footer-links .grid-child:first-child {
+        border-left: none;
+    }
+
 }
 
 @media only screen and ( min-width : 992px ) {
+
+    .footer-links {
+        margin-top: 10rem;
+    }
+
     .site-footer #sign-up {
         max-width: 600px;
     }
@@ -89,8 +233,24 @@
 
 }
 
+
+@media only screen and ( min-width : 1100px ) {
+
+    .footer-links .grid.columns-4 .grid-child {
+        width: 25%;
+    }
+
+    .footer-links .grid-child:nth-of-type(3) {
+        border-left: 2px solid @light-grey;
+    }
+
+}
+
+
 @media only screen and ( min-width : 480px ) {
+
     .site-footer .gform_body input {
         border-right: none;
     }
+
 }
