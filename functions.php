@@ -541,3 +541,14 @@ function rcp_product_changelog() {
 	<?php
 }
 add_action( 'wp_footer', 'rcp_product_changelog', 100 );
+
+/**
+ * Output custom icons - favicon & apple touch icon
+ * @link https://github.com/audreyr/favicon-cheat-sheet
+ */
+function rcp_favicons() {
+?>
+	<link rel="apple-touch-icon-precomposed" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon-152.png'; ?>">
+	<?php
+}
+add_action( 'wp_head', 'rcp_favicons' );
