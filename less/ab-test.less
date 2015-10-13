@@ -1,15 +1,19 @@
 // color A/B test
 
-@alt-accent-color: #b685c9;
-@sign-up-bg: #EDD3F2;
-@sign-up-text: #A471AE;
+// a/b testing. Set colors to transparent first
+// colors only applied via green or purple body tags
+@accent-color: transparent;
 
-.alt {
+// show green when no JS as a fallback
+.no-js,
+.green {
+
+    @accent-green: #84C876;
 
     .button,
     input[type=submit],
     #submit {
-        background: @alt-accent-color;
+        background: @accent-green;
     }
 
     .button:hover,
@@ -17,15 +21,54 @@
     input[type=submit]:hover {
         text-decoration: none;
         color: #fff;
-        background: darken( @alt-accent-color, 8% );
+        background: darken( @accent-green, 8% );
         border: none;
     }
 
     .site-footer #sign-up {
-        background: @sign-up-bg;
+        background: #CFE0F4; // light blue
 
         h3, p {
-            color: @sign-up-text;
+            color: #6F94C1;
+        }
+    }
+
+    #mascot-body {
+    	background: url( 'images/mascot-green.png' ) 0 0 no-repeat;
+        background-size: 200px 308px;
+    }
+
+    #mascot-wing {
+    	background: url( 'images/mascot-wing-green.png' ) 0 0 no-repeat;
+    	background-size: 56px 38px;
+
+    }
+
+}
+
+.purple {
+    @accent-purple: #b685c9;
+
+    .button,
+    input[type=submit],
+    #submit {
+        background: @accent-purple;
+    }
+
+    .button:hover,
+    .button:focus,
+    input[type=submit]:hover {
+        text-decoration: none;
+        color: #fff;
+        background: darken( @accent-purple, 8% );
+        border: none;
+    }
+
+    .site-footer #sign-up {
+        background: #EDD3F2;
+
+        h3, p {
+            color: #A471AE;
         }
     }
 
