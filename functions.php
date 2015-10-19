@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.0.5' );
+	define( 'RCP_THEME_VERSION', '1.0.6' );
 }
 
 /**
@@ -160,7 +160,7 @@ add_action( 'trustedd_site_branding_start', 'rcp_header_logo' );
 function rcp_the_title( $title, $id = null ) {
 
 	if ( is_page( 'pricing' ) && $id == get_the_ID() ) {
-		$title = '<span class="entry-title-primary">30 Day Money Back Guarantee</span><span class="entry-subtitle">We stand behind our product 100% ' . rcp_show_refund_policy_link() . '</span>';
+		$title = '<span class="entry-title-primary">30 Day Money Back Guarantee</span><span class="subtitle">We stand behind our product 100% ' . rcp_show_refund_policy_link() . '</span>';
 	}
 
     return $title;
@@ -353,57 +353,41 @@ add_action( 'trustedd_footer_start', 'rcp_footer_sign_up' );
 function rcp_footer_menu() {
 ?>
 
-<section>
-	<div class="wrapper footer-links">
+<section class="container-fluid footer-links">
 
-		<div class="grid columns-4">
+	<div class="row">
 
-			<div class="grid-child">
+		<div class="col-xs-12 col-sm-6 col-lg-3">
+			<h4>Restrict Content Pro</h4>
+			<ul>
+				<li><a href="<?php echo site_url( 'pricing' ); ?>">Pricing</a></li>
+				<li><a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">Refund policy</a></li>
+				<li><a href="<?php echo site_url( 'support' ); ?>">Support</a></li>
+				<li><a href="http://docs.pippinsplugins.com/collection/4-restrict-content-pro" target="_blank">Documentation</a></li>
+				<li><a href="<?php echo site_url( 'screenshots' ); ?>">Screenshots</a></li>
+				<li><a href="#changelog" id="rcp-changelog" class="popup-content download-meta-link" data-effect="mfp-move-from-bottom">Changelog</a></li>
+				<li><a href="<?php echo site_url( 'add-ons' ); ?>">Add-ons</a></li>
+				<li><a href="<?php echo site_url( 'about' ); ?>">About</a></li>
+				<li><a href="<?php echo site_url( 'consultants' ); ?>">Consultants</a></li>
+				<li><a href="https://twitter.com/rcpwp" target="blank">Follow on Twitter</a></li>
+			</ul>
+		</div>
 
+		<div class="col-xs-12 col-sm-6 col-lg-3">
+			<h4>Quick help</h4>
+			<ul>
+				<li><a href="http://docs.pippinsplugins.com/category/27-installation" target="_blank">Installation</a></li>
+				<li><a href="http://docs.pippinsplugins.com/category/815-payment-gateways" target="_blank">Payment gateways</a></li>
+				<li><a href="http://docs.pippinsplugins.com/category/45-common-issues" target="_blank">Common issues and FAQs</a></li>
+				<li><a href="http://docs.pippinsplugins.com/category/37-restricting-content" target="_blank">Restricting content</a></li>
+				<li><a href="http://docs.pippinsplugins.com/category/38-short-codes" target="_blank">Shortcodes</a></li>
+				<li><a href="http://docs.pippinsplugins.com/category/48-add-ons" target="_blank">Add-ons</a></li>
+				<li><a href="http://docs.pippinsplugins.com/category/41-developer-documentation" target="_blank">Developer documentation</a></li>
 
-					<h4>Restrict Content Pro</h4>
-					<ul>
-						<li><a href="<?php echo site_url( 'pricing' ); ?>">Pricing</a></li>
-						<li><a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">Refund policy</a></li>
-						<li><a href="<?php echo site_url( 'support' ); ?>">Support</a></li>
-						<li><a href="http://docs.pippinsplugins.com/collection/4-restrict-content-pro" target="_blank">Documentation</a></li>
-						<li><a href="<?php echo site_url( 'screenshots' ); ?>">Screenshots</a></li>
-						<li><a href="#changelog" id="rcp-changelog" class="popup-content download-meta-link" data-effect="mfp-move-from-bottom">Changelog</a></li>
-						<!-- <li><a href="#">Features</a></li> -->
-						<li><a href="<?php echo site_url( 'add-ons' ); ?>">Add-ons</a></li>
-						<li><a href="<?php echo site_url( 'about' ); ?>">About</a></li>
-						<li><a href="<?php echo site_url( 'consultants' ); ?>">Consultants</a></li>
-						<li><a href="https://twitter.com/rcpwp" target="blank">Follow on Twitter</a></li>
+			</ul>
+		</div>
 
-						<!-- <li><a href="#">Pippin's Plugins</a></li> -->
-						<!-- <li><a href="#">Testimonials</a></li> -->
-						<!-- <li><a href="#">Brand Assets</a></li> -->
-
-					</ul>
-
-
-
-
-			</div>
-
-			<div class="grid-child">
-
-					<h4>Quick help</h4>
-					<ul>
-						<li><a href="http://docs.pippinsplugins.com/category/27-installation" target="_blank">Installation</a></li>
-						<li><a href="http://docs.pippinsplugins.com/category/815-payment-gateways" target="_blank">Payment gateways</a></li>
-						<li><a href="http://docs.pippinsplugins.com/category/45-common-issues" target="_blank">Common issues and FAQs</a></li>
-						<li><a href="http://docs.pippinsplugins.com/category/37-restricting-content" target="_blank">Restricting content</a></li>
-						<li><a href="http://docs.pippinsplugins.com/category/38-short-codes" target="_blank">Shortcodes</a></li>
-						<li><a href="http://docs.pippinsplugins.com/category/48-add-ons" target="_blank">Add-ons</a></li>
-						<li><a href="http://docs.pippinsplugins.com/category/41-developer-documentation" target="_blank">Developer documentation</a></li>
-
-					</ul>
-
-			</div>
-
-			<div class="grid-child">
-
+		<div class="col-xs-12 col-sm-6 col-lg-3">
 			<?php
 				$args = array(
 					'title'        => 'Pippin\'s Plugins',  // Title of the Widget
@@ -416,52 +400,43 @@ function rcp_footer_menu() {
 
 				the_widget( 'WP_Widget_RSS', $args );
 			?>
-
-			</div>
-
-			<div class="grid-child meet-the-family">
-
-					<h4>Meet the family</h4>
-					<ul id="our-sites">
-
-						<li class="affwp">
-							<a href="http://affiliatewp.com/" target="_blank">
-								<div class="mascot">
-									<img src="<?php echo get_stylesheet_directory_uri() . '/images/affwp.png'; ?>" />
-								</div>
-								<div class="info">
-									<h4>AffiliateWP</h4>
-									<p>The best affiliate marketing plugin for WordPress.</p>
-								</div>
-
-							</a>
-
-						</li>
-
-						<li class="edd">
-							<a href="https://easydigitaldownloads.com/" target="_blank">
-								<div class="mascot">
-									<img src="<?php echo get_stylesheet_directory_uri() . '/images/eddwp.png'; ?>" />
-								</div>
-								<div class="info">
-									<h4>Easy Digital Downloads</h4>
-									<p>The easiest way to sell digital downloads through WordPress,	for free.</p>
-								</div>
-
-							</a>
-
-						</li>
-
-					</ul>
-
-			</div>
-
 		</div>
-	</div>
 
-	<div id="changelog" class="popup entry-content mfp-with-anim mfp-hide">
-		<h1>Changelog</h1>
-		<?php echo rcp_get_changelog(); ?>
+		<div class="col-xs-12 col-sm-6 col-lg-3 meet-the-family">
+			<h4>Meet the family</h4>
+			<ul id="our-sites">
+
+				<li class="affwp">
+					<a href="http://affiliatewp.com/" target="_blank">
+						<div class="mascot">
+							<img src="<?php echo get_stylesheet_directory_uri() . '/images/affwp.png'; ?>" />
+						</div>
+						<div class="info">
+							<h4>AffiliateWP</h4>
+							<p>The best affiliate marketing plugin for WordPress.</p>
+						</div>
+
+					</a>
+
+				</li>
+
+				<li class="edd">
+					<a href="https://easydigitaldownloads.com/" target="_blank">
+						<div class="mascot">
+							<img src="<?php echo get_stylesheet_directory_uri() . '/images/eddwp.png'; ?>" />
+						</div>
+						<div class="info">
+							<h4>Easy Digital Downloads</h4>
+							<p>The easiest way to sell digital downloads through WordPress,	for free.</p>
+						</div>
+
+					</a>
+
+				</li>
+
+			</ul>
+		</div>
+
 	</div>
 
 </section>

@@ -157,7 +157,7 @@
     font-size: 0.875rem;
 }
 
-.footer-links .grid-child {
+.footer-links .row > div {
     line-height: 1.62;
 }
 
@@ -165,44 +165,24 @@
     margin-right: 0.5rem;
 }
 
-
-// start with no padding on grid wrap
-.footer-links .grid-wrap {
-    padding: 0;
-}
-
 // start with border on top
-.footer-links .grid-child {
+.footer-links .row > div {
     border-top: 2px solid @light-grey;
     padding-top: 2rem;
 }
 
 
-
 // Small Devices, Tablets
-@media only screen and ( min-width : 768px ) {
+@media only screen and ( min-width: @screen-sm-min ) {
 
-    .footer-links .grid.columns-4 .grid-child {
-        width: 50%;
-        padding: 2rem;
-    }
-
-    .footer-links .grid-wrap {
-        padding: 1rem;
-    }
-
-    .footer-links .grid-child:nth-of-type(2),
-    .footer-links .grid-child:nth-of-type(4) {
+    .footer-links .row > div:nth-of-type(2),
+    .footer-links .row > div:nth-of-type(4) {
         border-left: 2px solid @light-grey;
-    }
-
-    .footer-links .grid-child:first-child {
-        border-left: none;
     }
 
 }
 
-@media only screen and ( min-width : 992px ) {
+@media only screen and ( min-width: @screen-md-min ) {
 
     .footer-links {
         margin-top: 10rem;
@@ -224,17 +204,11 @@
        width: 200px;
    }
 
-
 }
 
+@media only screen and ( min-width : @screen-lg-min ) {
 
-@media only screen and ( min-width : 1100px ) {
-
-    .footer-links .grid.columns-4 .grid-child {
-        width: 25%;
-    }
-
-    .footer-links .grid-child:nth-of-type(3) {
+    .footer-links .row > div:nth-of-type(3) {
         border-left: 2px solid @light-grey;
     }
 

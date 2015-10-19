@@ -70,10 +70,10 @@ module.exports = function(grunt) {
             position: 'top',
             banner: '/*\nTheme Name: Restrict Content Pro\n' +
                     'Template: <%= pkg.parentTheme %>\n' +
-                    'Theme URI: http://easydigitaldownloads.com/downloads/trustedd/\n' +
+                    'Theme URI: <%= pkg.theme_uri %>\n' +
                     'Author: Andrew Munro\n' +
                     'Author URI: http://sumobi.com\n' +
-                    'Description: Build a business your customers trust\n' +
+                    'Description: \n' +
                     'License: GNU General Public License\n' +
                     'License URI: license.txt\n' +
                     '*/',

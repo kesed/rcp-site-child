@@ -1,11 +1,10 @@
 // testimonial styles
-// uses the basic grid.less file for base layout
-
-.home #content section.feature.testimonials {
-    padding: 0;
-}
 
 .testimonials {
+
+    blockquote {
+        margin: 0;
+    }
 
     p {
         font-weight: 200;
@@ -17,57 +16,26 @@
         margin: 0 auto;
     }
 
-    .grid-child {
-        display: -webkit-flex;
-        display: flex;
-    }
-
-    .grid-wrap {
-        text-align: center;
-        margin: 0 auto;
-    }
-
-
-
-    blockquote {
-        margin: 0;
-    }
-
     .testimonial-footer {
         font-style: italic;
         margin: auto 0 0 0;
         font-weight: 400;
     }
 
-
 }
 
 .testimonial-wrap {
     background: #fff;
-    padding: 1rem;
 }
 
-
-.page-template-pricing .testimonials {
-    margin-bottom: 5rem;
-}
+// .page-template-pricing .testimonials {
+//     margin-bottom: 5rem;
+// }
 
 @media only screen and ( min-width : 480px ) {
 
-    .home #content section.feature.testimonials {
-        padding: 3rem 2rem;
+    .testimonials p {
+        font-size: 1.2rem;
     }
 
-    .testimonial-wrap {
-        padding: 3rem;
-        margin: 0 auto;
-        max-width: 980px;
-    }
-
-    .testimonials {
-
-        p {
-            font-size: 1.2rem;
-        }
-    }
 }
