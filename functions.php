@@ -439,6 +439,11 @@ function rcp_footer_menu() {
 
 	</div>
 
+	<div id="changelog" class="popup entry-content mfp-with-anim mfp-hide">
+		<h1>Changelog</h1>
+		<?php echo rcp_get_changelog(); ?>
+	</div>
+	
 </section>
 
 <?php
