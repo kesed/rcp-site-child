@@ -56,7 +56,7 @@ get_header(); ?>
 
                 <div class="col-xs-12 col-lg-9">
                     <h4 class="">Built-in Integrations</h4>
-                    <p>Accept credit cards with Stripe, Braintree, or PayPal Website Payments Pro. Restrict Content Pro also supports PayPal Standard and Express, as well as multiple payment options at the same time.</p>
+                    <p>Accept credit cards with Stripe, Braintree, 2Checkout, or PayPal Website Payments Pro. Restrict Content Pro also supports PayPal Standard and Express, as well as multiple payment options at the same time.</p>
                 </div>
 
             </div>
@@ -279,7 +279,7 @@ get_header(); ?>
 
 <section class="container-fluid aligncenter pv-xs-2 pv-sm-4 ph-lg-10">
     <h1 class="ph-lg-6 mb-xs-1">Payment integrations</h1>
-    <p class="ph-lg-6 subtitle mb-lg-4">Support for Stripe.com, Braintree, PayPal Standard, PayPal Express, and PayPal Website Payments Pro.</p>
+    <p class="ph-lg-6 subtitle mb-lg-4">Support for Stripe.com, 2Checkout, Braintree, PayPal Standard, PayPal Express, and PayPal Website Payments Pro.</p>
 
     <div class="row middle-sm ph-lg-6">
 
