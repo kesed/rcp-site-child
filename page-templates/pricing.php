@@ -11,7 +11,7 @@ get_header(); ?>
 
 <div class="content-area">
 
-	<div class="mb-xs-2 wrapper wide<?php echo trustedd_wrapper_classes(); ?>">
+	<div class="mb-xs-2 wrapper wide">
 
 	<?php
 		// Start the Loop.
