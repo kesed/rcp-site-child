@@ -5,8 +5,13 @@
 
 get_header(); ?>
 
+<header class="page-header<?php echo trustedd_page_header_classes(); ?>">
+	<h1 class="page-title"><?php echo get_the_title( get_the_ID() ); ?></h1>
+</header>
+
 <div class="content-area">
-	<div class="section wrapper wide">
+
+	<div class="mb-xs-2 wrapper wide<?php echo trustedd_wrapper_classes(); ?>">
 
 	<?php
 		// Start the Loop.
@@ -55,9 +60,6 @@ get_header(); ?>
 	    </div>
 
 	</section>
-
-
-
 
 	<section class="container-fluid pv-xs-4 pv-lg-4">
 

@@ -443,7 +443,7 @@ function rcp_footer_menu() {
 		<h1>Changelog</h1>
 		<?php echo rcp_get_changelog(); ?>
 	</div>
-	
+
 </section>
 
 <?php
