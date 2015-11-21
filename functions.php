@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.0.6' );
+	define( 'RCP_THEME_VERSION', '1.0.7' );
 }
 
 /**
@@ -27,6 +27,9 @@ function rcp_setup() {
 
 	// GravityForm tweaks
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'gravity-forms.php' );
+
+	// Simple Notices Pro tweaks
+	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'notices.php' );
 
 	// EDD functions
 	if ( function_exists( 'trustedd_is_edd_active' ) && trustedd_is_edd_active() ) {

@@ -1,0 +1,84 @@
+#notification-area {
+	background: #2a76d2;
+	width: 100%;
+	padding: 1rem 4rem;
+	vertical-align: middle;
+	text-align: center;
+	position: relative;
+}
+
+.notice-content,
+.notice-content img {
+    vertical-align: middle;
+}
+
+.notice-content img {
+    margin-right: 1rem;
+}
+
+#notification-area a {
+	color: #fff;
+    border-bottom: none;
+}
+
+#notification-area a:hover {
+	color: #fff;
+}
+
+#notification-area.discount-applied {
+	background: #e44e44;
+}
+
+#notification-area.discount-applied.link {
+	padding: 0;
+}
+
+#notification-area.discount-applied.link a {
+	display: block;
+	padding: 1rem 4rem;
+}
+
+#notification-area svg,
+#notification-area p {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#notification-area p {
+	margin-bottom: 0;
+	font-size: 1rem;
+}
+
+#notification-area h3,
+#notification-area p {
+	color: #fff;
+    font-weight: 600;
+}
+
+#notification-area h3 {
+	margin-bottom: 0;
+}
+
+#notification-area.snp-hidden {
+	display: none;
+}
+
+.logged-in #notification-area.snp-hidden {
+	display: block;
+}
+
+#remove-notice {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+}
+
+#announcement {
+	margin: 0 0 1rem 0;
+}
+
+@media only screen and ( min-width: 920px ) {
+	#announcement {
+		margin: 0 1rem 0 0;
+	}
+}
