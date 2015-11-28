@@ -32,8 +32,15 @@ figcaption {
 	display: none;
 }
 
-@media all and ( min-width: 768px ) {
-    .site-title {
+
+@media only screen and ( min-width: @screen-sm-min ) {
+
+	.site-title {
 		display: block;
 	}
+
+	.page-header h1 {
+		font-size: 3.25rem;
+	}
+
 }
