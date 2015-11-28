@@ -213,11 +213,12 @@ get_header(); ?>
 
 			<div class="testimonial-wrap ph-xs-2 pv-xs-2">
 
-				<blockquote>
-					<p>When it comes to a fast and clean membership site, nothing is faster for end users than RCP. When it comes to extensible code that a developer will love, nothing is better than Pippin’s code.</p>
-				</blockquote>
+                <blockquote>
+                    <p>When it comes to a fast and clean membership site, nothing is faster for end users than RCP. When it comes to extensible code that a developer will love, nothing is better than Pippin’s code.</p>
+                    <footer>&mdash; Chris Lema</footer>
+                </blockquote>
 
-				<p class="testimonial-footer">&mdash; Chris Lema</p>
+
 			</div>
 
         </div>
@@ -227,9 +228,9 @@ get_header(); ?>
 			<div class="testimonial-wrap ph-xs-2 pv-xs-2">
 				<blockquote>
 					<p>RCP is always at the top of my list when helping clients choose a membership platform. In addition to being a great plugin ​today​, the pace of improvement is impressive. RCP gets better and better all the time.</p>
-				</blockquote>
+                    <footer>&mdash; Travis Northcutt, The Bright Agency</footer>
+                </blockquote>
 
-				<p class="testimonial-footer">&mdash; Travis Northcutt, The Bright Agency</p>
 			</div>
         </div>
 
