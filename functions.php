@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.0.9' );
+	define( 'RCP_THEME_VERSION', '1.1.0' );
 }
 
 /**
@@ -535,3 +535,40 @@ function rcp_favicons() {
 	<?php
 }
 add_action( 'wp_head', 'rcp_favicons' );
+
+/**
+ * Load the gateway sidebar for gateway pages
+ */
+function rcp_load_sidebars( $sidebar ) {
+
+	global $post;
+
+	$page = get_page_by_title( 'Payment Gateways' );
+
+	if ( $page->ID == $post->post_parent ) {
+		$sidebar = 'gateway'; // sidebar-gateway.php
+	}
+
+	return $sidebar;
+}
+add_filter( 'trustedd_get_sidebar', 'rcp_load_sidebars' );
+
+/**
+ * Gets the id of the topmost ancestor of the current page. Returns the current
+ * page's id if there is no parent.
+ *
+ * @uses object $post
+ * @return int
+ */
+function rcp_get_post_top_ancestor_id() {
+
+    global $post;
+
+    if ( $post->post_parent ) {
+        $ancestors = array_reverse( get_post_ancestors( $post->ID ) );
+        return $ancestors[0];
+    }
+
+    return $post->ID;
+
+}
