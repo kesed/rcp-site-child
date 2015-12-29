@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.1.0' );
+	define( 'RCP_THEME_VERSION', '1.1.1' );
 }
 
 /**
@@ -537,16 +537,12 @@ function rcp_favicons() {
 add_action( 'wp_head', 'rcp_favicons' );
 
 /**
- * Load the gateway sidebar for gateway pages
+ * Load the gateway sidebar for subpages
  */
 function rcp_load_sidebars( $sidebar ) {
 
-	global $post;
-
-	$page = get_page_by_title( 'Payment Gateways' );
-
-	if ( $page->ID == $post->post_parent ) {
-		$sidebar = 'gateway'; // sidebar-gateway.php
+	if ( rcp_is_grid_subpage() ) {
+		$sidebar = 'subpages'; // sidebar-subpages.php
 	}
 
 	return $sidebar;
@@ -572,3 +568,57 @@ function rcp_get_post_top_ancestor_id() {
     return $post->ID;
 
 }
+
+/**
+ * Is page a child page of the grid page?
+ */
+function rcp_is_grid_subpage() {
+
+	global $post;
+
+	$is_grid_subpage = false;
+	$parent_post_id  = $post->post_parent;
+
+	// parent page cannot be 0
+	if ( $parent_post_id ) {
+
+		$template_slug = get_page_template_slug( $parent_post_id );
+
+		if ( $template_slug === 'page-templates/grid-subpages.php' ) {
+			$is_grid_subpage = true;
+		}
+
+	}
+
+	return $is_grid_subpage;
+}
+
+/**
+ * Change primary column classes for payment gateway pages
+ */
+function rcp_trustedd_primary_classes( $classes ) {
+
+	// give subpages navigation some room
+	if ( rcp_is_grid_subpage() ) {
+		$classes = array();
+		$classes[] = 'col-xs-8';
+	}
+
+	return $classes;
+}
+add_filter( 'trustedd_primary_classes', 'rcp_trustedd_primary_classes' );
+
+/**
+ * Change CSS classes for wrapper
+ */
+function rcp_force_sidebar_layout( $classes ) {
+
+	// tell the theme we want a sidebar class so the spacing is adjusted
+	if ( rcp_is_grid_subpage() ) {
+		$classes = array();
+		$classes[] = 'has-sidebar';
+	}
+
+	return $classes;
+}
+add_filter( 'trustedd_wrapper_classes', 'rcp_force_sidebar_layout' );
