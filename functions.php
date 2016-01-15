@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.1.1' );
+	define( 'RCP_THEME_VERSION', '1.1.2' );
 }
 
 /**
@@ -601,7 +601,7 @@ function rcp_trustedd_primary_classes( $classes ) {
 	// give subpages navigation some room
 	if ( rcp_is_grid_subpage() ) {
 		$classes = array();
-		$classes[] = 'col-xs-8';
+		$classes[] = 'col-xs-12 col-md-8';
 	}
 
 	return $classes;
