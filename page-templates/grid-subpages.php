@@ -15,59 +15,59 @@ $child_pages = get_pages( 'sort_column=menu_order&child_of=' . get_the_ID() );
 </header>
 
 <section class="container-fluid">
-<div class="wrapper wide">
-    <div class="content-area">
+	<div class="wrapper wide">
+	    <div class="content-area">
 
-		<?php
-			// Start the Loop.
-			while ( have_posts() ) : the_post();
+			<?php
+				// Start the Loop.
+				while ( have_posts() ) : the_post();
 
-				// Include the page content template.
-				get_template_part( 'template-parts/content', 'page' );
+					// Include the page content template.
+					get_template_part( 'template-parts/content', 'page' );
 
-			endwhile;
-		?>
-
-		<?php if ( $child_pages ) : ?>
-		<div class="grid row mb-xs-4">
-			<?php foreach ( $child_pages as $page ) :
-
-			$page_id   = $page->ID;
-			$title     = $page->post_title;
-			$excerpt   = $page->post_excerpt;
-			$permalink = get_permalink( $page_id );
-			$image     = get_the_post_thumbnail ( $page_id );
-
+				endwhile;
 			?>
 
-			<div class="col-xs-12 col-sm-4 grid-item">
-				<div class="grid-item-inner">
+			<?php if ( $child_pages ) : ?>
+			<div class="grid row mb-xs-4">
+				<?php foreach ( $child_pages as $page ) :
 
-					<?php if ( $image ) : ?>
-					<div class="grid-item-image"><a href="<?php echo $permalink; ?>"><?php echo $image; ?></a></div>
-					<?php endif; ?>
+				$page_id   = $page->ID;
+				$title     = $page->post_title;
+				$excerpt   = $page->post_excerpt;
+				$permalink = get_permalink( $page_id );
+				$image     = get_the_post_thumbnail ( $page_id );
 
-					<div class="grid-item-content">
-						<h3 class="grid-title"><a href="<?php echo $permalink; ?>"><?php echo $page->post_title; ?></a></h3>
+				?>
 
-						<?php if ( $excerpt ) : ?>
-						<p><?php echo $excerpt; ?></p>
+				<div class="col-xs-12 col-sm-4 grid-item">
+					<div class="grid-item-inner">
+
+						<?php if ( $image ) : ?>
+						<div class="grid-item-image"><a href="<?php echo $permalink; ?>"><?php echo $image; ?></a></div>
 						<?php endif; ?>
 
+						<div class="grid-item-content">
+							<h3 class="grid-title"><a href="<?php echo $permalink; ?>"><?php echo $page->post_title; ?></a></h3>
+
+							<?php if ( $excerpt ) : ?>
+							<p><?php echo $excerpt; ?></p>
+							<?php endif; ?>
+
+						</div>
+
+						<footer>
+							<a href="<?php echo $permalink; ?>">Learn more</a>
+						</footer>
 					</div>
-
-					<footer>
-						<a href="<?php echo $permalink; ?>">Learn more</a>
-					</footer>
 				</div>
-			</div>
 
-            <?php endforeach; ?>
-	    </div>
-		<?php endif; ?>
+	            <?php endforeach; ?>
+		    </div>
+			<?php endif; ?>
 
+		</div>
 	</div>
-</div>
 </section>
 <?php
 get_footer();
