@@ -6,7 +6,7 @@
 get_header();
 
 // get the child pages of the current page
-$child_pages = get_pages( 'sort_column=menu_order&child_of=' . get_the_ID() );
+$child_pages = get_pages( 'parent=' . get_the_ID() . '&sort_column=menu_order&child_of=' . get_the_ID() );
 
 ?>
 
@@ -48,7 +48,7 @@ $child_pages = get_pages( 'sort_column=menu_order&child_of=' . get_the_ID() );
 						<?php endif; ?>
 
 						<div class="grid-item-content">
-							<h3 class="grid-title"><a href="<?php echo $permalink; ?>"><?php echo $page->post_title; ?></a></h3>
+							<h3 class="grid-title"><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></h3>
 
 							<?php if ( $excerpt ) : ?>
 							<p><?php echo $excerpt; ?></p>

@@ -4,10 +4,12 @@
 		<?php do_action( 'trustedd_primary_sidebar_start' ); ?>
 
 		<aside id="subpages">
-			<ul class="">
+			<ul>
 			    <?php wp_list_pages( array( 'title_li' => '', 'include' => rcp_get_post_top_ancestor_id() ) ); ?>
-			    <?php wp_list_pages( array( 'title_li'=> '', 'depth' => 1, 'child_of' => rcp_get_post_top_ancestor_id(), 'sort_column' => 'menu_order' ) ); ?>
+			    <?php wp_list_pages( array( 'title_li' => '', 'depth' => 1, 'child_of' => rcp_get_post_top_ancestor_id(), 'sort_column' => 'menu_order' ) ); ?>
 			</ul>
+
+			<?php do_action( 'trustedd_subpages_end' ); ?>
 		</aside>
 
 	</div>

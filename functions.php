@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.1.2' );
+	define( 'RCP_THEME_VERSION', '1.1.3' );
 }
 
 /**
@@ -122,9 +122,27 @@ add_action( 'edd_pricing_table_bottom', 'rcp_pricing_table_notice' );
  */
 function rcp_body_classes( $classes ) {
 
+	global $post;
+
 	if ( is_page( 'about' ) ) {
 		$classes[] = 'about';
 	}
+
+	if ( is_page( 'features' ) ) {
+		$classes[] = 'features';
+	}
+
+	if ( $post ) {
+		$parent_post_id  = $post->post_parent;
+
+		$features_page = get_page_by_title( 'features' );
+
+		if ( $features_page->ID === $parent_post_id ) {
+			$classes[] = 'single-features';
+		}
+	}
+
+
 
 	return $classes;
 }
@@ -562,7 +580,14 @@ function rcp_get_post_top_ancestor_id() {
 
     if ( $post->post_parent ) {
         $ancestors = array_reverse( get_post_ancestors( $post->ID ) );
-        return $ancestors[0];
+
+		// page has two ancestors, return the second one which is the direct parent
+		if ( count( $ancestors ) === 2 ) {
+			return $ancestors[1];
+		}
+
+		// only one ancestor
+		return $ancestors[0];
     }
 
     return $post->ID;
@@ -576,19 +601,28 @@ function rcp_is_grid_subpage() {
 
 	global $post;
 
+//	var_dump( $post );
+
 	$is_grid_subpage = false;
-	$parent_post_id  = $post->post_parent;
 
-	// parent page cannot be 0
-	if ( $parent_post_id ) {
+	if ( isset( $post ) ) {
+		$parent_post_id  = $post->post_parent;
 
-		$template_slug = get_page_template_slug( $parent_post_id );
+		// parent page cannot be 0
+		if ( $parent_post_id ) {
 
-		if ( $template_slug === 'page-templates/grid-subpages.php' ) {
-			$is_grid_subpage = true;
+			$template_slug = get_page_template_slug( $parent_post_id );
+
+			if ( $template_slug === 'page-templates/grid-subpages.php' ) {
+				$is_grid_subpage = true;
+			}
+
 		}
-
 	}
+
+
+
+
 
 	return $is_grid_subpage;
 }
@@ -622,3 +656,18 @@ function rcp_force_sidebar_layout( $classes ) {
 	return $classes;
 }
 add_filter( 'trustedd_wrapper_classes', 'rcp_force_sidebar_layout' );
+
+/**
+ * Add a purchase button to the feature subpages
+ */
+function rcp_subpages_cta() {
+
+	?>
+
+	<div class="wrapper ph-sm-2 mb-sm-2">
+		<a href="/pricing" class="button">Get started now &rarr;</a>
+	</div>
+
+	<?php
+}
+add_action( 'trustedd_subpages_end', 'rcp_subpages_cta' );
