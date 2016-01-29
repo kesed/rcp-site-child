@@ -115,14 +115,34 @@ function rcp_pricing_table_notice() {
 }
 add_action( 'edd_pricing_table_bottom', 'rcp_pricing_table_notice' );
 
+
+/**
+ * Is single feature page
+ *
+ */
+function rcp_is_single_feature() {
+	global $post;
+
+	if ( $post ) {
+		$parent_post_id = $post->post_parent;
+
+		$features_page = get_page_by_title( 'features' );
+
+		if ( $features_page->ID === $parent_post_id ) {
+			return true;
+		}
+	}
+
+	return false;
+
+}
+
 /**
  * Adds custom classes to the array of body classes.
  *
  * @since 1.0
  */
 function rcp_body_classes( $classes ) {
-
-	global $post;
 
 	if ( is_page( 'about' ) ) {
 		$classes[] = 'about';
@@ -132,17 +152,9 @@ function rcp_body_classes( $classes ) {
 		$classes[] = 'features';
 	}
 
-	if ( $post ) {
-		$parent_post_id  = $post->post_parent;
-
-		$features_page = get_page_by_title( 'features' );
-
-		if ( $features_page->ID === $parent_post_id ) {
-			$classes[] = 'single-features';
-		}
+	if ( rcp_is_single_feature() ) {
+		$classes[] = 'single-features';
 	}
-
-
 
 	return $classes;
 }
@@ -601,8 +613,6 @@ function rcp_is_grid_subpage() {
 
 	global $post;
 
-//	var_dump( $post );
-
 	$is_grid_subpage = false;
 
 	if ( isset( $post ) ) {
@@ -619,10 +629,6 @@ function rcp_is_grid_subpage() {
 
 		}
 	}
-
-
-
-
 
 	return $is_grid_subpage;
 }
@@ -661,13 +667,25 @@ add_filter( 'trustedd_wrapper_classes', 'rcp_force_sidebar_layout' );
  * Add a purchase button to the feature subpages
  */
 function rcp_subpages_cta() {
-
 	?>
 
-	<div class="wrapper ph-sm-2 mb-sm-2">
-		<a href="/pricing" class="button">Get started now &rarr;</a>
+	<div class="wrapper ph-xs-2 mb-xs-2">
+		<a href="<?php echo site_url( 'pricing' ); ?>" class="button">Get started now &rarr;</a>
 	</div>
 
 	<?php
 }
 add_action( 'trustedd_subpages_end', 'rcp_subpages_cta' );
+
+/**
+ * Hide the post thumbnail on the feature pages
+ */
+function rcp_hide_post_thumbnail( $return ) {
+
+	if ( rcp_is_single_feature() ) {
+		$return = false;
+	}
+
+	return $return;
+}
+add_filter( 'trusted_post_thumbnail', 'rcp_hide_post_thumbnail' );
