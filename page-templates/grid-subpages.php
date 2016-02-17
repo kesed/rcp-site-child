@@ -6,7 +6,18 @@
 get_header();
 
 // get the child pages of the current page
-$child_pages = get_pages( 'parent=' . get_the_ID() . '&sort_column=menu_order&child_of=' . get_the_ID() );
+
+$args = array(
+	'parent' => get_the_ID(),
+	'sort_column' => 'menu_order',
+	'child_of' => get_the_ID()
+);
+
+if ( current_user_can( 'manage_options' ) ) {
+	$args['post_status'] = array( 'pending', 'draft', 'future', 'publish' );
+}
+
+$child_pages = get_pages( $args );
 
 ?>
 
