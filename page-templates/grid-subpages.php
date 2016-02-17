@@ -48,6 +48,19 @@ $child_pages = get_pages( 'parent=' . get_the_ID() . '&sort_column=menu_order&ch
 						<?php endif; ?>
 
 						<div class="grid-item-content">
+
+							<?php if ( class_exists( 'MultiPostThumbnails' ) ) :
+
+	                            if ( MultiPostThumbnails::get_the_post_thumbnail( get_post_type(), 'feature-icon', $page_id ) ) {
+	                                ?>
+	                                <a href="<?php echo $permalink; ?>" class="mb-xs-1">
+	                                    <?php MultiPostThumbnails::the_post_thumbnail( get_post_type(), 'feature-icon', $page_id ); ?>
+	                                </a>
+	                            <?php
+	                            }
+
+	                        endif; ?>
+
 							<h3 class="grid-title"><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></h3>
 
 							<?php if ( $excerpt ) : ?>

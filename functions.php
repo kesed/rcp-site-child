@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.1.6' );
+	define( 'RCP_THEME_VERSION', '1.1.7' );
 }
 
 /**
@@ -34,7 +34,13 @@ function rcp_setup() {
 	// EDD functions
 	if ( function_exists( 'trustedd_is_edd_active' ) && trustedd_is_edd_active() ) {
 		require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'edd-functions.php' );
+
+		// adds additional options to the download meta plugin
 		require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'download-meta.php' );
+	}
+
+	if ( is_admin() ) {
+		require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'metabox.php' );
 	}
 
 	// Register footer menu
@@ -571,7 +577,7 @@ add_action( 'wp_head', 'rcp_favicons' );
  */
 function rcp_load_sidebars( $sidebar ) {
 
-	if ( rcp_is_grid_subpage() ) {
+	if ( rcp_is_template_child_page() ) {
 		$sidebar = 'subpages'; // sidebar-subpages.php
 	}
 
@@ -609,11 +615,11 @@ function rcp_get_post_top_ancestor_id() {
 /**
  * Is page a child page of the grid page?
  */
-function rcp_is_grid_subpage() {
+function rcp_is_template_child_page() {
 
 	global $post;
 
-	$is_grid_subpage = false;
+	$is_child_page = false;
 
 	if ( isset( $post ) ) {
 		$parent_post_id  = $post->post_parent;
@@ -623,14 +629,14 @@ function rcp_is_grid_subpage() {
 
 			$template_slug = get_page_template_slug( $parent_post_id );
 
-			if ( $template_slug === 'page-templates/grid-subpages.php' ) {
-				$is_grid_subpage = true;
+			if ( $template_slug === 'page-templates/grid-subpages.php' || $template_slug === 'page-templates/list-subpages.php' ) {
+				$is_child_page = true;
 			}
 
 		}
 	}
 
-	return $is_grid_subpage;
+	return $is_child_page;
 }
 
 /**
@@ -639,7 +645,7 @@ function rcp_is_grid_subpage() {
 function rcp_trustedd_primary_classes( $classes ) {
 
 	// give subpages navigation some room
-	if ( rcp_is_grid_subpage() ) {
+	if ( rcp_is_template_child_page() ) {
 		$classes = array();
 		$classes[] = 'col-xs-12 col-md-8';
 	}
@@ -654,7 +660,7 @@ add_filter( 'trustedd_primary_classes', 'rcp_trustedd_primary_classes' );
 function rcp_force_sidebar_layout( $classes ) {
 
 	// tell the theme we want a sidebar class so the spacing is adjusted
-	if ( rcp_is_grid_subpage() ) {
+	if ( rcp_is_template_child_page() ) {
 		$classes = array();
 		$classes[] = 'has-sidebar';
 	}
@@ -689,3 +695,13 @@ function rcp_hide_post_thumbnail( $return ) {
 	return $return;
 }
 add_filter( 'trusted_post_thumbnail', 'rcp_hide_post_thumbnail' );
+
+/**
+ * Show the SVGs in the metabox
+ */
+function rcp_custom_admin_styles() {
+	?>
+	<style>	img.mpt-thumbnail{width: auto;}
+	<?php
+}
+add_action( 'admin_head', 'rcp_custom_admin_styles' );
