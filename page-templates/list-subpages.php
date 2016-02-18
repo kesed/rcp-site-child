@@ -55,7 +55,9 @@ $child_pages = get_pages( $args );
                 $classes = array();
                 if ( $count % 2 != 0 ) {
                     $classes[] = 'odd';
-                }
+                } else {
+					$classes[] = 'even';
+				}
 
                 $classes = ' ' . implode( ' ', $classes );
 				?>
@@ -66,7 +68,7 @@ $child_pages = get_pages( $args );
                         <div class="row middle-xs">
 
                             <?php if ( $image ) : ?>
-                            <div class="col-xs-12 col-md-8 mb-xs-2 hidden-xs">
+                            <div class="col-xs-12 col-md-8 mb-xs-2 hidden-xs col-image">
                                 <a href="<?php echo $permalink; ?>"><?php echo $image; ?></a>
                             </div>
                             <?php endif; ?>
