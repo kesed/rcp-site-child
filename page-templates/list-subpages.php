@@ -25,7 +25,7 @@ $child_pages = get_pages( $args );
 </header>
 
 <section class="container-fluid">
-	<div class="wrapper wide">
+	<div class="wrapper <?php echo apply_filters( 'trustedd_list_subpages_wrapper_class', 'wide' ); ?>">
 	    <div class="content-area">
 
 			<?php

@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.1.9' );
+	define( 'RCP_THEME_VERSION', '1.2.0' );
 }
 
 /**
@@ -149,6 +149,12 @@ function rcp_is_single_feature() {
  * @since 1.0
  */
 function rcp_body_classes( $classes ) {
+
+	global $post;
+
+	if ( has_shortcode( $post->post_content, 'gallery' ) ) {
+		$classes[] = 'has-gallery';
+	}
 
 	if ( is_page( 'about' ) ) {
 		$classes[] = 'about';
@@ -717,3 +723,18 @@ function rcp_show_draft_pages( $dropdown_args, $post ) {
 
 }
 add_filter( 'page_attributes_dropdown_pages_args', 'rcp_show_draft_pages', 10, 2 );
+
+/**
+ * Alternate layout for features page
+ * Removes the default wide wrapper class bringing the images to the edges
+ */
+function rcp_list_subpages_wrapper_class( $class ) {
+
+	if ( is_page( 'features' ) ) {
+		$class = 'full-width';
+	}
+
+	return $class;
+
+}
+//add_filter( 'trustedd_list_subpages_wrapper_class', 'rcp_list_subpages_wrapper_class' );
