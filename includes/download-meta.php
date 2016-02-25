@@ -186,3 +186,36 @@ function rcp_download_meta_changelog() {
 
 <?php }
 add_action( 'edd_download_meta', 'rcp_download_meta_changelog', 10 );
+
+
+/**
+ *
+ * Show the add-on's download category
+ * @since 1.0.0
+ */
+function rcp_download_meta_category() {
+
+	if ( has_term( 'pro', 'download_category', get_the_ID() ) ) {
+		$link = site_url( 'add-ons/pro' );
+		$text = 'Pro add-on';
+	} elseif( has_term( 'official', 'download_category', get_the_ID() ) ) {
+		$link = site_url( 'add-ons/official' );
+		$text = 'Official add-on';
+	} else {
+		$link = '';
+		$text = '';
+	}
+
+?>
+
+	<?php if ( $text && $link ) : ?>
+	<div class="download-meta">
+		<a href="<?php echo $link; ?>" class="download-meta-link">
+			<img src="<?php echo get_stylesheet_directory_uri() . '/images/svgs/download-category.svg'; ?>" width="24" height="24">
+			<span><?php echo $text; ?></span>
+		</a>
+	</div>
+	<?php endif; ?>
+
+<?php }
+add_action( 'edd_download_meta', 'rcp_download_meta_category', 10 );
