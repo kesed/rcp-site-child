@@ -784,3 +784,16 @@ function rcp_show_learn_more() {
 	<?php
 }
 add_action( 'edd_download_after', 'rcp_show_learn_more' );
+
+/**
+ * Show draft downloads to admins
+ */
+function rcp_edd_downloads_query( $query, $atts ) {
+
+	if ( current_user_can( 'manage_options' ) ) {
+		$query['post_status'] = array( 'pending', 'draft', 'future', 'publish' );
+	}
+
+	return $query;
+}
+add_filter( 'edd_downloads_query', 'rcp_edd_downloads_query', 10, 2 );
