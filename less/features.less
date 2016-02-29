@@ -24,12 +24,10 @@ img[src$=".svg"] {
 	display: block;
 }
 
-.features .even .col-image {
-	padding-left: 0;
-}
 
-.features .odd .col-image {
-	padding-right: 0;
+
+.features .content-area section {
+	border-bottom: 1px solid @light-grey;
 }
 
 .features .full-width {
@@ -62,4 +60,16 @@ img[src$=".svg"] {
 	h2 a {
 		border-bottom: none;
 	}
+}
+
+@media only screen and ( min-width : @screen-lg-min ) {
+
+	.features .even .col-image {
+		padding-left: 0;
+	}
+
+	.features .odd .col-image {
+		padding-right: 0;
+	}
+
 }

@@ -68,7 +68,7 @@ $child_pages = get_pages( $args );
                         <div class="row middle-xs">
 
                             <?php if ( $image ) : ?>
-                            <div class="col-xs-12 col-md-8 mb-xs-2 hidden-xs col-image">
+                            <div class="col-xs-12 col-md-8 hidden-xs hidden-sm col-image">
                                 <a href="<?php echo $permalink; ?>"><?php echo $image; ?></a>
                             </div>
                             <?php endif; ?>
