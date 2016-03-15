@@ -11,7 +11,10 @@
 	max-width: 64px;
 }
 
-img[src$=".svg"] {
+
+// make all svgs that are featured images 60px wide
+// does not affect svgs on single add-on pages
+img.attachment-post-thumbnail[src$=".svg"] {
 	width: 60px;
 	display: block;
 }
