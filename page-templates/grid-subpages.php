@@ -51,7 +51,7 @@ $child_pages = get_pages( $args );
 
 				?>
 
-				<div class="col-xs-12 col-sm-4 grid-item">
+				<div class="col-xs-12 col-sm-6 col-md-4 grid-item">
 					<div class="grid-item-inner">
 
 						<?php if ( $image ) : ?>

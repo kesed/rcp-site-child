@@ -43,6 +43,13 @@ body {
 	padding-right: 1rem;
 }
 
+.button, button, input[type="submit"], #submit {
+	&:hover {
+		border-bottom: 1px solid transparent;
+	}
+}
+
+
 // Small Devices, Tablets
 @media only screen and ( min-width : 768px ) {
 	#content {
@@ -92,5 +99,7 @@ body.has-gallery {
 @import 'ab-test';
 
 @import 'subpages';
+
+@import 'plugin-compatibility';
 
 @import 'grid';
