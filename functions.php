@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.2.4' );
+	define( 'RCP_THEME_VERSION', '1.2.5' );
 }
 
 /**
