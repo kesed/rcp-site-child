@@ -49,6 +49,54 @@ body {
 	}
 }
 
+.main-navigation .nav-cart {
+	padding: 0;
+}
+
+.nav-cart svg {
+	display: block;
+}
+
+#menu-toggle-wrap {
+    display: flex;
+}
+
+.nav-cart svg:hover path,
+.nav-cart svg:hover circle {
+	fill: @primary-color !important;
+}
+
+.items-in-cart .nav-cart svg:hover path,
+.items-in-cart .nav-cart svg:hover circle {
+	fill: #65BC53 !important;
+}
+
+.items-in-cart .nav-cart path,
+.items-in-cart .nav-cart circle {
+	fill: #65BC53 !important;
+}
+
+.items-in-cart .nav-cart line {
+	display: none;
+	stroke: #65BC53 !important;
+}
+
+.items-in-cart .nav-cart svg:hover line {
+	display: block;
+}
+
+.items-in-cart .nav-cart svg:hover {
+	-ms-transform: rotate(7deg);
+	-webkit-transform: rotate(7deg);
+	transform: rotate(7deg);
+}
+
+.items-in-cart .nav-cart svg:hover line {
+	-ms-transform: rotate(-7deg) translateY(3px);
+	-webkit-transform: rotate(-7deg) translateY(3px);
+	transform: rotate(-7deg) translateY(3px);
+
+}
 
 // Small Devices, Tablets
 @media only screen and ( min-width : 768px ) {
@@ -87,19 +135,15 @@ body.has-gallery {
 @import 'custom-pages';
 
 @import 'mascot';
-
 @import 'footer';
-
-
 @import 'magnific-popup';
 @import 'magnific-custom';
-
 @import 'notices';
-
 @import 'ab-test';
-
 @import 'subpages';
-
 @import 'plugin-compatibility';
-
+@import 'tables';
+@import 'add-ons';
+@import 'tabs';
+@import 'account';
 @import 'grid';

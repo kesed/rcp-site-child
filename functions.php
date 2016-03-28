@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.2.5' );
+	define( 'RCP_THEME_VERSION', '1.3' );
 }
 
 /**
@@ -31,6 +31,12 @@ function rcp_setup() {
 	// Simple Notices Pro tweaks
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'notices.php' );
 
+	// Navigation tweaks
+	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'navigation.php' );
+
+	// Deprecated
+	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'deprecated.php' );
+
 	// EDD functions
 	if ( function_exists( 'trustedd_is_edd_active' ) && trustedd_is_edd_active() ) {
 		require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'edd-functions.php' );
@@ -51,75 +57,8 @@ function rcp_setup() {
 }
 add_action( 'after_setup_theme', 'rcp_setup' );
 
-/**
- * Append extra links to primary navigation
- *
- * @since 1.0.0
-*/
-function rcp_wp_nav_menu_items( $items, $args ) {
-
-    if ( 'primary' == $args->theme_location ) {
-    	$home = ! is_front_page() ? rcp_nav_home() : '';
-
-		return $home . $items;
-    }
-
-	return $items;
-
-}
-add_filter( 'wp_nav_menu_items', 'rcp_wp_nav_menu_items', 10, 2 );
-
-/**
- * Prepend home link to main navigation
- *
- * @since 1.0.0
- */
-function rcp_nav_home() {
-	 ob_start();
-	?>
-
-	<li class="menu-item home">
-		<a title="Home" href="<?php echo site_url(); ?>">Home</a>
-	</li>
-
-	<?php $content = ob_get_contents();
-    ob_end_clean();
-
-    return $content;
-
-    ?>
-
-<?php }
-
-/**
- * Add external icon to pricing buttons
- *
- * @since 1.0.0
- */
-function rcp_edd_pricing_table_purchase_button_end() {
-	?>
-
-	<object type="image/svg+xml" data="<?php echo get_stylesheet_directory_uri() . '/images/svgs/combined/external.svg'; ?>"></object>
-
-<?php
-}
-add_action( 'edd_pricing_table_purchase_button_end', 'rcp_edd_pricing_table_purchase_button_end' );
 
 
-/**
- * Add a notice underneath the pricing table
- *
- * @since 1.0.0
- */
-function rcp_pricing_table_notice() {
-	?>
-	<p class="trustedd-notice aligncenter">After choosing a pricing option you will be redirected to PippinsPlugins.com for payment.</p>
-
-	<p class="trustedd-notice aligncenter">* You must renew the license after one calendar year for continued updates and support. All purchases are subject to our terms and conditions of use.</p>
-
-<?php
-}
-add_action( 'edd_pricing_table_bottom', 'rcp_pricing_table_notice' );
 
 
 /**
@@ -152,7 +91,7 @@ function rcp_body_classes( $classes ) {
 
 	global $post;
 
-	if ( has_shortcode( $post->post_content, 'gallery' ) ) {
+	if ( isset( $post) && has_shortcode( $post->post_content, 'gallery' ) ) {
 		$classes[] = 'has-gallery';
 	}
 
@@ -166,6 +105,16 @@ function rcp_body_classes( $classes ) {
 
 	if ( rcp_is_single_feature() ) {
 		$classes[] = 'single-features';
+	}
+
+	$cart_items = edd_get_cart_contents();
+
+	if ( $cart_items ) {
+		$classes[] = 'items-in-cart';
+	}
+
+	if ( is_page_template( 'page-templates/account.php' ) ) {
+		$classes[] = 'account';
 	}
 
 	return $classes;
@@ -288,6 +237,16 @@ function rcp_enqueue_scripts() {
 	wp_register_script( 'rcp-js', get_stylesheet_directory_uri() . '/js/rcp.min.js', array( 'jquery' ), RCP_THEME_VERSION, true );
 	wp_enqueue_script( 'rcp-js' );
 
+	wp_enqueue_script( 'jquery-ui-tabs' );
+
+	// load jQuery UI + tabs for account page
+	if ( is_page( 'account' ) ) {
+		wp_enqueue_script( 'jquery-ui-core' );
+
+		wp_register_style( 'edd-sl-styles', plugins_url( '/css/edd-sl.css', EDD_SL_PLUGIN_FILE ), false, EDD_SL_VERSION );
+		wp_enqueue_style( 'edd-sl-styles' );
+	}
+
 }
 add_action( 'wp_enqueue_scripts', 'rcp_enqueue_scripts' );
 
@@ -351,6 +310,10 @@ add_filter( 'trusted_footer_primary_menu', '__return_false' );
  */
 function rcp_footer_sign_up() {
 
+	if ( edd_is_checkout() ) {
+		return;
+	}
+
 ?>
 
 <div class="wrapper">
@@ -396,6 +359,11 @@ add_action( 'trustedd_footer_start', 'rcp_footer_sign_up' );
  * @since 1.0.0
  */
 function rcp_footer_menu() {
+
+	if ( edd_is_checkout() ) {
+		return;
+	}
+
 ?>
 
 <section class="container-fluid footer-links">
@@ -797,3 +765,18 @@ function rcp_edd_downloads_query( $query, $atts ) {
 	return $query;
 }
 add_filter( 'edd_downloads_query', 'rcp_edd_downloads_query', 10, 2 );
+
+/**
+ * Redirect to correct tab when profile is updated
+ */
+function rcp_edd_profile_updated( $user_id, $userdata ) {
+	wp_safe_redirect( add_query_arg( 'updated', 'true', '#tabs=3' ) );
+	exit;
+}
+add_action( 'edd_user_profile_updated', 'rcp_edd_profile_updated', 10, 2 );
+
+/**
+ * Remove the license keys column from the purchases tab
+ */
+remove_action( 'edd_purchase_history_row_end', 'edd_sl_site_management_links', 10 );
+remove_action( 'edd_purchase_history_header_after', 'edd_sl_add_key_column' );

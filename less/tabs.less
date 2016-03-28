@@ -1,0 +1,73 @@
+// tabs for account page
+
+#tabs {
+
+    .wrapper {
+        overflow: hidden;
+        display: flex;
+        flex-flow: column;
+    }
+
+    li {
+        display: inline-block;
+        padding: 0;
+    }
+
+    .ui-tabs-nav {
+        margin: 0;
+        position: relative;
+    }
+
+    ul a {
+        display: block;
+        padding: 1rem;
+        transition: none;
+        border-bottom: none;
+    }
+
+    li.ui-state-default {
+        border: 2px solid @light-grey;
+        border-bottom: none;
+        position: relative;
+        background: #fdfdfd;
+    }
+
+    li.ui-tabs-active {
+        padding-top: 5px;
+        background: #fff;
+    }
+
+    li.ui-tabs-active a {
+        color: @primary-color;
+    }
+
+
+}
+
+li.ui-tabs-active:before,
+li.ui-tabs-active:after {
+	content: '';
+	position: absolute;
+	height: 2px;
+	right: 100%;
+	bottom: 0;
+	width: 1200px;
+	background: @light-grey;
+}
+
+li.ui-tabs-active:after {
+	right: auto;
+	left: 100%;
+	width: 4000px;
+    z-index: 1;
+}
+
+.no-js #tabs ul {
+    display: none;
+}
+
+.ui-tabs-panel {
+    padding: 2rem;
+    border: 2px solid @light-grey;
+    border-top: none;
+}

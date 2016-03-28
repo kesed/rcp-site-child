@@ -89,6 +89,14 @@ function rcp_download_meta_add_fields() {
 		<input class="widefat" type="text" name="edd_download_meta_developer_url" id="edd-download-meta-developer-url" value="<?php echo esc_attr( get_post_meta( get_the_ID(), '_edd_download_meta_developer_url', true ) ); ?>" size="30" />
 	</p>
 
+	<p><strong><?php _e( 'RCP Version Required', 'trustedd' ); ?></strong></p>
+	<p>
+		<label for="edd-download-meta-developer-url" class="screen-reader-text">
+			<?php _e( 'RCP Version Required', 'trustedd' ); ?>
+		</label>
+		<input class="widefat" type="text" name="edd_download_meta_rcp_version_required" id="edd-download-meta-rcp-version-required" value="<?php echo esc_attr( get_post_meta( get_the_ID(), '_edd_download_meta_rcp_version_required', true ) ); ?>" size="30" />
+	</p>
+
 <?php }
 add_action( 'edd_download_meta_add_fields', 'rcp_download_meta_add_fields' );
 
@@ -101,7 +109,8 @@ function rcp_download_meta_save( $fields ) {
 
 	$new_fields = array(
 		'edd_download_meta_developer',
-		'edd_download_meta_developer_url'
+		'edd_download_meta_developer_url',
+		'edd_download_meta_rcp_version_required'
 	);
 
 	return array_merge( $fields, $new_fields );

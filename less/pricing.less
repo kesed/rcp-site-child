@@ -24,3 +24,91 @@ a.external {
 		margin-left: 0.5rem;
 	}
 }
+
+.length {
+		display: block;
+	    font-size: 1rem;
+	    font-weight: 400;
+	    margin-top: 0.25rem;
+		color: @body-text-color;
+	}
+
+// the price
+.table-option li.pricing {
+    color: #222;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1;
+
+}
+
+.pricing .price {
+    position: relative;
+    font-weight: 500;
+}
+
+.pricing .price.old {
+     margin-right: 1rem;
+     color: #999;
+     position: absolute;
+     right: 130%;
+     top: 20%;
+}
+
+.pricing .price.old,
+.pricing .price.old .currency {
+    font-size: 50%;
+}
+
+.pricing .price.old .currency {
+    top: 3px;
+}
+
+.pricing .currency {
+    font-size: 2rem;
+//    position: absolute;
+    top: 4px;
+    right: 105%;
+	font-weight: 300;
+}
+
+.pricing .button {
+	text-transform: uppercase;
+}
+
+
+.pricing > .best-value {
+    flex-flow: wrap;
+}
+
+// .best-value .table-option {
+//     border: 4px solid @primary-color;
+// }
+
+
+.pricing-table .table-row > div {
+    padding: 0 1rem;
+}
+
+
+.table-option > span {
+//    background: @primary-color;
+    color: #fff;
+    font-weight: 600;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin-left: -4px;
+    margin-right: -4px;
+    padding: 1rem;
+    display: block;
+}
+
+@media only screen and ( min-width: @screen-sm-min ) {
+
+    .row.pricing {
+        margin-top: 6rem;
+    }
+
+}

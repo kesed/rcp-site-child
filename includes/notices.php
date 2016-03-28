@@ -3,10 +3,10 @@
 /**
  * Dequeue simple notices pro
  */
-function affwp_dequeue_style() {
+function rcp_dequeue_style() {
 	wp_dequeue_style( 'notifications' );
 }
-add_action( 'wp_enqueue_scripts', 'affwp_dequeue_style' );
+add_action( 'wp_enqueue_scripts', 'rcp_dequeue_style' );
 
 /**
  * Show notices
@@ -26,7 +26,7 @@ function rcp_display_notice() {
 	$expired = get_page_by_title( 'License expired', 'OBJECT', 'notices' );
 
 	// exclude notice if license has not expired
-	if ( $expired && ! affwp_has_users_license_expired() ) {
+	if ( $expired && ! rcp_has_users_license_expired() ) {
 		$notice_args['exclude'] = array( $expired->ID );
 	}
 

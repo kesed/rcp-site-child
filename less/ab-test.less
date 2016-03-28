@@ -10,6 +10,32 @@
 
     @accent-green: #84C876;
 
+    .table-option > span {
+        background: @accent-green;
+    }
+
+    .best-value .table-option {
+        border: 4px solid @accent-green;
+    }
+
+    .in-cart .table-option > span {
+        background: @primary-color;
+    }
+
+    .in-cart .table-option {
+//        border: 4px solid @accent-green;
+        border: 4px solid @primary-color;
+    }
+
+    .in-cart .button {
+        background: @primary-color;
+    }
+
+    .in-cart .button:focus,
+    .in-cart .button:hover {
+        background: darken( @primary-color, 8% );
+    }
+
     .button,
     input[type=submit],
     #submit {

@@ -240,12 +240,12 @@ get_header(); ?>
 
 
 
-<section class="container-fluid aligncenter pv-xs-2 pv-sm-4 ph-lg-10" id="pricing">
+<section class="ph-lg-1 aligncenter pv-xs-2 pv-sm-4">
 
 	<h1 class="mb-xs-1">30 Day Money Back Guarantee.</h1>
 	<p class="subtitle">We stand behind our product 100% <?php echo rcp_show_refund_policy_link(); ?></p>
 	<?php echo do_shortcode( '[edd_pricing_table]' ); ?>
-
+    <?php //echo rcp_pricing_table(); ?>
 </section>
 
 <section class="container-fluid aligncenter pv-xs-4 ph-lg-10 ph-md-4">
