@@ -153,7 +153,7 @@ add_action( 'trustedd_site_branding_start', 'rcp_header_logo' );
  */
 function rcp_the_title( $title, $id = null ) {
 
-	if ( is_page( 'pricing' ) || is_page( 'pricing-2' ) && $id == get_the_ID() ) {
+	if ( ( is_page( 'pricing' ) || is_page( 'pricing-2' ) ) && $id == get_the_ID() ) {
 		$title = '<span class="entry-title-primary">30 Day Money Back Guarantee</span><span class="subtitle">We stand behind our product 100% ' . rcp_show_refund_policy_link() . '</span>';
 	}
 
