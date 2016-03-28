@@ -240,7 +240,7 @@ get_header(); ?>
 
 
 
-<section class="ph-lg-1 aligncenter pv-xs-2 pv-sm-4">
+<section class="ph-lg-1 aligncenter pv-xs-2 pv-sm-4" id="pricing">
 
 	<h1 class="mb-xs-1">30 Day Money Back Guarantee.</h1>
 	<p class="subtitle">We stand behind our product 100% <?php echo rcp_show_refund_policy_link(); ?></p>
