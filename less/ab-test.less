@@ -23,7 +23,6 @@
     }
 
     .in-cart .table-option {
-//        border: 4px solid @accent-green;
         border: 4px solid @primary-color;
     }
 
@@ -48,7 +47,6 @@
         text-decoration: none;
         color: #fff;
         background: darken( @accent-green, 8% );
-    //    border: none;
     }
 
     .site-footer #sign-up {
@@ -75,6 +73,32 @@
 .purple {
     @accent-purple: #b685c9;
 
+
+    .table-option > span {
+        background: @accent-purple;
+    }
+
+    .best-value .table-option {
+        border: 4px solid @accent-purple;
+    }
+
+    .in-cart .table-option > span {
+        background: @primary-color;
+    }
+
+    .in-cart .table-option {
+        border: 4px solid @primary-color;
+    }
+
+    .in-cart .button {
+        background: @primary-color;
+    }
+
+    .in-cart .button:focus,
+    .in-cart .button:hover {
+        background: darken( @primary-color, 8% );
+    }
+
     .button,
     input[type=submit],
     #submit {
@@ -87,7 +111,6 @@
         text-decoration: none;
         color: #fff;
         background: darken( @accent-purple, 8% );
-    //    border: none;
     }
 
     .site-footer #sign-up {

@@ -153,7 +153,7 @@ add_action( 'trustedd_site_branding_start', 'rcp_header_logo' );
  */
 function rcp_the_title( $title, $id = null ) {
 
-	if ( is_page( 'pricing' ) && $id == get_the_ID() ) {
+	if ( is_page( 'pricing' ) || is_page( 'pricing-2' ) && $id == get_the_ID() ) {
 		$title = '<span class="entry-title-primary">30 Day Money Back Guarantee</span><span class="subtitle">We stand behind our product 100% ' . rcp_show_refund_policy_link() . '</span>';
 	}
 
@@ -171,7 +171,7 @@ add_filter( 'the_title', 'rcp_the_title', 10, 2 );
 function rcp_load_lightbox( $lightbox ) {
 
 	// load lightbox on pricing page
-	if ( is_page( 'pricing' ) || is_front_page() ) {
+	if ( is_page( 'pricing' ) || is_page( 'pricing-2' ) || is_front_page() ) {
 		$lightbox = true;
 	}
 
@@ -204,7 +204,7 @@ function rcp_show_refund_policy_link() {
 function rcp_embed_refund_policy() {
 
 	// only show the refund policy on the homepage and the pricing page
-	if ( ! ( is_page( 'pricing' ) || is_front_page() ) ) {
+	if ( ! ( is_page( 'pricing' ) || is_page( 'pricing-2' ) || is_front_page() ) ) {
 		return;
 	}
 
