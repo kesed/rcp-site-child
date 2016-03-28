@@ -88,6 +88,11 @@ function rcp_nav_buy_now( $args = array() ) {
 <?php }
 
 function rcp_trustedd_menu_toggle_before() {
+
+    if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
     echo rcp_nav_buy_now( array( 'list_item' => false, 'class' => 'mobile' ) );
 }
 add_action( 'trustedd_menu_toggle_before', 'rcp_trustedd_menu_toggle_before' );
