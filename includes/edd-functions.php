@@ -489,7 +489,7 @@ function rcp_process_add_on_download() {
 	edd_record_download_in_log( $add_on, 0, $user_info, edd_get_ip(), 0, 0 );
 
 	$download_files = edd_get_download_files( $add_on );
-	$requested_file = $download_files[1]['file'];
+	$requested_file = $download_files[0]['file'];
 	$file_extension = edd_get_file_extension( $requested_file );
 	$ctype          = edd_get_file_ctype( $file_extension );
 
