@@ -72,7 +72,7 @@ function rcp_pricing_table() {
 	$download_url = add_query_arg( array( 'edd_action' => 'add_to_cart', 'download_id' => $download_id ), $checkout_url );
 
 	$count_pro_add_ons           = rcp_get_add_on_count( 'pro' );
-	$count_official_free_add_ons = rcp_get_add_on_count( 'official' );
+	$count_official_free_add_ons = rcp_get_add_on_count( 'official-free' );
 
 ?>
 
@@ -352,7 +352,7 @@ function rcp_add_on_popups() {
 	          array(
 	              'taxonomy' => 'download_category',
 	              'field' => 'slug',
-	              'terms' => 'official'
+	              'terms' => 'official-free'
 	          )
 	      )
 	  );

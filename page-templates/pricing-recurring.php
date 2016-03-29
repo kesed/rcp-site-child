@@ -89,7 +89,7 @@ get_header(); ?>
 
 			<?php
 			$count_pro_add_ons           = rcp_get_add_on_count( 'pro' );
-			$count_official_free_add_ons = rcp_get_add_on_count( 'official' );
+			$count_official_free_add_ons = rcp_get_add_on_count( 'official-free' );
 
 			?>
 			<div class="col-xs-12 col-sm-5 ph-sm-0 mb-sm-2">
