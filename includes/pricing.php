@@ -215,7 +215,7 @@ function rcp_pricing_table() {
 
 	                            <li class="feature">Plugin updates *</li>
 	                            <li class="feature">Email support *</li>
-								<li class="feature">3 sites</li>
+								<li class="feature">5 sites</li>
 								<li class="feature">All features included</li>
 	                        </ul>
 
