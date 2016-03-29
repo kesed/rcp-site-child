@@ -791,3 +791,9 @@ function rcp_edd_subscription_update_url( $url, $object ) {
 	return $url;
 }
 add_filter( 'edd_subscription_update_url', 'rcp_edd_subscription_update_url', 10, 2 );
+
+/**
+ * 
+ */
+global $edd_recurring_stripe;
+remove_action( 'edd_after_cc_fields', array( $edd_recurring_stripe, 'after_cc_fields'  ), 10 );
