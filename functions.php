@@ -780,3 +780,14 @@ add_action( 'edd_user_profile_updated', 'rcp_edd_profile_updated', 10, 2 );
  */
 remove_action( 'edd_purchase_history_row_end', 'edd_sl_site_management_links', 10 );
 remove_action( 'edd_purchase_history_header_after', 'edd_sl_add_key_column' );
+
+/**
+ * Redirect to the second account tab when clicking the update payment method link
+ */
+function rcp_edd_subscription_update_url( $url, $object ) {
+
+	$url = add_query_arg( array( 'action' => 'update', 'subscription_id' => $object->id ), '#tabs=1' );
+
+	return $url;
+}
+add_filter( 'edd_subscription_update_url', 'rcp_edd_subscription_update_url', 10, 2 );

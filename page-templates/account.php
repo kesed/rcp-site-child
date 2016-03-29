@@ -23,7 +23,7 @@ $has_personal_license     = in_array( 1, rcp_get_users_price_ids() );
 
 	<h2 class="subtitle">
 		<?php if ( is_user_logged_in() ) : ?>
-			<?php printf( __( 'Welcome %s', 'rcp' ), $current_user->display_name ); ?>
+			<?php printf( __( 'Welcome, %s', 'rcp' ), $current_user->display_name ); ?>
 		<?php else : ?>
 			<?php _e( 'Come on in!', 'rcp' ); ?>
 		<?php endif; ?>
@@ -131,7 +131,7 @@ $has_personal_license     = in_array( 1, rcp_get_users_price_ids() );
 						<tr>
 							<th><?php _e( 'Name', 'rcp' ); ?></th>
 							<th><?php _e( 'Version', 'rcp' ); ?></th>
-							<th><?php _e( 'Version required', 'rcp' ); ?></th>
+							<th><?php _e( 'RCP Version required', 'rcp' ); ?></th>
 							<th><?php _e( 'Download', 'rcp' ); ?></th>
 						</tr>
 					</thead>
