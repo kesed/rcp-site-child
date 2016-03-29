@@ -7,10 +7,6 @@
 */
 function rcp_wp_nav_menu_items( $items, $args ) {
 
-    if ( ! current_user_can( 'manage_options' ) ) {
-		return $items;
-	}
-
     if ( 'primary' == $args->theme_location ) {
     	$home = ! is_front_page() ? rcp_nav_home() : '';
     	$items .= rcp_nav_account();
@@ -88,11 +84,6 @@ function rcp_nav_buy_now( $args = array() ) {
 <?php }
 
 function rcp_trustedd_menu_toggle_before() {
-
-    if ( ! current_user_can( 'manage_options' ) ) {
-		return;
-	}
-
     echo rcp_nav_buy_now( array( 'list_item' => false, 'class' => 'mobile' ) );
 }
 add_action( 'trustedd_menu_toggle_before', 'rcp_trustedd_menu_toggle_before' );

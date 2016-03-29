@@ -204,11 +204,6 @@ add_action( 'edd_download_meta', 'rcp_download_meta_changelog', 10 );
  */
 function rcp_download_meta_category() {
 
-	// remove when new section goes live
-	if ( ! current_user_can( 'manage_options' ) ) {
-		return;
-	}
-
 	if ( has_term( 'pro', 'download_category', get_the_ID() ) ) {
 		$link = site_url( 'add-ons/pro' );
 		$text = 'Pro add-on';

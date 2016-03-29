@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.3.1' );
+	define( 'RCP_THEME_VERSION', '1.3.2' );
 }
 
 /**
@@ -793,7 +793,7 @@ function rcp_edd_subscription_update_url( $url, $object ) {
 add_filter( 'edd_subscription_update_url', 'rcp_edd_subscription_update_url', 10, 2 );
 
 /**
- * 
+ * Removes the "I acknowledge that by updating this subscription, the following subscriptions will also be updated to use this payment method for renewals: {download name}" message
  */
 global $edd_recurring_stripe;
 remove_action( 'edd_after_cc_fields', array( $edd_recurring_stripe, 'after_cc_fields'  ), 10 );
