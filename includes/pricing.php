@@ -288,6 +288,8 @@ function rcp_pricing_table() {
 	    </div>
 
 	</section>
+	
+	<?php rcp_add_on_popups(); ?>
 
 	<?php
 }

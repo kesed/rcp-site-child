@@ -25,8 +25,6 @@ get_header(); ?>
 
 	<?php echo rcp_pricing_table();	?>
 
-	<?php rcp_add_on_popups(); ?>
-
 	</div>
 
 	<section class="container-fluid feature testimonials">
