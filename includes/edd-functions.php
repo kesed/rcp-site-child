@@ -58,6 +58,10 @@ function rcp_show_refund_policy() {
 
 	$post = get_page_by_title( 'purchase terms and refund policy' );
 
+	if ( ! $post ) {
+		return;
+	}
+
 	?>
 
 	<div id="refund-policy" class="popup entry-content mfp-with-anim mfp-hide">
@@ -96,7 +100,7 @@ add_action( 'template_redirect', 'rcp_empty_cart_redirect' );
 function rcp_edd_download_price( $price, $download_id, $price_id ) {
 	return floatval( $price );
 }
-//add_filter( 'edd_download_price', 'rcp_edd_download_price', 10, 3 );
+add_filter( 'edd_download_price', 'rcp_edd_download_price', 10, 3 );
 
 /**
  * Get ID of RCP based on title
