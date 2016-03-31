@@ -43,6 +43,10 @@ $has_personal_license     = in_array( 1, rcp_get_users_price_ids() );
 			?>
 			<div class="wrapper<?php echo $wrapper_class; ?>">
 
+			<?php if ( affwp_is_affiliate() ) : ?>
+			<p class="aligncenter"><a href="/account/affiliates">Go to your affiliate area &rarr;</a></p>
+			<?php endif; ?>
+
 			<?php if ( is_user_logged_in() ) : ?>
 			<ul class="center-xs">
 				<li><a href="#tab-1">Licenses</a></li>

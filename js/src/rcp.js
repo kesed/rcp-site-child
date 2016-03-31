@@ -3,7 +3,6 @@ jQuery(document).ready(function($) {
     // account tabs
     jQuery( "#tabs" ).tabs();
 
-    console.log( jQuery( "#tabs" ) );
     // jQuery BBQ
 
    // The "tab widgets" to handle.
