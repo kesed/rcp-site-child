@@ -3,7 +3,7 @@
 function rcp_edd_download_url( $download_id = 0 ) {
 
 	// get user's current purchases
-	$purchases = edd_get_users_purchases( get_current_user_id(), -1, false, 'any' );
+	$purchases = edd_get_users_purchases( get_current_user_id(), -1, false, 'complete' );
 
 	if ( $purchases ) {
 
