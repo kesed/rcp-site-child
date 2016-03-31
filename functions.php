@@ -469,7 +469,7 @@ function rcp_get_changelog() {
 	if ( false === ( $html = get_transient( 'pp_rcp_changelog' ) ) ) {
 
         // Get remote HTML file
-		$response = wp_remote_get( 'https://pippinsplugins.com/products/restrict-content-pro/changelog' );
+		$response = wp_remote_get( 'https://restrictcontentpro.com/downloads/restrict-content-pro/changelog' );
 
         // Check for error
 		if ( is_wp_error( $response ) ) {
