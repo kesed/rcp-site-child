@@ -1,5 +1,55 @@
 <?php
 
+function rcp_edd_download_url( $download_id = 0 ) {
+
+	// get user's current purchases
+	$purchases = edd_get_users_purchases( get_current_user_id(), -1, false, 'any' );
+
+	if ( $purchases ) {
+
+		foreach ( $purchases as $key => $purchase ) {
+
+			$payment_meta = edd_get_payment_meta( $purchase->ID );
+
+			// get array of all downloads purchased
+			$download_ids = wp_list_pluck( $payment_meta['downloads'], 'id' );
+
+			// download found
+			if ( in_array( $download_id, $download_ids ) ) {
+				$found_purchase_key = $key;
+				break;
+			}
+
+		}
+
+		// get payment meta for the purchase containing the download
+		$payment_meta = edd_get_payment_meta( $purchases[$found_purchase_key]->ID );
+
+		// get the download files for the download
+		$download_files = edd_get_download_files( $download_id );
+
+		if ( ! $download_files ) {
+			// no download file exists
+			return false;
+		}
+
+		// we want to retrieve the first download file attached
+		$download_index = array_keys( $download_files );
+
+		// build the download URL
+		$download_url = edd_get_download_file_url( $payment_meta['key'], $payment_meta['user_info']['email'], $download_index[0], $download_id );
+
+		if ( $download_url ) {
+			return $download_url;
+		}
+
+	}
+
+	return false;
+
+}
+
+
 /**
  * Link to terms page
  * @return [type] [description]

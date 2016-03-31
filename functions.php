@@ -34,9 +34,6 @@ function rcp_setup() {
 	// Navigation tweaks
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'navigation.php' );
 
-	// Deprecated
-	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'deprecated.php' );
-
 	// EDD functions
 	if ( function_exists( 'trustedd_is_edd_active' ) && trustedd_is_edd_active() ) {
 		require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'edd-functions.php' );

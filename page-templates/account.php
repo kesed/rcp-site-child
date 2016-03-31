@@ -107,6 +107,11 @@ $has_personal_license     = in_array( 1, rcp_get_users_price_ids() );
 			<div id="tab-5">
 				<h2>Downloads</h2>
 
+				<?php if ( rcp_edd_download_url( rcp_get_download_id() ) ) : ?>
+					<h4>Restrict Content Pro</h4>
+				    <p><a href="<?php echo rcp_edd_download_url( rcp_get_download_id() ); ?>" class="button">Download Restrict Content Pro</a></p>
+				<?php endif; ?>
+
 				<h4>Pro add-ons</h4>
 
 				<?php
