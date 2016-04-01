@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.3.4' );
+	define( 'RCP_THEME_VERSION', '1.3.5' );
 }
 
 /**
@@ -705,31 +705,6 @@ function rcp_list_subpages_wrapper_class( $class ) {
 }
 //add_filter( 'trustedd_list_subpages_wrapper_class', 'rcp_list_subpages_wrapper_class' );
 
-/**
- * Remove pricing from pro add-on single download pages
- */
-function rcp_remove_pricing_pro_addons() {
-
-	if ( has_term( 'pro', 'download_category', get_the_ID() ) ) {
-		remove_action( 'trustedd_sidebar_download', 'trustedd_edd_pricing' );
-	}
-
-}
-add_action( 'template_redirect', 'rcp_remove_pricing_pro_addons' );
-
-/**
- * Prevent pro addons from being added to cart with ?edd_action=add_to_cart&download_id=XXX
- *
- * @param int $download_id Download Post ID
- */
-function rcp_edd_pre_add_to_cart( $download_id, $options ) {
-
-	if ( has_term( 'pro', 'download_category', $download_id ) ) {
-		wp_die( 'This add-on cannot be purchased', 'Error', array( 'back_link' => true, 'response' => 403 ) );
-	}
-
-}
-add_action( 'edd_pre_add_to_cart', 'rcp_edd_pre_add_to_cart', 10, 2 );
 
 /**
  * Add learn more link to pro add-ons

@@ -192,8 +192,6 @@ $has_personal_license     = in_array( 1, rcp_get_users_price_ids() );
 					</tbody>
 				</table>
 
-				<?php rcp_upgrade_license_modal(); ?>
-
 			</div>
 			<?php endif; ?>
 

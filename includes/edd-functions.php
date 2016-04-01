@@ -1,5 +1,207 @@
 <?php
 
+/**
+ * Remove pricing from pro add-on single download pages
+ */
+function rcp_remove_pricing_pro_addons() {
+
+	if ( has_term( 'pro', 'download_category', get_the_ID() ) ) {
+		remove_action( 'trustedd_sidebar_download', 'trustedd_edd_pricing' );
+	}
+
+}
+add_action( 'template_redirect', 'rcp_remove_pricing_pro_addons' );
+
+/**
+ * Prevent pro addons from being added to cart with ?edd_action=add_to_cart&download_id=XXX
+ *
+ * @param int $download_id Download Post ID
+ */
+function rcp_edd_pre_add_to_cart( $download_id, $options ) {
+
+	if ( has_term( 'pro', 'download_category', $download_id ) ) {
+		wp_die( 'This add-on cannot be purchased', 'Error', array( 'back_link' => true, 'response' => 403 ) );
+	}
+
+}
+add_action( 'edd_pre_add_to_cart', 'rcp_edd_pre_add_to_cart', 10, 2 );
+
+
+/**
+ * Shows a download button for logged-in Professional or Ultimate license holders
+ * Shows an upgrade notice for logged-in Personal or Plus license holders
+ * Shows a purchase button for logged-out users
+ *
+ * @since 1.0.0
+ */
+function rcp_edd_download_pro_add_on() {
+
+	if ( ! has_term( 'pro', 'download_category' ) || ! edd_get_download_files( get_the_ID() ) ) {
+		return;
+	}
+
+	?>
+	<aside>
+		<?php
+			$has_ultimate_license     = in_array( 4, rcp_get_users_price_ids() );
+			$has_professional_license = in_array( 3, rcp_get_users_price_ids() );
+
+			if ( $has_ultimate_license || $has_professional_license ) : ?>
+				<a href="<?php echo rcp_get_add_on_download_url( get_the_ID() ); ?>" class="button">Download Now</a>
+			<?php else :  ?>
+				<a href="#no-access" class="button popup-content" data-effect="mfp-move-from-bottom">Download Now</a>
+				<?php rcp_upgrade_or_purchase_modal();
+			endif;
+		?>
+	</aside>
+<?php
+}
+add_action( 'trustedd_sidebar_download', 'rcp_edd_download_pro_add_on' );
+
+
+/**
+ * Upgrade or purchase license modal
+ */
+function rcp_upgrade_or_purchase_modal() {
+
+	$has_plus_license     = in_array( 2, rcp_get_users_price_ids() );
+	$has_personal_license = in_array( 1, rcp_get_users_price_ids() );
+	$upgrade_required     = $has_personal_license || $has_plus_license;
+	$professional_add_ons = rcp_get_pro_add_on_count( 'pro' );
+
+	?>
+	<div id="no-access" class="popup entry-content mfp-with-anim mfp-hide">
+
+		<?php if ( $upgrade_required ) : // has personal or plus license ?>
+			<h1>Upgrade your license and get instant access!</h1>
+		<?php else : // is logged out, or with no access ?>
+			<h1>Get instant access to all pro add-ons!</h1>
+		<?php endif; ?>
+
+		<p>Pro add-ons are only available to <strong>Professional</strong> or <strong>Ultimate</strong> license-holders.
+		Once you have one of these licenses you'll have access to all <?php echo $professional_add_ons; ?> pro add-ons (including this one), as well as any pro add-ons we build in the future.</p>
+
+		<?php if ( ! $upgrade_required ) : // has personal or plus license ?>
+		<p>If you already have a license that grants you access to the pro add-ons, simply log in to <a href="/account">your account</a> and visit the "downloads" section. Or, come back to this page to download!</p>
+		<?php endif; ?>
+
+		<?php
+
+		$licenses = rcp_get_users_licenses();
+
+		if ( $licenses ) : ?>
+		<div class="rcp-licenses">
+			<?php
+
+			$license_heading = count( $licenses ) > 1 ? 'Your current licenses' : 'Your current license';
+			?>
+
+			<h2><?php echo $license_heading; ?></h2>
+
+			<?php
+				// a customer can happily have more than 1 license of any type
+				if ( $licenses ) : ?>
+
+					<?php foreach ( $licenses as $id => $license ) :
+
+						if ( $license['limit'] == 0 ) {
+							$license['limit'] = 'Unlimited';
+						} else {
+							$license['limit'] = $license['limit'];
+						}
+
+						$license_limit_text = $license['limit'] > 1 || $license['limit'] == 'Unlimited' ? ' sites' : ' site';
+
+						?>
+						<div class="rcp-license">
+
+							<p><strong><?php echo edd_get_price_option_name( rcp_get_download_id(), $license['price_id'] ); ?></strong>  - <?php echo $license['license']; ?></p>
+
+							<?php if ( rcp_has_license_expired( $license['license'] ) ) :
+
+								$renewal_link = edd_get_checkout_uri( array(
+									'edd_license_key' => $license['license'],
+									'download_id'     => rcp_get_download_id()
+								) );
+
+								?>
+								<p class="license-expired"><a href="<?php echo esc_url( $renewal_link ); ?>">Your license has expired. Renew your license now and save 40% &rarr;</a></p>
+							<?php endif; ?>
+
+							<ul>
+								<?php if ( $license['price_id'] == 1 || $license['price_id'] == 2 ) : // personal or plus license
+
+									// IDs are that of the "License Upgrade Paths" from the download page
+								?>
+									<li><a href="<?php echo esc_url( edd_sl_get_license_upgrade_url( $id, 2 ) ); ?>">Upgrade to Professional license (unlimited sites + pro add-ons)</a></li>
+									<li><a href="<?php echo esc_url( edd_sl_get_license_upgrade_url( $id, 3 ) ); ?>">Upgrade to Ultimate license (unlimited sites + pro add-ons)</a></li>
+								<?php endif; ?>
+							</ul>
+
+						</div>
+
+					<?php endforeach; ?>
+
+				<?php else : ?>
+					<p>You do not have a license yet. <a href="<?php echo site_url( 'pricing' ); ?>">View pricing &rarr;</a></p>
+				<?php endif; ?>
+		</div>
+		<?php endif; ?>
+
+		<h2>The Professional licence</h2>
+		<ul>
+			<li>Access all <?php echo $professional_add_ons; ?> pro add-ons, including any built in the future</li>
+			<li>Use Restrict Content Pro on as many sites as you'd like</li>
+			<li>1 year of updates and support</li>
+		</ul>
+
+		<?php
+
+			$download_id = function_exists( 'rcp_get_download_id' ) ? rcp_get_download_id() : '';
+			$checkout_url = function_exists( 'edd_get_checkout_uri' ) ? edd_get_checkout_uri() : '';
+
+			$download_url = add_query_arg( array( 'edd_action' => 'add_to_cart', 'download_id' => $download_id ), $checkout_url );
+
+			$text = $upgrade_required ? 'Upgrade to' : 'Purchase';
+
+			if ( $upgrade_required ) {
+				$purchase_link = edd_sl_get_license_upgrade_url( $id, 2 );
+			} else {
+				// purchase link
+				$purchase_link = $download_url . '&amp;edd_options[price_id]=3';
+			}
+
+		?>
+
+		<a href="<?php echo esc_url( $purchase_link ); ?>" class="button"><?php echo $text; ?> Professional license</a>
+
+		<h2>The Ultimate licence</h2>
+		<ul>
+			<li>Access all <?php echo $professional_add_ons; ?> pro add-ons, including any built in the future</li>
+			<li>Use Restrict Content Pro on as many sites as you'd like</li>
+			<li>Receive unlimited updates and support &mdash; you'll never have to renew your license</li>
+		</ul>
+
+		<?php
+
+		if ( $upgrade_required ) {
+			$purchase_link = edd_sl_get_license_upgrade_url( $id, 3 );
+		} else {
+			// purchase link
+			$purchase_link = $download_url . '&amp;edd_options[price_id]=4';
+		}
+		?>
+
+		<a href="<?php echo esc_url( $purchase_link ); ?>" class="button"><?php echo $text; ?> Ultimate license</a>
+
+	</div>
+
+	<?php
+}
+
+/**
+ * Get the download URL of Restrict Content Pro, based on the user's purchase
+ */
 function rcp_edd_download_url( $download_id = 0 ) {
 
 	// get user's current purchases
@@ -283,106 +485,6 @@ function rcp_get_users_licenses( $user_id = 0 ) {
 	return $keys;
 }
 
-/**
- * Upgrade license modal
- */
-function rcp_upgrade_license_modal() {
-
-	$professional_add_ons = rcp_get_pro_add_on_count( 'pro' );
-	?>
-	<div id="upgrade" class="popup entry-content mfp-with-anim mfp-hide">
-
-		<h1>Upgrade your license</h1>
-		<p>Pro add-ons are only available to <strong>Professional</strong> or <strong>Ultimate</strong> license-holders.</p>
-
-		<p>Once you upgrade your license you'll have access to all <?php echo $professional_add_ons; ?> pro add-ons (including this one), as well as any pro add-ons we build in the future.</p>
-
-		<div class="rcp-licenses">
-			<?php
-			$licenses = rcp_get_users_licenses();
-			$license_heading = count( $licenses ) > 1 ? 'Your Licenses' : 'Your license';
-			?>
-
-			<h2><?php echo $license_heading; ?></h2>
-
-			<?php
-				// a customer can happily have more than 1 license of any type
-				if ( $licenses ) : ?>
-
-					<?php foreach ( $licenses as $id => $license ) :
-
-						if ( $license['limit'] == 0 ) {
-							$license['limit'] = 'Unlimited';
-						} else {
-							$license['limit'] = $license['limit'];
-						}
-
-						$license_limit_text = $license['limit'] > 1 || $license['limit'] == 'Unlimited' ? ' sites' : ' site';
-
-						?>
-						<div class="rcp-license">
-
-							<p><strong><?php echo edd_get_price_option_name( rcp_get_download_id(), $license['price_id'] ); ?></strong> (<?php echo $license['limit'] . $license_limit_text; ?>) - <?php echo $license['license']; ?></p>
-
-							<?php if ( rcp_has_license_expired( $license['license'] ) ) :
-
-								$renewal_link = edd_get_checkout_uri( array(
-									'edd_license_key' => $license['license'],
-									'download_id'     => rcp_get_download_id()
-								) );
-
-								?>
-								<p class="license-expired"><a href="<?php echo esc_url( $renewal_link ); ?>">Your license has expired. Renew your license now and save 40% &rarr;</a></p>
-							<?php endif; ?>
-
-							<?php if ( $license['price_id'] != 4 ) : // only provide upgrade if not ultimate ?>
-
-
-								<ul>
-									<?php if ( $license['price_id'] == 1 ) : // personal ?>
-										<li><a title="Upgrade to Ultimate license" href="<?php echo rcp_get_license_upgrade_url( 'ultimate', $id ); ?>">Upgrade to Ultimate license (unlimited sites)</a></li>
-										<li><a title="Upgrade to Professional license" href="<?php echo rcp_get_license_upgrade_url( 'professional', $id ); ?>">Upgrade to Professional license (unlimited sites)</a></li>
-										<li><a title="Upgrade to Plus license" href="<?php echo rcp_get_license_upgrade_url( 'plus', $id ); ?>">Upgrade to Plus license (3 sites)</a></li>
-									<?php endif; ?>
-
-									<?php if ( $license['price_id'] == 2 ) : // plus ?>
-										<li><a title="Upgrade to Ultimate license" href="<?php echo rcp_get_license_upgrade_url( 'ultimate', $id ); ?>">Upgrade to Ultimate license (unlimited sites)</a></li>
-										<li><a title="Upgrade to Professional license" href="<?php echo rcp_get_license_upgrade_url( 'professional', $id ); ?>">Upgrade to Professional license (unlimited sites)</a></li>
-									<?php endif; ?>
-
-									<?php if ( $license['price_id'] == 3 ) : // professional ?>
-										<li><a title="Upgrade to Ultimate license" href="<?php echo rcp_get_license_upgrade_url( 'ultimate', $id ); ?>">Upgrade to Ultimate license (unlimited sites)</a></li>
-									<?php endif; ?>
-								</ul>
-
-							<?php endif; ?>
-
-						</div>
-
-					<?php endforeach; ?>
-
-				<?php else : ?>
-					<p>You do not have a license yet. <a href="<?php echo site_url( 'pricing' ); ?>">View pricing &rarr;</a></p>
-				<?php endif; ?>
-		</div>
-		<h2>The Ultimate licence</h2>
-		<ul>
-			<li>Access all <?php echo $professional_add_ons; ?> pro add-ons, including any built in the future</li>
-			<li>Use Restrict Content Pro on as many sites as you'd like</li>
-			<li>Receive unlimited updates and support &mdash; you'll never have to renew your license</li>
-		</ul>
-
-		<h2>The Professional licence</h2>
-		<ul>
-			<li>Access all <?php echo $professional_add_ons; ?> pro add-ons, including any built in the future</li>
-			<li>Use Restrict Content Pro on as many sites as you'd like</li>
-			<li>1 year of updates and support</li>
-		</ul>
-
-	</div>
-
-	<?php
-}
 
 /**
  * Check an individual license to see if it has expired
@@ -437,38 +539,6 @@ function rcp_has_users_license_expired() {
 	return $has_expired;
 }
 
-/**
- * Returns the URL to upgrade a license from personal -> plus or professional, or from plus -> professional
- *
- * @since 1.3
- *
- * @return string
-*/
-function rcp_get_license_upgrade_url( $type = '', $key_id = 0 ) {
-
-	if ( ! function_exists( 'edd_get_checkout_uri' ) || ! $type ) {
-		return home_url( '/pricing' );
-	}
-
-	switch ( $type ) {
-
-		case 'plus' :
-			$upgrade_id = 2;
-			break;
-
-		case 'professional' :
-		default :
-			$upgrade_id = 3;
-			break;
-
-		case 'ultimate' :
-			$upgrade_id = 4;
-			break;
-
-	}
-
-	return edd_sl_get_license_upgrade_url( $key_id, $upgrade_id );
-}
 
 /**
  * Returns the URL to download an add on
@@ -531,7 +601,7 @@ function rcp_process_add_on_download() {
 	$has_professional_license = in_array( 3, rcp_get_users_price_ids() );
 
 	if ( ! ( $has_ultimate_license || $has_professional_license ) ) {
-		wp_die( 'You need either a Professional or Ultimate license to download this add-on', 'Error', array( 'response' => 403 ) );
+		wp_die( 'You need either a Professional or Ultimate license to download this pro add-on', 'Error', array( 'response' => 403 ) );
 	}
 
 	$user_info = array();
@@ -543,7 +613,9 @@ function rcp_process_add_on_download() {
 	edd_record_download_in_log( $add_on, 0, $user_info, edd_get_ip(), 0, 0 );
 
 	$download_files = edd_get_download_files( $add_on );
-	$requested_file = $download_files[0]['file'];
+	$download_files = reset( $download_files );
+
+	$requested_file = $download_files['file'];
 	$file_extension = edd_get_file_extension( $requested_file );
 	$ctype          = edd_get_file_ctype( $file_extension );
 
