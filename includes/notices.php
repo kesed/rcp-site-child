@@ -78,4 +78,4 @@ function rcp_display_notice() {
 }
 
 remove_action( 'wp_footer', 'pippin_display_notice' );
-add_action( 'trustedd_site_before', 'rcp_display_notice' );
+add_action( 'themedd_site_before', 'rcp_display_notice' );

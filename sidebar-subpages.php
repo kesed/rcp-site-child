@@ -1,7 +1,7 @@
-<div id="secondary" class="<?php echo trustedd_secondary_classes(); ?>">
+<div id="secondary" class="<?php echo themedd_secondary_classes(); ?>">
 	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
 
-		<?php do_action( 'trustedd_primary_sidebar_start' ); ?>
+		<?php do_action( 'themedd_primary_sidebar_start' ); ?>
 
 		<aside id="subpages">
 			<ul>
@@ -28,7 +28,7 @@
 			    <?php  ?>
 			</ul>
 
-			<?php do_action( 'trustedd_subpages_end' ); ?>
+			<?php do_action( 'themedd_subpages_end' ); ?>
 		</aside>
 
 	</div>

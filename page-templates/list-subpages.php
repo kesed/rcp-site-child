@@ -20,12 +20,12 @@ $child_pages = get_pages( $args );
 
 ?>
 
-<header class="page-header<?php echo trustedd_page_header_classes(); ?>">
+<header class="page-header<?php echo themedd_page_header_classes(); ?>">
 	<h1 class="page-title"><?php echo get_the_title( get_the_ID() ); ?></h1>
 </header>
 
 <section class="container-fluid">
-	<div class="wrapper <?php echo apply_filters( 'trustedd_list_subpages_wrapper_class', 'wide' ); ?>">
+	<div class="wrapper <?php echo apply_filters( 'themedd_list_subpages_wrapper_class', 'wide' ); ?>">
 	    <div class="content-area">
 
 			<?php

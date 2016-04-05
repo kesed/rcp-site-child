@@ -21,7 +21,7 @@ $child_pages = get_pages( $args );
 
 ?>
 
-<header class="page-header<?php echo trustedd_page_header_classes(); ?>">
+<header class="page-header<?php echo themedd_page_header_classes(); ?>">
 	<h1 class="page-title"><?php echo get_the_title( get_the_ID() ); ?></h1>
 </header>
 

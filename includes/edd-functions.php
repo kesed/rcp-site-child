@@ -6,7 +6,7 @@
 function rcp_remove_pricing_pro_addons() {
 
 	if ( has_term( 'pro', 'download_category', get_the_ID() ) ) {
-		remove_action( 'trustedd_sidebar_download', 'trustedd_edd_pricing' );
+		remove_action( 'themedd_sidebar_download', 'themedd_edd_pricing' );
 	}
 
 }
@@ -56,7 +56,7 @@ function rcp_edd_download_pro_add_on() {
 	</aside>
 <?php
 }
-add_action( 'trustedd_sidebar_download', 'rcp_edd_download_pro_add_on' );
+add_action( 'themedd_sidebar_download', 'rcp_edd_download_pro_add_on' );
 
 
 /**
@@ -207,6 +207,8 @@ function rcp_edd_download_url( $download_id = 0 ) {
 	// get user's current purchases
 	$purchases = edd_get_users_purchases( get_current_user_id(), -1, false, 'complete' );
 
+	$found_purchase_key = false;
+
 	if ( $purchases ) {
 
 		foreach ( $purchases as $key => $purchase ) {
@@ -225,7 +227,9 @@ function rcp_edd_download_url( $download_id = 0 ) {
 		}
 
 		// get payment meta for the purchase containing the download
-		$payment_meta = edd_get_payment_meta( $purchases[$found_purchase_key]->ID );
+		if ( $found_purchase_key ) {
+			$payment_meta = edd_get_payment_meta( $purchases[$found_purchase_key]->ID );
+		}
 
 		// get the download files for the download
 		$download_files = edd_get_download_files( $download_id );
@@ -568,7 +572,7 @@ function rcp_remove_checkout_nav() {
 		return;
 	}
 
-	remove_action( 'trustedd_masthead', 'trustedd_navigation' );
+	remove_action( 'themedd_masthead', 'themedd_navigation' );
 }
 add_action( 'template_redirect', 'rcp_remove_checkout_nav' );
 
@@ -719,3 +723,68 @@ function rcp_process_add_on_download() {
 	exit;
 }
 add_action( 'edd_add_on_download', 'rcp_process_add_on_download', 100 );
+
+/**
+ * Add learn more link to pro add-ons
+ */
+function rcp_show_learn_more() {
+
+	if ( ! has_term( 'pro', 'download_category', get_the_ID() ) ) {
+		return;
+	}
+
+	?>
+
+	<footer>
+		<a href="<?php echo get_permalink( get_the_ID() ); ?>">Learn more</a>
+	</footer>
+
+	<?php
+}
+add_action( 'edd_download_after', 'rcp_show_learn_more' );
+
+/**
+ * Show draft downloads to admins
+ */
+function rcp_edd_downloads_query( $query, $atts ) {
+
+	if ( current_user_can( 'manage_options' ) ) {
+		$query['post_status'] = array( 'pending', 'draft', 'future', 'publish' );
+	}
+
+	return $query;
+}
+add_filter( 'edd_downloads_query', 'rcp_edd_downloads_query', 10, 2 );
+
+/**
+ * Redirect to correct tab when profile is updated
+ */
+function rcp_edd_profile_updated( $user_id, $userdata ) {
+	wp_safe_redirect( add_query_arg( 'updated', 'true', '#tabs=3' ) );
+	exit;
+}
+add_action( 'edd_user_profile_updated', 'rcp_edd_profile_updated', 10, 2 );
+
+/**
+ * Remove the license keys column from the purchases tab
+ */
+remove_action( 'edd_purchase_history_row_end', 'edd_sl_site_management_links', 10 );
+remove_action( 'edd_purchase_history_header_after', 'edd_sl_add_key_column' );
+
+/**
+ * Redirect to the second account tab when clicking the update payment method link
+ */
+function rcp_edd_subscription_update_url( $url, $object ) {
+
+	$url = add_query_arg( array( 'action' => 'update', 'subscription_id' => $object->id ), '#tabs=1' );
+
+	return $url;
+}
+add_filter( 'edd_subscription_update_url', 'rcp_edd_subscription_update_url', 10, 2 );
+
+
+/**
+ * Removes the "I acknowledge that by updating this subscription, the following subscriptions will also be updated to use this payment method for renewals: {download name}" message
+ */
+global $edd_recurring_stripe;
+remove_action( 'edd_after_cc_fields', array( $edd_recurring_stripe, 'after_cc_fields'  ), 10 );

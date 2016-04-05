@@ -9,15 +9,17 @@ get_header();
 global $current_user;
 get_currentuserinfo();
 
-$has_ultimate_license     = in_array( 4, rcp_get_users_price_ids() );
-$has_professional_license = in_array( 3, rcp_get_users_price_ids() );
-$has_plus_license         = in_array( 2, rcp_get_users_price_ids() );
-$has_personal_license     = in_array( 1, rcp_get_users_price_ids() );
+$price_ids = function_exists( 'rcp_get_users_price_ids' ) ? rcp_get_users_price_ids() : array();
+
+$has_ultimate_license     = in_array( 4, $price_ids );
+$has_professional_license = in_array( 3, $price_ids );
+$has_plus_license         = in_array( 2, $price_ids );
+$has_personal_license     = in_array( 1, $price_ids );
 
 ?>
 
 <div id="tabs">
-<header class="page-header<?php echo trustedd_page_header_classes(); ?>">
+<header class="page-header<?php echo themedd_page_header_classes(); ?>">
 
 	<h1 class="page-title"><?php echo get_the_title( get_the_ID() ); ?></h1>
 
@@ -107,7 +109,7 @@ $has_personal_license     = in_array( 1, rcp_get_users_price_ids() );
 			<div id="tab-5">
 				<h2>Downloads</h2>
 
-				<?php if ( rcp_edd_download_url( rcp_get_download_id() ) ) : ?>
+				<?php if ( function_exists( 'rcp_edd_download_url' ) && rcp_edd_download_url( rcp_get_download_id() ) ) : ?>
 					<h4>Restrict Content Pro</h4>
 				    <p><a href="<?php echo rcp_edd_download_url( rcp_get_download_id() ); ?>" class="button">Download Restrict Content Pro</a></p>
 				<?php endif; ?>
@@ -194,7 +196,6 @@ $has_personal_license     = in_array( 1, rcp_get_users_price_ids() );
 
 			</div>
 			<?php endif; ?>
-
 
 			<?php
 				// Start the Loop.

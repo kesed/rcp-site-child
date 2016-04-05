@@ -56,10 +56,10 @@ function rcp_nav_buy_now( $args = array() ) {
 
     $checkout_url = function_exists( 'edd_get_checkout_uri' ) ? edd_get_checkout_uri() : '';
 
-	$cart_items = edd_get_cart_contents();
+    $cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
     $cart_link = $cart_items ? $checkout_url : site_url( 'pricing' );
 
-	if ( ! edd_is_checkout() ) : ?>
+	if ( ! ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) ) : ?>
 
         <?php if ( $list_item ) : ?>
 		<li class="action checkout menu-item">
@@ -83,14 +83,16 @@ function rcp_nav_buy_now( $args = array() ) {
 
 <?php }
 
-function rcp_trustedd_menu_toggle_before() {
+function rcp_themedd_menu_toggle_before() {
     echo rcp_nav_buy_now( array( 'list_item' => false, 'class' => 'mobile' ) );
 }
-add_action( 'trustedd_menu_toggle_before', 'rcp_trustedd_menu_toggle_before' );
+add_action( 'themedd_menu_toggle_before', 'rcp_themedd_menu_toggle_before' );
 
 
 function rcp_cart_icon() {
-    $cart_items = edd_get_cart_contents();
+    $cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
+
+
     ?>
 
     <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
@@ -174,7 +176,7 @@ function rcp_nav_account() {
 	?>
 
 
-		<li class="menu-item has-sub-menu account<?php echo $active; ?>">
+		<li class="menu-item menu-item-has-children has-sub-menu account<?php echo $active; ?>">
 			<a title="<?php echo $account_link_text; ?>" href="<?php echo site_url( $account_page ); ?>"><?php echo $account_link_text; ?></a>
 			<ul class="sub-menu">
 				<?php if (  is_user_logged_in() ) : ?>

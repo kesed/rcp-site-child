@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<header class="page-header<?php echo trustedd_page_header_classes(); ?>">
+<header class="page-header<?php echo themedd_page_header_classes(); ?>">
 	<h1 class="page-title"><?php echo get_the_title( get_the_ID() ); ?></h1>
 </header>
 
@@ -86,8 +86,8 @@ get_header(); ?>
 	        </div>
 
 			<?php
-			$count_pro_add_ons           = rcp_get_add_on_count( 'pro' );
-			$count_official_free_add_ons = rcp_get_add_on_count( 'official-free' );
+			$count_pro_add_ons           = function_exists( 'rcp_get_add_on_count' ) ? rcp_get_add_on_count( 'pro' ) : '';
+			$count_official_free_add_ons = function_exists( 'rcp_get_add_on_count' ) ? rcp_get_add_on_count( 'official-free' ) : '';
 
 			?>
 			<div class="col-xs-12 col-sm-5 ph-sm-0 mb-sm-2">

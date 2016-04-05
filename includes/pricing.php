@@ -10,8 +10,10 @@ function rcp_pricing_table() {
 
 	$download_url = add_query_arg( array( 'edd_action' => 'add_to_cart', 'download_id' => $download_id ), $checkout_url );
 
-	$count_pro_add_ons           = rcp_get_add_on_count( 'pro' );
-	$count_official_free_add_ons = rcp_get_add_on_count( 'official-free' );
+
+
+	$count_pro_add_ons           = function_exists( 'rcp_get_add_on_count' ) ? rcp_get_add_on_count( 'pro' ) : '';
+	$count_official_free_add_ons = function_exists( 'rcp_get_add_on_count' ) ? rcp_get_add_on_count( 'official-free' ) : '';
 
 ?>
 
@@ -21,12 +23,15 @@ function rcp_pricing_table() {
 
 			<?php
 
-			$cart_items = edd_get_cart_contents();
+			$cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
 
 		//	var_dump( $cart_items );
 
-			$options = wp_list_pluck(  $cart_items, 'options' );
-			$price_ids = wp_list_pluck(  $options, 'price_id' );
+			if ( $cart_items ) {
+				$options = wp_list_pluck(  $cart_items, 'options' );
+				$price_ids = wp_list_pluck(  $options, 'price_id' );
+			}
+
 
 		//	var_dump( $price_ids );
 
@@ -37,8 +42,8 @@ function rcp_pricing_table() {
 
 				<?php
 					$price_id = 4;
-					$in_cart = in_array( $price_id, $price_ids );
-					$in_cart_class = in_array( $price_id, $price_ids ) ? ' in-cart' : '';
+					$in_cart = $cart_items ? in_array( $price_id, $price_ids ) : '';
+					$in_cart_class = $cart_items && in_array( $price_id, $price_ids ) ? ' in-cart' : '';
 				?>
 	            <div class="col-xs-12 col-sm-6 col-lg-3 align-xs-center mb-xs-5 mb-sm-2<?php echo $in_cart_class; ?>">
 	                <div class="table-option pv-xs-2">
@@ -79,8 +84,8 @@ function rcp_pricing_table() {
 
 				<?php
 					$price_id = 3;
-					$in_cart = in_array( $price_id, $price_ids );
-					$in_cart_class = in_array( $price_id, $price_ids ) ? ' in-cart' : '';
+					$in_cart = $cart_items ? in_array( $price_id, $price_ids ) : '';
+					$in_cart_class = $cart_items && in_array( $price_id, $price_ids ) ? ' in-cart' : '';
 
 					if ( ! $cart_items ) {
 						$highlight_class = ' best-value';
@@ -134,8 +139,8 @@ function rcp_pricing_table() {
 
 				<?php
 					$price_id = 2;
-					$in_cart = in_array( $price_id, $price_ids );
-					$in_cart_class = in_array( $price_id, $price_ids ) ? ' in-cart' : '';
+					$in_cart = $cart_items ? in_array( $price_id, $price_ids ) : '';
+					$in_cart_class = $cart_items && in_array( $price_id, $price_ids ) ? ' in-cart' : '';
 				?>
 	            <div class="col-xs-12 col-sm-6 col-lg-3 align-xs-center mb-xs-2<?php echo $in_cart_class; ?>">
 	                <div class="table-option pv-xs-2">
@@ -175,8 +180,8 @@ function rcp_pricing_table() {
 
 				<?php
 					$price_id = 1;
-					$in_cart = in_array( $price_id, $price_ids );
-					$in_cart_class = in_array( $price_id, $price_ids ) ? ' in-cart' : '';
+					$in_cart = $cart_items ? in_array( $price_id, $price_ids ) : '';
+					$in_cart_class = $cart_items && in_array( $price_id, $price_ids ) ? ' in-cart' : '';
 				?>
 	            <div class="col-xs-12 col-sm-6 col-lg-3 align-xs-center mb-xs-2<?php echo $in_cart_class; ?>">
 	                <div class="table-option pv-xs-2">
@@ -275,7 +280,7 @@ function rcp_add_on_popups() {
 								<?php the_excerpt(); ?>
 							</div>
 							<div class="col-xs-6">
-								<?php trustedd_post_thumbnail( 'thumbnail', false ); ?>
+								<?php themedd_post_thumbnail( 'thumbnail', false ); ?>
 							</div>
 						<?php else : ?>
 							<div class="col-xs-12">
@@ -325,7 +330,7 @@ function rcp_add_on_popups() {
 								<?php the_excerpt(); ?>
 							</div>
 							<div class="col-xs-6">
-								<?php trustedd_post_thumbnail( 'thumbnail', false ); ?>
+								<?php themedd_post_thumbnail( 'thumbnail', false ); ?>
 							</div>
 						<?php else : ?>
 							<div class="col-xs-12">

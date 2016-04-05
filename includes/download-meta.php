@@ -73,26 +73,26 @@ add_action( 'edd_download_meta_version', 'rcp_download_meta_icon_version' );
 function rcp_download_meta_add_fields() {
 	?>
 
-	<p><strong><?php _e( 'Developer', 'trustedd' ); ?></strong></p>
+	<p><strong><?php _e( 'Developer', 'themedd' ); ?></strong></p>
 	<p>
 		<label for="edd-download-meta-developer" class="screen-reader-text">
-			<?php _e( 'Developer', 'trustedd' ); ?>
+			<?php _e( 'Developer', 'themedd' ); ?>
 		</label>
 		<input class="widefat" type="text" name="edd_download_meta_developer" id="edd-download-meta-developer" value="<?php echo esc_attr( get_post_meta( get_the_ID(), '_edd_download_meta_developer', true ) ); ?>" size="30" />
 	</p>
 
-	<p><strong><?php _e( 'Developer URL', 'trustedd' ); ?></strong></p>
+	<p><strong><?php _e( 'Developer URL', 'themedd' ); ?></strong></p>
 	<p>
 		<label for="edd-download-meta-developer-url" class="screen-reader-text">
-			<?php _e( 'Developer URL', 'trustedd' ); ?>
+			<?php _e( 'Developer URL', 'themedd' ); ?>
 		</label>
 		<input class="widefat" type="text" name="edd_download_meta_developer_url" id="edd-download-meta-developer-url" value="<?php echo esc_attr( get_post_meta( get_the_ID(), '_edd_download_meta_developer_url', true ) ); ?>" size="30" />
 	</p>
 
-	<p><strong><?php _e( 'RCP Version Required', 'trustedd' ); ?></strong></p>
+	<p><strong><?php _e( 'RCP Version Required', 'themedd' ); ?></strong></p>
 	<p>
 		<label for="edd-download-meta-developer-url" class="screen-reader-text">
-			<?php _e( 'RCP Version Required', 'trustedd' ); ?>
+			<?php _e( 'RCP Version Required', 'themedd' ); ?>
 		</label>
 		<input class="widefat" type="text" name="edd_download_meta_rcp_version_required" id="edd-download-meta-rcp-version-required" value="<?php echo esc_attr( get_post_meta( get_the_ID(), '_edd_download_meta_rcp_version_required', true ) ); ?>" size="30" />
 	</p>
