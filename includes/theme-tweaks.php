@@ -125,7 +125,7 @@ add_filter( 'comments_open', 'rcp_remove_comments_on_attachments', 10 , 2 );
  *
  * @since 1.0.0
  */
-add_filter( 'trusted_footer_primary_menu', '__return_false' );
+add_filter( 'themedd_footer_primary_menu', '__return_false' );
 
 /**
  * Load Footer signup and mascot
@@ -429,7 +429,7 @@ function rcp_hide_post_thumbnail( $return ) {
 
 	return $return;
 }
-add_filter( 'trusted_post_thumbnail', 'rcp_hide_post_thumbnail' );
+add_filter( 'themedd_post_thumbnail', 'rcp_hide_post_thumbnail' );
 
 /**
  * Show the SVGs in the metabox
