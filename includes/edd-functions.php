@@ -1,6 +1,98 @@
 <?php
 
 /**
+ * Remove download meta styling
+ */
+remove_action( 'wp_head', 'edd_download_meta_styles' );
+
+/**
+ * Add the cart icon to the primary navigation
+ */
+function rcp_themedd_cart_link_position() {
+	return 'primary_menu';
+}
+add_filter( 'themedd_cart_link_position', 'rcp_themedd_cart_link_position' );
+
+/**
+ * Turn cart icon count off since we're only selling 1 product
+ */
+add_filter( 'themedd_edd_cart_icon_count', '__return_false' );
+
+/**
+ * Show a full cart icon
+ */
+add_filter( 'themedd_edd_cart_icon_full', '__return_true' );
+
+/**
+ * Replace with new SVG
+ */
+function rcp_themedd_edd_cart_icon( $content, $cart_items ) {
+	ob_start();
+?>
+
+<?php if ( apply_filters( 'themedd_edd_cart_icon_count', true ) ) : ?>
+<span class="cart-count"><span class="edd-cart-quantity"><?php echo edd_get_cart_quantity(); ?></span></span>
+<?php endif; ?>
+
+<svg id="nav-cart-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="animate">
+<defs>
+<style>
+	.cart-frame {
+		fill: none;
+	}
+</style>
+</defs>
+<?php if ( $cart_items ) : ?>
+  <title><?php _e( 'Checkout now', 'themedd' ); ?></title>
+<?php else : ?>
+  <title><?php _e( 'Go to checkout', 'themedd' ); ?></title>
+<?php endif; ?>
+<g id="frame">
+<rect class="cart-frame" width="48" height="48" />
+</g>
+<g id="cart">
+	<circle class="cart-wheel" cx="34.7" cy="37" r="3"/>
+	<circle class="cart-wheel" cx="22.6" cy="37" r="3"/>
+<?php if ( $cart_items && apply_filters( 'themedd_edd_cart_icon_full', false ) ) : ?>
+	<path class="cart-items" d="M40.7,13.2c0.3-0.7,0.1-1.5-0.5-1.9l-4.6-3c-0.1,0-0.1-0.1-0.2-0.1c-0.8-0.4-1.7-0.1-2,0.7l-3.3,6.4v-2.7v0
+		c0-0.8-0.7-1.5-1.5-1.5h-6c0,0,0,0-0.1,0c-0.8,0.1-1.5,0.8-1.4,1.6v3h3v-1.5h3v1.5h6.3l1.9-3.9l2,1.3l-1.3,2.5h3.4L40.7,13.2z"/>
+<?php endif; ?>
+<path class="cart-main" d="M16.5,9.5h-6.1v3h4.9l4.3,18.6c0.2,0.7,0.8,1.2,1.5,1.2h15.3c0.7,0,1.3-0.5,1.5-1.2l3-12.2c0-0.1,0-0.2,0-0.3
+	c0-0.8-0.7-1.5-1.5-1.5H19.4L18,10.7C17.8,10,17.2,9.5,16.5,9.5L16.5,9.5z"/>
+</g>
+
+
+	<g id="cart-lines">
+		<line class="cart-line" x1="2.6" y1="22.2" x2="15" y2="22.2"/>
+		<line class="cart-line" x1="7.8" y1="25.9" x2="16.7" y2="25.9"/>
+		<line class="cart-line" x1="3.7" y1="29.7" x2="14.4" y2="29.7"/>
+	</g>
+
+
+</svg>
+
+
+<?php
+
+	$content = ob_get_contents();
+	ob_end_clean();
+
+	return $content;
+
+}
+add_filter( 'themedd_edd_cart_icon', 'rcp_themedd_edd_cart_icon', 10, 2 );
+
+/**
+ * Remove default class from cart icon anchor link
+ */
+function rcp_themedd_edd_cart_link_defaults( $defaults ) {
+	$defaults['classes'] = array();
+
+	return $defaults;
+}
+add_filter( 'themedd_edd_cart_link_defaults', 'rcp_themedd_edd_cart_link_defaults' );
+
+/**
  * Remove pricing from pro add-on single download pages
  */
 function rcp_remove_pricing_pro_addons() {
@@ -47,9 +139,9 @@ function rcp_edd_download_pro_add_on() {
 			$has_professional_license = in_array( 3, rcp_get_users_price_ids() );
 
 			if ( $has_ultimate_license || $has_professional_license ) : ?>
-				<a href="<?php echo rcp_get_add_on_download_url( get_the_ID() ); ?>" class="button">Download Now</a>
+				<a href="<?php echo rcp_get_add_on_download_url( get_the_ID() ); ?>" class="button wide">Download Now</a>
 			<?php else :  ?>
-				<a href="#no-access" class="button popup-content" data-effect="mfp-move-from-bottom">Download Now</a>
+				<a href="#no-access" class="button popup-content wide" data-effect="mfp-move-from-bottom">Download Now</a>
 				<?php rcp_upgrade_or_purchase_modal();
 			endif;
 		?>
@@ -572,7 +664,7 @@ function rcp_remove_checkout_nav() {
 		return;
 	}
 
-	remove_action( 'themedd_masthead', 'themedd_navigation' );
+	remove_action( 'themedd_site_header_main', 'themedd_primary_menu' );
 }
 add_action( 'template_redirect', 'rcp_remove_checkout_nav' );
 
@@ -788,3 +880,31 @@ add_filter( 'edd_subscription_update_url', 'rcp_edd_subscription_update_url', 10
  */
 global $edd_recurring_stripe;
 remove_action( 'edd_after_cc_fields', array( $edd_recurring_stripe, 'after_cc_fields'  ), 10 );
+
+/**
+ * Show button to view documentation after downloading free add-on
+ */
+function rcp_free_download_documentation_button() {
+
+	if ( ! is_page( 'thanks' ) ) {
+		return;
+	}
+
+	$purchase_session  = edd_get_purchase_session();
+	$download_id       = $purchase_session['downloads'][0];
+	$download_name     = $purchase_session['cart_details'][0]['name'];
+	$documentation_url = get_post_meta( $download_id, '_edd_download_meta_doc_url', true );
+
+	?>
+	<p class="aligncenter">Thanks for downloading <?php echo $download_name; ?>, we hope you like it! <br/>Be sure to check out our other <a href="/add-ons">add-ons</a>.</p>
+
+	<?php if ( $documentation_url ) : ?>
+	<p class="aligncenter">
+		<a href="<?php echo $documentation_url; ?>" class="button" target="_blank">View documentation for <?php echo $download_name; ?></a>
+	</p>
+	<?php endif; ?>
+
+	<?php
+
+}
+add_action( 'themedd_entry_content_end', 'rcp_free_download_documentation_button' );

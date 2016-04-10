@@ -10,31 +10,21 @@ function rcp_pricing_table() {
 
 	$download_url = add_query_arg( array( 'edd_action' => 'add_to_cart', 'download_id' => $download_id ), $checkout_url );
 
-
-
 	$count_pro_add_ons           = function_exists( 'rcp_get_add_on_count' ) ? rcp_get_add_on_count( 'pro' ) : '';
 	$count_official_free_add_ons = function_exists( 'rcp_get_add_on_count' ) ? rcp_get_add_on_count( 'official-free' ) : '';
 
 ?>
 
-	<section class="container-fluid pricing-table mb-xs-4" id="pricing">
-
-	    <div class="wrapper">
+	<section class="container-fluid pricing-table" id="pricing">
 
 			<?php
 
 			$cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
 
-		//	var_dump( $cart_items );
-
 			if ( $cart_items ) {
 				$options = wp_list_pluck(  $cart_items, 'options' );
 				$price_ids = wp_list_pluck(  $options, 'price_id' );
 			}
-
-
-		//	var_dump( $price_ids );
-
 
 			?>
 
@@ -228,8 +218,6 @@ function rcp_pricing_table() {
 					<p><small>* Plugin updates and support are provided for the duration of your current subscription. Renewals discounted at 30%. Pro add-ons are only available with Professional and Ultimate licenses. See FAQs below for details. All purchases are subject to our terms of use.</small></p>
 				</div>
 			</div>
-
-	    </div>
 
 	</section>
 

@@ -21,14 +21,15 @@ $child_pages = get_pages( $args );
 
 ?>
 
-<header class="page-header<?php echo themedd_page_header_classes(); ?>">
+<header class="aligncenter page-header<?php echo themedd_page_header_classes(); ?>">
 	<h1 class="page-title"><?php echo get_the_title( get_the_ID() ); ?></h1>
 </header>
 
-<section class="container-fluid">
-	<div class="wrapper wide">
+
+	<div class="wrapper">
 	    <div class="content-area">
 
+			<section class="container-fluid">
 			<?php
 				// Start the Loop.
 				while ( have_posts() ) : the_post();
@@ -38,8 +39,10 @@ $child_pages = get_pages( $args );
 
 				endwhile;
 			?>
+			</section>
 
 			<?php if ( $child_pages ) : ?>
+			<section class="container-fluid">
 			<div class="grid row mb-xs-4">
 				<?php foreach ( $child_pages as $page ) :
 
@@ -88,10 +91,11 @@ $child_pages = get_pages( $args );
 
 	            <?php endforeach; ?>
 		    </div>
+			</section>
 			<?php endif; ?>
 
 		</div>
 	</div>
-</section>
+
 <?php
 get_footer();

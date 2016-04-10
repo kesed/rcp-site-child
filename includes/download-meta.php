@@ -4,41 +4,6 @@
  * @since 1.0.0
 */
 
-/**
- * Add documentation icon
- */
-function rcp_download_meta_icon_documentation() {
-	?>
-
-	<img src="<?php echo get_stylesheet_directory_uri() . '/images/svgs/download-documentation.svg'; ?>" width="24" />
-
-	<?php
-}
-add_action( 'edd_download_meta_documentation', 'rcp_download_meta_icon_documentation' );
-
-/**
- * Add last updated icon
- */
-function rcp_download_meta_icon_last_updated() {
-	?>
-
-	<img src="<?php echo get_stylesheet_directory_uri() . '/images/svgs/download-last-updated.svg'; ?>" width="24" />
-
-	<?php
-}
-add_action( 'edd_download_meta_last_updated', 'rcp_download_meta_icon_last_updated' );
-
-/**
- * Add release date icon
- */
-function rcp_download_meta_icon_release_date() {
-	?>
-
-	<img src="<?php echo get_stylesheet_directory_uri() . '/images/svgs/download-released.svg'; ?>" width="24" />
-
-	<?php
-}
-add_action( 'edd_download_meta_release_date', 'rcp_download_meta_icon_release_date' );
 
 /**
  * Add changelog icon
@@ -51,20 +16,6 @@ function rcp_download_meta_icon_changelog() {
 	<?php
 }
 add_action( 'edd_download_meta_changelog', 'rcp_download_meta_icon_changelog' );
-
-/**
- * Add version icon
- */
-function rcp_download_meta_icon_version() {
-	?>
-
-	<img src="<?php echo get_stylesheet_directory_uri() . '/images/svgs/download-version.svg'; ?>" width="24" />
-
-	<?php
-}
-add_action( 'edd_download_meta_version', 'rcp_download_meta_icon_version' );
-
-
 
 /**
  * Add new fields
@@ -178,10 +129,10 @@ function rcp_download_meta_changelog() {
 	<?php if ( $changelog ) : ?>
 		<div class="download-meta">
 
-			<a href="#changelog" class="popup-content download-meta-link" data-effect="mfp-move-from-bottom">
+
 
 				<?php do_action( 'edd_download_meta_changelog' ); ?>
-
+			<a href="#changelog" class="popup-content download-meta-link" data-effect="mfp-move-from-bottom">
 				<span>View Changelog</span>
 			</a>
 
@@ -219,8 +170,8 @@ function rcp_download_meta_category() {
 
 	<?php if ( $text && $link ) : ?>
 	<div class="download-meta">
+		<img src="<?php echo get_stylesheet_directory_uri() . '/images/svgs/download-category.svg'; ?>" width="24" height="24">
 		<a href="<?php echo $link; ?>" class="download-meta-link">
-			<img src="<?php echo get_stylesheet_directory_uri() . '/images/svgs/download-category.svg'; ?>" width="24" height="24">
 			<span><?php echo $text; ?></span>
 		</a>
 	</div>

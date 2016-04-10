@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.3.7' );
+	define( 'RCP_THEME_VERSION', '1.3.8' );
 }
 
 /**
@@ -84,12 +84,6 @@ function rcp_body_classes( $classes ) {
 
 	if ( rcp_is_single_feature() ) {
 		$classes[] = 'single-features';
-	}
-
-	$cart_items = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
-
-	if ( $cart_items ) {
-		$classes[] = 'items-in-cart';
 	}
 
 	if ( is_page_template( 'page-templates/account.php' ) ) {

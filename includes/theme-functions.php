@@ -12,7 +12,7 @@ function rcp_is_single_feature() {
 
 		$features_page = get_page_by_title( 'features' );
 
-		if ( $features_page->ID === $parent_post_id ) {
+		if ( $features_page && ( $features_page->ID === $parent_post_id ) ) {
 			return true;
 		}
 	}

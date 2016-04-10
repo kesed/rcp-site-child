@@ -19,7 +19,7 @@ $has_personal_license     = in_array( 1, $price_ids );
 ?>
 
 <div id="tabs">
-<header class="page-header<?php echo themedd_page_header_classes(); ?>">
+<header class="aligncenter page-header<?php echo themedd_page_header_classes(); ?>">
 
 	<h1 class="page-title"><?php echo get_the_title( get_the_ID() ); ?></h1>
 
@@ -34,16 +34,19 @@ $has_personal_license     = in_array( 1, $price_ids );
 
 </header>
 
+<?php
+$wrapper_class = ! is_user_logged_in() ? ' slim' : '';
+
+?>
 <section class="container-fluid">
+<div class="wrapper<?php echo $wrapper_class; ?>">
+
+
+
 	<div class="row">
 
 		<div class="col-xs-12">
 
-			<?php
-			$wrapper_class = ! is_user_logged_in() ? ' slim' : '';
-
-			?>
-			<div class="wrapper<?php echo $wrapper_class; ?>">
 
 			<?php if ( affwp_is_affiliate() ) : ?>
 			<p class="aligncenter"><a href="/account/affiliates">Go to your affiliate area &rarr;</a></p>
@@ -213,7 +216,9 @@ $has_personal_license     = in_array( 1, $price_ids );
 			?>
 			</div>
 		</div>
-	</div>
+
+
+</div>
 </section>
 
 </div>

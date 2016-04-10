@@ -1,6 +1,11 @@
 .site-footer {
     position: relative;
-    font-size: 0.875rem;
+
+    .footer-wrapper {
+        max-width: @page-wrap-max-width;
+        margin: 0 auto;
+
+    }
 
     a {
         font-size: 0.875rem;
@@ -60,7 +65,7 @@
     // mailchimp sign up form
     #sign-up {
         position: relative;
-        margin: 0 auto 4rem auto;
+        margin: 0 auto;
         padding: 2rem;
 
         .gform_body input {

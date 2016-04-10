@@ -24,8 +24,8 @@ $child_pages = get_pages( $args );
 	<h1 class="page-title"><?php echo get_the_title( get_the_ID() ); ?></h1>
 </header>
 
-<section class="container-fluid">
-	<div class="wrapper <?php echo apply_filters( 'themedd_list_subpages_wrapper_class', 'wide' ); ?>">
+
+	<div class="wrapper <?php echo apply_filters( 'themedd_list_subpages_wrapper_class', '' ); ?>">
 	    <div class="content-area">
 
 			<?php
@@ -63,7 +63,7 @@ $child_pages = get_pages( $args );
 				?>
 
 
-                <section class="pv-xs-2 pv-md-4<?php echo $classes; ?>">
+                <section class="container-fluid pv-xs-2 pv-md-4<?php echo $classes; ?>">
 
                         <div class="row middle-xs">
 
@@ -103,6 +103,6 @@ $child_pages = get_pages( $args );
 
 		</div>
 	</div>
-</section>
+
 <?php
 get_footer();

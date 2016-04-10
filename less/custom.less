@@ -1,0 +1,64 @@
+// custom styling, specific to RCP
+
+// center logo on checkout page
+.edd-checkout .site-branding {
+    margin: 0 auto;
+    padding-left: 0;
+}
+
+.items-in-cart .cart-line {
+	display: none;
+	stroke: @cart-active-color;
+    stroke-miterlimit: 10;
+    stroke-width: 2px;
+}
+
+// make the primary menu sit next to the logo
+
+
+@media only screen and ( min-width: @screen-md-min ) {
+
+    // puts navigation up beside logo
+	// .site-header-menu {
+    //     -webkit-flex: 0 1 auto;
+    //     -ms-flex: 0 1 auto;
+    //     flex: 0 1 auto;
+	// }
+
+    .site-header-menu {
+        -webkit-flex: none;
+        -ms-flex: none;
+        flex: none;
+    }
+
+    .items-in-cart .nav-cart:hover .cart-line {
+        display: block;
+    }
+
+    .items-in-cart .nav-cart:hover svg.animate #cart {
+        -ms-transform: rotate(-7deg) translateX(-3px);
+        -webkit-transform: rotate(-7deg) translateX(-3px);
+        transform: rotate(-7deg) translateX(-3px);
+    }
+
+
+}
+
+@media only screen and ( min-width: @screen-md-min ) {
+    .site-header-menu {
+        padding-right: 2rem;
+    }
+}
+
+
+
+
+.site-header-wrap {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+}
