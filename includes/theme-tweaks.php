@@ -48,7 +48,7 @@ add_action( 'themedd_site_branding_start', 'rcp_header_logo' );
 function rcp_the_title( $title, $id = null ) {
 
 	if ( is_page( 'pricing' ) && $id == get_the_ID() ) {
-		$title = '<span class="entry-title-primary">30 Day Money Back Guarantee</span><span class="subtitle mb-xs-6">We stand behind our product 100% ' . rcp_show_refund_policy_link() . '</span>';
+		$title = '<span class="entry-title-primary">30 Day Money Back Guarantee</span><span class="subtitle mb-sm-6">We stand behind our product 100% ' . rcp_show_refund_policy_link() . '</span>';
 	}
 
     return $title;
@@ -390,37 +390,28 @@ function rcp_load_sidebars( $sidebar ) {
 }
 add_filter( 'themedd_get_sidebar', 'rcp_load_sidebars' );
 
-
 /**
  * Change primary column classes for payment gateway pages
  */
 function rcp_themedd_primary_classes( $classes ) {
 
-	// give subpages navigation some room
-	if ( rcp_is_template_child_page() && ! is_page_template() ) {
-		$classes = array();
-		$classes[] = 'col-xs-12 col-md-8';
-	}
+    // give subpages navigation some room
+    if ( rcp_is_template_child_page() && ! is_page_template() ) {
+        $classes = array();
+        $classes[] = 'col-xs-12 col-md-8';
+    }
 
-	return $classes;
+    return $classes;
 }
 add_filter( 'themedd_primary_classes', 'rcp_themedd_primary_classes' );
 
-/**
- * Change CSS classes for wrapper
- */
-function rcp_force_sidebar_layout( $classes ) {
 
-	// tell the theme we want a sidebar class so the spacing is adjusted
+function rcp_themedd_force_sidebar() {
 	if ( rcp_is_template_child_page() && ! is_page_template() ) {
-		$classes = array();
-		$classes[] = 'has-sidebar';
+		add_filter( 'themedd_force_sidebar', '__return_true' );
 	}
-
-	return $classes;
 }
-add_filter( 'themedd_wrapper_classes', 'rcp_force_sidebar_layout' );
-
+add_action( 'template_redirect', 'rcp_themedd_force_sidebar' );
 
 /**
  * Add a purchase button to the feature subpages
