@@ -156,7 +156,7 @@ function rcp_footer_sign_up() {
 
 ?>
 
-<div class="wrapper pv-xs-4">
+<div class="wrapper">
 
 	<section id="sign-up">
 		<h3>Psst! Want to receive updates?</h3>
