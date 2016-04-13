@@ -8,8 +8,8 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 	define( 'RCP_INCLUDES_DIR', trailingslashit( get_stylesheet_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
 }
 
-if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.3.9' );
+if ( ! defined( 'THEMEDD_VERSION' ) ) {
+	define( 'THEMEDD_VERSION', '1.4.0' );
 }
 
 /**
@@ -102,7 +102,7 @@ add_filter( 'body_class', 'rcp_body_classes' );
 function rcp_enqueue_scripts() {
 
 	// in addition to the parent theme's JS we load our own
-	wp_register_script( 'rcp-js', get_stylesheet_directory_uri() . '/js/rcp.min.js', array( 'jquery' ), RCP_THEME_VERSION, true );
+	wp_register_script( 'rcp-js', get_stylesheet_directory_uri() . '/js/rcp.min.js', array( 'jquery' ), THEMEDD_VERSION, true );
 	wp_enqueue_script( 'rcp-js' );
 
 	wp_enqueue_script( 'jquery-ui-tabs' );
