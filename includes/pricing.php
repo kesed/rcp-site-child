@@ -47,8 +47,8 @@ function rcp_pricing_table() {
 								<span class="price"><span class="currency">$</span>449</span>
 								<span class="length">one-time payment</span>
 							</li>
-							<li class="feature"><strong><a href="#modal-pro-add-ons" class="popup-content" data-effect="mfp-move-from-bottom"><?php echo $count_pro_add_ons; ?> pro add-ons</a></strong></li>
-
+							<li class="feature"><strong><a href="#modal-pro-add-ons" class="popup-content" data-effect="mfp-move-from-bottom"><?php echo $count_pro_add_ons; ?> pro add-ons</a></strong><br/>+ any we release in the future!</li>
+							<li class="feature"><strong><a href="#modal-offical-free-add-ons" class="popup-content" data-effect="mfp-move-from-bottom"><?php echo $count_official_free_add_ons; ?> official free add-ons</a></strong></li>
                             <li class="feature"><strong>Lifetime updates</strong></li>
                             <li class="feature"><strong>Lifetime support</strong></li>
 							<li class="feature"><strong>Unlimited sites</strong></li>
@@ -104,8 +104,8 @@ function rcp_pricing_table() {
 										<span class="length">per year</span>
 								</li>
 
-								<li class="feature"><strong><a href="#modal-pro-add-ons" class="popup-content" data-effect="mfp-move-from-bottom"><?php echo $count_pro_add_ons; ?> pro add-ons</a></strong></li>
-
+								<li class="feature"><strong><a href="#modal-pro-add-ons" class="popup-content" data-effect="mfp-move-from-bottom"><?php echo $count_pro_add_ons; ?> pro add-ons</a></strong><br/>+ any we release in the future!</li>
+								<li class="feature"><strong><a href="#modal-offical-free-add-ons" class="popup-content" data-effect="mfp-move-from-bottom"><?php echo $count_official_free_add_ons; ?> official free add-ons</a></strong></li>
 	                            <li class="feature">Plugin updates *</li>
 	                            <li class="feature">Email support *</li>
 								<li class="feature"><strong>Unlimited sites</strong></li>
@@ -255,7 +255,7 @@ function rcp_add_on_popups() {
 
 	<div id="modal-pro-add-ons" class="modal addons popup entry-content mfp-with-anim mfp-hide">
 		<h1>Pro add-ons</h1>
-		<p>Pro add-ons are only available to <strong>Professional</strong> or <strong>Ultimate</strong> license-holders.</p>
+		<p>Pro add-ons are only available to <strong>Professional</strong> or <strong>Ultimate</strong> license-holders. These license-holders will also receive any additional pro add-ons we release in the future.</p>
 		<?php if ( $wp_query->have_posts() ) : ?>
 
 		    <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>

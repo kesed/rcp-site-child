@@ -13,12 +13,15 @@
   padding: 0;
 }
 
+.grid-item-inner {
+  padding: 1.5rem;
+}
+
 .grid-item-inner,
 .edd_download_inner {
   display: -webkit-flex;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
   position: relative;
   width: 100%;
 }
@@ -43,4 +46,14 @@
 .grid-item-inner {
   border-right: 2px solid @light-grey;
   border-bottom: 2px solid @light-grey;
+}
+
+// Small Devices, Tablets
+@media only screen and ( min-width: @screen-sm-min ) {
+
+    // .grid-item-inner,
+    // .edd_download_inner {
+    //   padding: 1.5rem;
+    // }
+
 }

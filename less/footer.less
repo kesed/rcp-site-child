@@ -64,9 +64,6 @@
 
     // mailchimp sign up form
     #sign-up {
-        position: relative;
-        margin: 10rem auto 0 auto;
-        padding: 2rem;
 
         .gform_body input {
             border: 1px solid #fff;
@@ -81,6 +78,14 @@
             margin-top: 1rem;
             margin-bottom: 0;
         }
+
+        .wrapper {
+            margin: 6rem auto 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+
     }
 
 
@@ -194,13 +199,17 @@
         margin-top: 10rem;
     }
 
-    .site-footer #sign-up {
-        max-width: 600px;
+    .site-footer #sign-up .wrapper {
+        max-width: 720px;
     }
 
-   form.mailing-list {
-       max-width: 84%;
-   }
+    .site-footer #sign-up .gform_wrapper {
+        padding: 0 8rem;
+    }
+
+   // form.mailing-list {
+   //     max-width: 84%;
+   // }
 
    #mascot {
        position: absolute;

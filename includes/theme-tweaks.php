@@ -47,7 +47,7 @@ add_action( 'themedd_site_branding_start', 'rcp_header_logo' );
  */
 function rcp_the_title( $title, $id = null ) {
 
-	if ( is_page( 'pricing' ) && $id == get_the_ID() ) {
+	if ( is_page( 'pricing' ) && $id === get_the_ID() && in_the_loop() ) {
 		$title = '<span class="entry-title-primary">30 Day Money Back Guarantee</span><span class="subtitle mb-sm-6">We stand behind our product 100% ' . rcp_show_refund_policy_link() . '</span>';
 	}
 
@@ -156,38 +156,39 @@ function rcp_footer_sign_up() {
 
 ?>
 
-<div class="wrapper">
 
-	<section id="sign-up">
-		<h3>Psst! Want to receive updates?</h3>
 
-		<?php
-			if ( function_exists( 'gravity_form' ) ) {
-				gravity_form( 1, false, false, false, '', true );
-			}
-		?>
+	<section id="sign-up" class="container-fluid mb-xs-2">
+        <div class="wrapper aligncenter">
+    		<h3>Psst! Want to receive updates?</h3>
 
-		<p>Unsubscribe at any time. No spam.</p>
+    		<?php
+    			if ( function_exists( 'gravity_form' ) ) {
+    				gravity_form( 1, false, false, false, '', true );
+    			}
+    		?>
 
-		<div id="mascot">
+    		<p>Unsubscribe at any time. No spam.</p>
 
-			<div id="mascot-group">
+    		<div id="mascot">
 
-				<div id="mascot-animate">
-					<div id="mascot-body"></div>
-					<div id="mascot-wing"></div>
-				</div>
+    			<div id="mascot-group">
 
-				<div id="mascot-shadow">
-					<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-shadow.png'; ?>" />
-				</div>
-			</div>
+    				<div id="mascot-animate">
+    					<div id="mascot-body"></div>
+    					<div id="mascot-wing"></div>
+    				</div>
 
-		</div>
+    				<div id="mascot-shadow">
+    					<img src="<?php echo get_stylesheet_directory_uri() . '/images/mascot-shadow.png'; ?>" />
+    				</div>
+    			</div>
 
+    		</div>
+        </div>
 	</section>
 
-</div>
+
 
 	<?php
 }

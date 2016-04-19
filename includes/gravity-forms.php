@@ -57,6 +57,25 @@ function rcp_gforms_support_add_note( $button, $form ) {
 add_filter( 'gform_submit_button', 'rcp_gforms_support_add_note', 10, 2 );
 
 /**
+ * Change button text on RCP
+ *
+ * @since 1.0.0
+ */
+function rcp_gforms_signup_button( $button, $form ) {
+
+	if ( $form['title'] != 'Signup' ) {
+		return $button;
+	}
+
+	$subscriber_count = function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ? 'Join ' . mailchimp_subscriber_count()->subscriber_count() . ' site owners' : 'Signup';
+
+	$button = "<input type='submit' id='gform_submit_button_1' class='gform_button button' value='" . $subscriber_count . "' onclick='if(window['gf_submitting_1']){return false;} if( !jQuery('#gform_1')[0].checkValidity || jQuery('#gform_1')[0].checkValidity()){window['gf_submitting_1']=true;}' />";
+
+	return $button;
+}
+add_filter( 'gform_submit_button', 'rcp_gforms_signup_button', 10, 2 );
+
+/**
  * Gravity Forms - change spinner
  *
  * @since 1.0

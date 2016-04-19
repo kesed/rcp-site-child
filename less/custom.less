@@ -13,7 +13,16 @@
     stroke-width: 2px;
 }
 
-// make the primary menu sit next to the logo
+
+.site-header-wrap {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+}
 
 
 @media only screen and ( min-width: @screen-md-min ) {
@@ -48,17 +57,4 @@
     .site-header-menu {
         padding-right: 2rem;
     }
-}
-
-
-
-
-.site-header-wrap {
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    width: 100%;
 }

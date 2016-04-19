@@ -39,11 +39,13 @@
   cursor: zoom-in;
 }
 
+
+
 // move up from bottom
 .mfp-move-from-bottom {
 
   .mfp-content {
-    padding: 48px;
+    padding: 1.5rem;
   }
 
   /* start state */
@@ -118,4 +120,11 @@
 
 .image-source-link {
   color: #98C3D1;
+}
+
+// Small Devices, Tablets
+@media only screen and ( min-width: @screen-sm-min ) {
+    .mfp-content {
+      padding: 3rem;
+    }
 }

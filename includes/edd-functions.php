@@ -240,7 +240,7 @@ function rcp_upgrade_or_purchase_modal() {
 		</div>
 		<?php endif; ?>
 
-		<h2>The Professional licence</h2>
+		<h2>The Professional license</h2>
 		<ul>
 			<li>Access all <?php echo $professional_add_ons; ?> pro add-ons, including any built in the future</li>
 			<li>Use Restrict Content Pro on as many sites as you'd like</li>
@@ -267,7 +267,7 @@ function rcp_upgrade_or_purchase_modal() {
 
 		<a href="<?php echo esc_url( $purchase_link ); ?>" class="button"><?php echo $text; ?> Professional license</a>
 
-		<h2>The Ultimate licence</h2>
+		<h2>The Ultimate license</h2>
 		<ul>
 			<li>Access all <?php echo $professional_add_ons; ?> pro add-ons, including any built in the future</li>
 			<li>Use Restrict Content Pro on as many sites as you'd like</li>

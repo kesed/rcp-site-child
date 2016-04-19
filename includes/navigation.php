@@ -73,8 +73,6 @@ add_filter( 'nav_menu_css_class', 'rcp_highlight_menu_item' );
  * @return [type] [description]
  */
 function rcp_nav_account() {
-	global $current_user;
-	get_currentuserinfo();
 
 	$account_link_text 	= 'Account';
 	$account_page 		= '/account';

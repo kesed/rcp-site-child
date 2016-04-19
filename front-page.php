@@ -244,13 +244,15 @@ get_header(); ?>
 </section>
 
 
-<div class="wrapper">
-    <section class="container-fluid aligncenter pv-xs-2 pv-sm-4">
+    <section class="aligncenter pv-xs-2 pv-sm-4 ph-lg-1">
+        <div class="wrapper full-width">
     	<h1 class="mb-xs-1">30 Day Money Back Guarantee.</h1>
     	<p class="subtitle mb-sm-6">We stand behind our product 100% <?php echo rcp_show_refund_policy_link(); ?></p>
         <?php echo rcp_pricing_table(); ?>
+        </div>
     </section>
-</div>
+
+
 
 <div class="wrapper">
     <section class="container-fluid aligncenter pv-xs-4">

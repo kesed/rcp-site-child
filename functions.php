@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'THEMEDD_VERSION' ) ) {
-	define( 'THEMEDD_VERSION', '1.4.0' );
+	define( 'THEMEDD_VERSION', '1.4.1' );
 }
 
 /**
@@ -88,6 +88,10 @@ function rcp_body_classes( $classes ) {
 
 	if ( is_page_template( 'page-templates/account.php' ) ) {
 		$classes[] = 'account';
+	}
+
+	if ( rcp_is_template_child_page() ) {
+		$classes[] = 'has-sidebar';
 	}
 
 	return $classes;

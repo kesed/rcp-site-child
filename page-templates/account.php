@@ -6,9 +6,6 @@
 
 get_header();
 
-global $current_user;
-get_currentuserinfo();
-
 $price_ids = function_exists( 'rcp_get_users_price_ids' ) ? rcp_get_users_price_ids() : array();
 
 $has_ultimate_license     = in_array( 4, $price_ids );
@@ -25,7 +22,7 @@ $has_personal_license     = in_array( 1, $price_ids );
 
 	<h2 class="subtitle">
 		<?php if ( is_user_logged_in() ) : ?>
-			<?php printf( __( 'Welcome, %s', 'rcp' ), $current_user->display_name ); ?>
+			<?php printf( __( 'Welcome, %s', 'rcp' ), wp_get_current_user()->display_name ); ?>
 		<?php else : ?>
 			<?php _e( 'Come on in!', 'rcp' ); ?>
 		<?php endif; ?>
@@ -200,20 +197,6 @@ $wrapper_class = ! is_user_logged_in() ? ' slim' : '';
 			</div>
 			<?php endif; ?>
 
-			<?php
-				// Start the Loop.
-				while ( have_posts() ) : the_post();
-
-					// Include the page content template.
-					get_template_part( 'content', 'page' );
-
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
-					}
-				endwhile;
-
-			?>
 			</div>
 		</div>
 
