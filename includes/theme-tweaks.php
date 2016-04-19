@@ -246,8 +246,8 @@ function rcp_footer_menu() {
 			<div class="col-xs-12 col-sm-6 col-lg-3">
 				<?php
 					$args = array(
-						'title'        => 'Pippin\'s Plugins',  // Title of the Widget
-						'url'          => 'https://pippinsplugins.com/feed/', // URL of the RSS Feed
+						'title'        => 'Blog Posts',  // Title of the Widget
+						'url'          => 'https://restrictcontentpro.com/feed/', // URL of the RSS Feed
 						'items'        => 5, // Number of items to be displayed
 						'show_summary' => 0, // Show post excerpts?
 						'show_author'  => 0, // Set 1 to display post author
