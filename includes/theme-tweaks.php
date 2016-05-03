@@ -221,7 +221,7 @@ function rcp_footer_menu() {
 					<li><a href="<?php echo site_url( 'support' ); ?>">Support</a></li>
 					<li><a href="http://docs.pippinsplugins.com/collection/4-restrict-content-pro" target="_blank">Documentation</a></li>
 					<li><a href="<?php echo site_url( 'screenshots' ); ?>">Screenshots</a></li>
-					<li><a href="#changelog" id="rcp-changelog" class="popup-content download-meta-link" data-effect="mfp-move-from-bottom">Changelog</a></li>
+                    <li><a href="<?php echo get_stylesheet_directory_uri() . '/changelog.php'; ?>" id="rcp-changelog" class="popup-content download-meta-link" data-effect="mfp-move-from-bottom">Changelog</a></li>
 					<li><a href="<?php echo site_url( 'add-ons' ); ?>">Add-ons</a></li>
 					<li><a href="<?php echo site_url( 'about' ); ?>">About</a></li>
 					<li><a href="<?php echo site_url( 'consultants' ); ?>">Consultants</a></li>
@@ -295,11 +295,6 @@ function rcp_footer_menu() {
 
 		</div>
 
-		<div id="changelog" class="popup entry-content mfp-with-anim mfp-hide">
-			<h1>Changelog</h1>
-			<?php echo rcp_get_changelog(); ?>
-		</div>
-
 	</section>
 </div>
 <?php
@@ -349,30 +344,29 @@ function rcp_get_changelog() {
  * @since 1.0.0
  */
 function rcp_product_changelog() {
-
 	?>
+    <script type="text/javascript">
+         jQuery(document).ready(function($) {
 
-	<script type="text/javascript">
-		jQuery(document).ready(function($) {
+           $('#rcp-changelog').magnificPopup({
+             type: 'ajax',
+             fixedContentPos: true,
+             alignTop: true,
+             fixedBgPos: true,
+             overflowY: 'scroll', // as we know that popup content is tall we set scroll overflow by default to avoid jump
+             closeBtnInside: true,
+             preloader: false,
+             callbacks: {
+                 beforeOpen: function() {
+                 this.st.mainClass = this.st.el.attr('data-effect');
+                 }
+             },
+             midClick: true,
+             removalDelay: 300
+           });
 
-			$('#rcp-changelog').magnificPopup({
-				type: 'inline',
-				fixedContentPos: true,
-				fixedBgPos: true,
-				overflowY: 'scroll',
-				closeBtnInside: true,
-				preloader: false,
-				callbacks: {
-					beforeOpen: function() {
-					this.st.mainClass = this.st.el.attr('data-effect');
-					}
-				},
-				midClick: true,
-				removalDelay: 300
-	        });
-
-		});
-	</script>
+         });
+       </script>
 
 	<?php
 }
