@@ -908,3 +908,72 @@ function rcp_free_download_documentation_button() {
 
 }
 add_action( 'themedd_entry_content_end', 'rcp_free_download_documentation_button' );
+
+/* ----------------------------------------------------------- *
+ * Extensions Feed
+ * ----------------------------------------------------------- */
+/**
+ * Register the feed
+ */
+function rcp_site_register_add_ons_feed() {
+	add_feed( 'feed-add-ons', 'rcp_site_addons_feed' );
+}
+add_action( 'init', 'rcp_site_register_add_ons_feed' );
+/**
+ * Initialise the feed when requested
+ */
+function rcp_site_addons_feed() {
+	load_template( STYLESHEETPATH . '/feed-add-ons.php' );
+}
+add_action( 'do_feed_addons', 'rcp_site_addons_feed', 10, 1 );
+/**
+ * Register the rewrite rule for the feed
+ */
+function rcp_site_feed_rewrite( $wp_rewrite ) {
+	$feed_rules = array(
+		'feed/(.+)' => 'index.php?feed=' . $wp_rewrite->preg_index( 1 ),
+		'(.+).xml'  => 'index.php?feed=' . $wp_rewrite->preg_index( 1 )
+	);
+	$wp_rewrite->rules = $feed_rules + $wp_rewrite->rules;
+}
+add_filter( 'generate_rewrite_rules', 'rcp_site_feed_rewrite' );
+/**
+ * Alter the WordPress Query for the feed
+ */
+function rcp_site_feed_request( $request ) {
+	if ( isset( $request['feed'] ) && 'feed-add-ons' == $request['feed'] ) {
+		$request['post_type'] = 'download';
+	}
+	return $request;
+}
+add_filter( 'request', 'rcp_site_feed_request' );
+/**
+ * Alter the WordPress Query for the feed
+ */
+function rcp_site_feed_query( $query ) {
+	if ( $query->is_feed && $query->query_vars['feed'] == 'feed-add-ons' ) {
+		if ( isset( $_GET['display'] ) && 'official-free' == $_GET['display'] ) {
+			$tax_query = array(
+				array(
+					'taxonomy' => 'download_category',
+					'field'    => 'slug',
+					'terms'    => 'official-free'
+				)
+			);
+		} else {
+			// pro add-ons
+			$tax_query = array(
+				array(
+					'taxonomy' => 'download_category',
+					'field'    => 'slug',
+					'terms'    => 'pro'
+				)
+			);
+		}
+		$query->set( 'posts_per_page', 100 );
+		$query->set( 'tax_query', $tax_query );
+		$query->set( 'orderby', 'date' );
+		$query->set( 'order', 'DESC' );
+	}
+}
+add_action( 'pre_get_posts', 'rcp_site_feed_query', 99999999 );
