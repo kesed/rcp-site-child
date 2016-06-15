@@ -93,6 +93,8 @@ function rcp_body_classes( $classes ) {
 	if ( rcp_is_template_child_page() ) {
 		$classes[] = 'has-sidebar';
 	}
+	
+	$classes[] = 'purple';
 
 	return $classes;
 }
