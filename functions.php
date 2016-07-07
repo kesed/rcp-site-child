@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'THEMEDD_VERSION' ) ) {
-	define( 'THEMEDD_VERSION', '1.4.3' );
+	define( 'THEMEDD_VERSION', '1.4.4' );
 }
 
 /**
@@ -93,8 +93,6 @@ function rcp_body_classes( $classes ) {
 	if ( rcp_is_template_child_page() ) {
 		$classes[] = 'has-sidebar';
 	}
-	
-	$classes[] = 'purple';
 
 	return $classes;
 }
