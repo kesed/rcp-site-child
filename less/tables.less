@@ -39,3 +39,30 @@
     padding: 1rem;
     margin-bottom: 0;
 }
+
+
+.table-option > span {
+	background: @accent-color;
+}
+
+.best-value .table-option {
+	border: 4px solid @accent-color;
+}
+
+.in-cart .table-option > span {
+	background: @primary-color;
+}
+
+.in-cart .table-option {
+	border: 4px solid @primary-color;
+}
+
+.in-cart .button {
+	background: @primary-color;
+	border-color: @primary-color;
+}
+
+.in-cart .button:focus,
+.in-cart .button:hover {
+	background: darken( @primary-color, 8% );
+}
