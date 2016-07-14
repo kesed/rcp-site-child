@@ -137,7 +137,7 @@ get_header(); ?>
 
 				<div class="col-xs-12 col-sm-5 ph-sm-0 mb-sm-2">
 					<p><strong>Does Restrict Content Pro support dripped-content?</strong></p>
-					<p>No, Restrict Content Pro does not support dripped content at this time.</p>
+					<p>Yes! Restrict Content Pro has a powerful <a href="https://restrictcontentpro.com/downloads/drip-content/">Drip Content add-on</a>.</p>
 				</div>
 
 		    </div>
