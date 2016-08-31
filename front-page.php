@@ -10,7 +10,7 @@ get_header(); ?>
     <div class="row mb-xs-3 mb-sm-4 pv-lg-7">
 
         <div class="col-xs-12 col-md-8">
-            <h1 class="mb-lg-4">A simple, yet powerful membership solution for WordPress.</h1>
+            <h1 class="mb-lg-4">A full-featured, powerful membership solution for WordPress.</h1>
             <a href="#pricing" class="scroll button huge">Restrict your content now</a>
         </div>
 
