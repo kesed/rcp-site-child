@@ -154,6 +154,10 @@ function rcp_footer_sign_up() {
 		return;
 	}
 
+	if ( is_page( 'support' ) ) {
+		return;
+	}
+
 ?>
 
 
