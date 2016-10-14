@@ -10,7 +10,7 @@ get_header(); ?>
     <div class="row mb-xs-3 mb-sm-4 pv-lg-7">
 
         <div class="col-xs-12 col-md-8">
-            <h1 class="mb-lg-4">A simple, yet powerful membership solution for WordPress.</h1>
+            <h1 class="mb-lg-4">A full-featured, powerful membership solution for WordPress.</h1>
             <a href="#pricing" class="scroll button huge">Restrict your content now</a>
         </div>
 
@@ -233,7 +233,7 @@ get_header(); ?>
     			<div class="testimonial-wrap ph-xs-2 pv-xs-2">
     				<blockquote>
     					<p>RCP is always at the top of my list when helping clients choose a membership platform. In addition to being a great plugin ​today​, the pace of improvement is impressive. RCP gets better and better all the time.</p>
-                        <footer>&mdash; Travis Northcutt, The Bright Agency</footer>
+                        <footer>&mdash; Travis Northcutt, Member Up</footer>
                     </blockquote>
 
     			</div>

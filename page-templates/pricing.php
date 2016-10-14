@@ -52,7 +52,7 @@ get_header(); ?>
 					<div class="testimonial-wrap ph-xs-2 pv-xs-2">
 						<blockquote>
 							<p>RCP is always at the top of my list when helping clients choose a membership platform. In addition to being a great plugin ​today​, the pace of improvement is impressive. RCP gets better and better all the time.</p>
-		                    <footer>&mdash; Travis Northcutt, The Bright Agency</footer>
+		                    <footer>&mdash; Travis Northcutt, Member Up</footer>
 		                </blockquote>
 					</div>
 		        </div>
@@ -137,7 +137,7 @@ get_header(); ?>
 
 				<div class="col-xs-12 col-sm-5 ph-sm-0 mb-sm-2">
 					<p><strong>Does Restrict Content Pro support dripped-content?</strong></p>
-					<p>No, Restrict Content Pro does not support dripped content at this time.</p>
+					<p>Yes! Restrict Content Pro has a powerful <a href="https://restrictcontentpro.com/downloads/drip-content/">Drip Content add-on</a>.</p>
 				</div>
 
 		    </div>
