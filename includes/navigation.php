@@ -89,7 +89,7 @@ function rcp_nav_account() {
 						<a title="<?php echo $account_link_text; ?>" href="<?php echo site_url( $account_page ); ?>"><?php echo $account_link_text; ?></a>
 					</li>
 				<?php endif; ?>
-                <?php if ( affwp_is_affiliate() ) : ?>
+                <?php if ( function_exists( 'affwp_is_affiliate' ) && affwp_is_affiliate() ) : ?>
 				<li>
 					<a title="<?php _e( 'Affiliates', 'rcp' ); ?>" href="<?php echo site_url( $account_page . $affiliates_page ); ?>"><?php _e( 'Affiliates', 'rcp' ); ?></a>
 				</li>
