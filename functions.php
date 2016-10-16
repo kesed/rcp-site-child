@@ -40,6 +40,9 @@ function rcp_setup() {
 	// Navigation tweaks
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'navigation.php' );
 
+	// Account tweaks
+	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'account.php' );
+
 	// EDD functions
 	if ( function_exists( 'themedd_is_edd_active' ) && themedd_is_edd_active() ) {
 		require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'edd-functions.php' );
