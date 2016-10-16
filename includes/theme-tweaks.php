@@ -3,7 +3,7 @@
 /**
  * Remove the primary navigation
  */
-remove_action( 'site_header_main_end', 'themedd_primary_menu' );
+remove_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
 
 /**
  * Add the primary navigation
@@ -135,13 +135,6 @@ function rcp_remove_comments_on_attachments( $open, $post_id ) {
 
 }
 add_filter( 'comments_open', 'rcp_remove_comments_on_attachments', 10 , 2 );
-
-/**
- * Disable the primary menu from showing in the footer at mobile resolutions
- *
- * @since 1.0.0
- */
-add_filter( 'themedd_footer_primary_menu', '__return_false' );
 
 /**
  * Load Footer signup and mascot
@@ -303,7 +296,7 @@ function rcp_footer_menu() {
 </div>
 <?php
 }
-add_action( 'themedd_footer_before_site_info', 'rcp_footer_menu' );
+add_action( 'themedd_footer_start', 'rcp_footer_menu' );
 
 /**
  * Get changelog
