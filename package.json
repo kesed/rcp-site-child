@@ -1,13 +1,20 @@
 {
   "name": "rcp",
   "parentTheme": "themedd",
-  "version": "1.0",
+  "version": "1.0.0",
   "theme_uri": "https://restrictcontentpro.com",
+  "homepage": "https://restrictcontentpro.com",
+  "repository": {
+      "type": "",
+      "url": ""
+  },
+  "license": "GPL-2.0",
   "Dependencies": {
      "grunt-cli": "latest"
   },
   "devDependencies": {
     "grunt-contrib-concat": "latest",
+    "grunt" : "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-less": "latest",
     "grunt-contrib-watch": "latest",
