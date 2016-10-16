@@ -908,3 +908,52 @@ function rcp_free_download_documentation_button() {
 
 }
 add_action( 'themedd_entry_content_end', 'rcp_free_download_documentation_button' );
+
+// get EDD currency
+$currency = function_exists( 'edd_get_currency' ) ? edd_get_currency() : '';
+
+/**
+ * Wrap currency symbol in span
+ *
+ * @since 1.0.0
+ */
+function themedd_currency_before( $formatted, $currency, $price ) {
+
+	// prevent filter when returning discount amount at checkout
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		return $formatted;
+	}
+
+	$symbol = edd_currency_symbol( $currency );
+
+	if ( $symbol ) {
+		$formatted = '<span class="currency">' . $symbol . '</span>' . $price;
+	}
+
+	return $formatted;
+}
+add_filter( 'edd_' . strtolower( $currency ) . '_currency_filter_before', 'themedd_currency_before', 10, 3 );
+
+/**
+ * Wrap currency symbol in span
+ *
+ * @since 1.0
+ */
+function themedd_currency_after( $formatted, $currency, $price ) {
+
+	// prevent filter when returning discount amount at checkout
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		return $formatted;
+	}
+
+	$symbol = edd_currency_symbol( $currency );
+
+	if ( $symbol ) {
+		$formatted = $price . '<span class="currency">' . $symbol . '</span>';
+	}
+
+	return $formatted;
+}
+
+// remove decimal places when not needed
+add_filter( 'edd_' . strtolower( $currency ) . '_currency_filter_after', 'themedd_currency_after', 10, 3 );
