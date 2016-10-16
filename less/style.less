@@ -2,10 +2,10 @@
 //@import url('../themedd/style.css');
 
 // we want to override the variables and compile our own colos like this
-@import '../themedd/less/variables';
+@import '../themedd/less/config';
 @import '../themedd/less/common-imports';
 
-@import 'variables';
+@import 'config';
 
 
 #logo path {
@@ -35,17 +35,29 @@ body {
 	}
 }
 
-
-
-
 .wrapper.no-sidebar { padding-top: 3rem; }
 
-// Small Devices, Tablets
-// @media only screen and ( min-width : 768px ) {
-// 	#content {
-// 		padding-bottom: 8rem;
-// 	}
-// }
+@media only screen and ( min-width: @screen-md-min ) {
+    #primary-sidebar aside {
+        border-bottom: 2px solid @light-grey;
+    }
+
+    .has-sidebar #column-wrapper {
+		border-bottom: 2px solid @light-grey;
+	}
+
+    .children .comment {
+        border-left: 2px solid @light-grey;
+    }
+
+    // only show border when there are columns
+	// borders will eventually be removed from parent theme
+	#secondary {
+		border-left: 2px solid @light-grey;
+	}
+
+}
+
 
 // fix jetpack carousel issue with scrolling
 body.has-gallery {
@@ -81,13 +93,10 @@ body.has-gallery {
 @import 'magnific-popup';
 @import 'magnific-custom';
 @import 'notices';
-//@import 'ab-test';
 @import 'subpages';
 @import 'plugin-compatibility';
 @import 'tables';
 @import 'add-ons';
-
-@import 'tabs';
 @import 'account';
 @import 'grid';
 @import 'custom';
