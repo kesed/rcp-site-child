@@ -660,11 +660,20 @@ function rcp_get_add_on_download_url( $add_on_id = 0 ) {
  */
 function rcp_remove_checkout_nav() {
 
+    if ( ! ( function_exists( 'themedd_is_edd_active' ) && themedd_is_edd_active() ) ) {
+		return;
+	}
+
 	if ( ! edd_is_checkout() ) {
 		return;
 	}
 
+    // remove the primary navigation
 	remove_action( 'themedd_site_header_main', 'themedd_primary_menu' );
+
+    // remove the mobile menu
+    remove_action( 'themedd_site_header_main', 'themedd_menu_toggle' );
+
 }
 add_action( 'template_redirect', 'rcp_remove_checkout_nav' );
 
