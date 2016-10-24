@@ -22,6 +22,9 @@ function rcp_setup() {
 	// add excerpts to pages
 	add_post_type_support( 'page', 'excerpt' );
 
+	// add subtitles to downloads
+	add_post_type_support( 'download', 'subtitles' );
+
 	// Theme functions
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'theme-functions.php' );
 
@@ -42,6 +45,9 @@ function rcp_setup() {
 
 	// Account tweaks
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'account.php' );
+
+	// Subtitles
+	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'compatibility/subtitles.php' );
 
 	// EDD functions
 	if ( function_exists( 'themedd_is_edd_active' ) && themedd_is_edd_active() ) {
