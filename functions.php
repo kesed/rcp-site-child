@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'THEMEDD_VERSION' ) ) {
-	define( 'THEMEDD_VERSION', '1.4.7' );
+	define( 'THEMEDD_VERSION', '1.4.8' );
 }
 
 /**
@@ -112,11 +112,7 @@ function rcp_enqueue_scripts() {
 	wp_register_script( 'rcp-js', get_stylesheet_directory_uri() . '/js/rcp.min.js', array( 'jquery' ), THEMEDD_VERSION, true );
 	wp_enqueue_script( 'rcp-js' );
 
-	wp_enqueue_script( 'jquery-ui-tabs' );
-
-	// load jQuery UI + tabs for account page
 	if ( is_page( 'account' ) ) {
-		wp_enqueue_script( 'jquery-ui-core' );
 
 		wp_register_style( 'edd-sl-styles', plugins_url( '/css/edd-sl.css', EDD_SL_PLUGIN_FILE ), false, EDD_SL_VERSION );
 		wp_enqueue_style( 'edd-sl-styles' );

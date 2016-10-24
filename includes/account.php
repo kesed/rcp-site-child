@@ -142,9 +142,13 @@ function rcp_theme_themedd_account_tab_affiliate_area() {
 	if ( ! ( function_exists( 'affwp_is_affiliate' ) && affwp_is_affiliate() ) ) {
 		return;
 	}
-	
+
 	?>
-	<li class="follow-link affiliates" data-link="affiliate-area"><a href="<?php echo affwp_get_affiliate_area_page_url(); ?>">Affiliate Area</a></li>
+
+	<ul>
+		<li><a href="<?php echo affwp_get_affiliate_area_page_url(); ?>">Affiliate Area</a></li>
+	</ul>
+
 	<?php
 }
 add_action( 'themedd_account_tabs_after', 'rcp_theme_themedd_account_tab_affiliate_area' );
