@@ -11,7 +11,7 @@ remove_action( 'wp_head', 'edd_download_meta_styles' );
 function rcp_themedd_cart_link_position() {
 	return 'primary_menu';
 }
-add_filter( 'themedd_cart_link_position', 'rcp_themedd_cart_link_position' );
+add_filter( 'themedd_edd_cart_link_position', 'rcp_themedd_cart_link_position' );
 
 /**
  * Turn cart icon count off since we're only selling 1 product
