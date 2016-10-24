@@ -73,7 +73,7 @@ module.exports = function(grunt) {
                     'Theme URI: <%= pkg.theme_uri %>\n' +
                     'Author: Andrew Munro\n' +
                     'Author URI: http://sumobi.com\n' +
-                    'Description: \n' +
+                    'Description: The theme for Restrict Content Pro\n' +
                     'License: GNU General Public License\n' +
                     'License URI: license.txt\n' +
                     '*/',
@@ -123,7 +123,7 @@ module.exports = function(grunt) {
       // CSS
       css: {
         // compile CSS when any .less file is compiled in this theme and also the parent theme
-        files: ['less/**/*.less', '../<%= pkg.parentTheme %>/less/**/*.less'],
+        files: ['less/**/*.less', '../<%= pkg.parentTheme %>/assets/less/**/*.less'],
         tasks: ['less:style'],
       },
       // Add banner
