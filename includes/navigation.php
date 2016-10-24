@@ -1,5 +1,8 @@
 <?php
 
+// add primary navigation where secondary navigation is located
+add_action( 'themedd_site_header_main', 'themedd_primary_menu' );
+
 /**
  * Prepend home link to the primary navigation
  *

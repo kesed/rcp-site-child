@@ -1,22 +1,6 @@
 <?php
 
 /**
- * Remove the primary navigation
- */
-remove_action( 'themedd_site_header_main_end', 'themedd_primary_menu' );
-
-/**
- * Add the primary navigation
- */
-add_action( 'themedd_site_header_main', 'themedd_primary_menu' );
-
-/**
- * Remove the secondary navigation
- */
-remove_action( 'themedd_site_header_main', 'themedd_secondary_menu' );
-
-
-/**
  * Load our new site logo
  *
  * @since 1.0.0
