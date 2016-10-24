@@ -232,12 +232,6 @@ function rcp_pricing_table() {
  */
 function rcp_add_on_popups() {
 
-	// remove the filter on the pricing page title.
-	remove_filter( 'the_title', 'rcp_the_title', 10, 2 );
-
-	// remove the subtitles from showing in the pop ups
-	remove_filter( 'the_title', array( Subtitles::getInstance(), 'the_subtitle' ), 10, 2 );
-
 	  $args = array(
 	      'post_type' => 'download',
 	      'posts_per_page' => -1,
