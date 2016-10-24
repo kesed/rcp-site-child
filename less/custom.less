@@ -24,21 +24,7 @@
     width: 100%;
 }
 
-
 @media only screen and ( min-width: @screen-md-min ) {
-
-    // puts navigation up beside logo
-	// .site-header-menu {
-    //     -webkit-flex: 0 1 auto;
-    //     -ms-flex: 0 1 auto;
-    //     flex: 0 1 auto;
-	// }
-
-    .site-header-menu {
-        -webkit-flex: none;
-        -ms-flex: none;
-        flex: none;
-    }
 
     .items-in-cart .nav-cart:hover .cart-line {
         display: block;
@@ -50,11 +36,30 @@
         transform: rotate(-7deg) translateX(-3px);
     }
 
-
 }
 
-@media only screen and ( min-width: @screen-md-min ) {
-    .site-header-menu {
-        padding-right: 2rem;
+@media only screen and ( min-width: @screen-sm-min ) {
+
+    // arrow on navigation
+    .main-navigation ul ul:before {
+    	top: -9px;
+    	left: 14px;
+    	border-width: 0 10px 10px;
+    	border-color: @light-grey transparent;
     }
+
+    .main-navigation ul ul:after {
+    	top: -7px;
+    	left: 1rem;
+    	border-width: 0 8px 8px;
+    	border-color: #fff transparent;
+    }
+
+    .main-navigation ul ul:before,
+    .main-navigation ul ul:after {
+        content: "";
+        border-style: solid;
+        position: absolute;
+    }
+    // end arrow navigation
 }

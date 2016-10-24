@@ -1,0 +1,23 @@
+// show desktop nav
+@media only screen and ( min-width: @desktop-nav ) {
+
+    // remove the "real" main navigation that exists below the logo
+    // we added our new nav so it appears next to the logo, where the secondary navigation used to be
+    .site-header-wrap + .site-header-menu {
+        display: none;
+    }
+
+	// remove the padding from left and right sides since the main navigation is no longer underneath the logo
+	.main-navigation {
+		padding: 0;
+	}
+
+    // reset the negative margins on the primary menu
+    .main-navigation .primary-menu {
+        margin-right: 0;
+    }
+
+    .site-branding {
+        padding-right: 2rem;
+    }
+}
