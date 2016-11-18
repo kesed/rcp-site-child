@@ -17,19 +17,27 @@
     margin: 0;
 }
 
+.wrapper.wide {
+    max-width: 1080px;
+}
+
 // hide subtitles  on blog page
 .entry-header .subtitle {
     display: none;
 }
 
+
 .site-header-wrap {
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    width: 100%;
+}
+
+body.single-post #content .content-wrapper,
+body.single-post #content .wrapper {
+	max-width: 784px;
+}
+
+.no-sidebar #content > .wrapper {
+	border-bottom: none;
 }
 
 @media only screen and ( min-width: @screen-md-min ) {
