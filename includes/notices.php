@@ -13,7 +13,7 @@ add_action( 'wp_enqueue_scripts', 'rcp_dequeue_style' );
  */
 function rcp_display_notice() {
 
-	/// this displays the notification area if the user has not read it before
+	// this displays the notification area if the user has not read it before
 	global $user_ID;
 
 	$notice_args = array(
