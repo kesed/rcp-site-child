@@ -25,6 +25,11 @@ function rcp_themedd_primary_column_widths( $classes ) {
 		$classes[] = 'col-xs-12 col-md-8';
 	}
 
+	// remove primary column widths on add-on pages
+	if ( is_page( 'pro' ) || is_page( 'official-free' ) ) {
+		$classes = array();
+	}
+
 	return $classes;
 
 }
@@ -35,10 +40,9 @@ add_filter( 'themedd_primary_classes', 'rcp_themedd_primary_column_widths' );
  */
 function rcp_themedd_secondary_column_widths( $classes ) {
 
-	if ( is_singular( 'download' ) ) {
-		$classes = array();
-		$classes[] = 'col-xs-12 col-md-4';
-	}
+	// make the secondary column slimmer
+	$classes = array();
+	$classes[] = 'col-xs-12 col-md-4';
 
 	return $classes;
 
