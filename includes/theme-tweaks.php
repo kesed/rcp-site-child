@@ -413,15 +413,17 @@ function rcp_themedd_force_sidebar() {
 add_action( 'template_redirect', 'rcp_themedd_force_sidebar' );
 
 /**
- * Remove download info from beginning of content
+ * Remove themedd_edd_download_info function on pro add-on pages
  */
-remove_action( 'themedd_entry_content_start', 'themedd_edd_download_info' );
+function rcp_themedd_remove_download_info() {
 
-/**
- * Remove sidebar download info
- */
-remove_action( 'themedd_sidebar_download', 'themedd_edd_download_info' );
+	if ( has_term( 'pro', 'download_category', get_the_ID() ) ) {
+		remove_action( 'themedd_entry_content_start', 'themedd_edd_download_info' );
+		remove_action( 'themedd_sidebar_download', 'themedd_edd_download_info' );
+	}
 
+}
+add_action( 'template_redirect', 'rcp_themedd_remove_download_info' );
 
 /**
  * Add a purchase button to the feature subpages
