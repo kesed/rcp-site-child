@@ -1,6 +1,51 @@
 <?php
 
 /**
+ * Load the post header on the single download pages
+ * we don't want the header showing the default position
+ */
+function rcp_themedd_single_download_post_header() {
+
+	if ( is_singular( 'download' ) ) {
+		themedd_post_header();
+	}
+
+}
+add_action( 'themedd_content_start', 'rcp_themedd_single_download_post_header' );
+
+/**
+ * Set the primary colummn width
+ */
+function rcp_themedd_primary_column_widths( $classes ) {
+
+	if ( is_singular( 'download' ) ) {
+		// reset the array
+		$classes = array();
+		// add our new classes
+		$classes[] = 'col-xs-12 col-md-8';
+	}
+
+	return $classes;
+
+}
+add_filter( 'themedd_primary_classes', 'rcp_themedd_primary_column_widths' );
+
+/**
+ * Set the secondary colummn width
+ */
+function rcp_themedd_secondary_column_widths( $classes ) {
+
+	if ( is_singular( 'download' ) ) {
+		$classes = array();
+		$classes[] = 'col-xs-12 col-md-4';
+	}
+
+	return $classes;
+
+}
+add_filter( 'themedd_secondary_classes', 'rcp_themedd_secondary_column_widths' );
+]
+/**
  * Remove download meta styling
  */
 remove_action( 'wp_head', 'edd_download_meta_styles' );
@@ -22,65 +67,6 @@ add_filter( 'themedd_edd_cart_icon_count', '__return_false' );
  * Show a full cart icon
  */
 add_filter( 'themedd_edd_cart_icon_full', '__return_true' );
-
-/**
- * Replace with new SVG
- */
-function rcp_themedd_edd_cart_icon( $content, $cart_items ) {
-	ob_start();
-?>
-
-<?php if ( apply_filters( 'themedd_edd_cart_icon_count', true ) ) : ?>
-<span class="cart-count"><span class="edd-cart-quantity"><?php echo edd_get_cart_quantity(); ?></span></span>
-<?php endif; ?>
-
-<svg id="nav-cart-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="animate">
-<defs>
-<style>
-	.cart-frame {
-		fill: none;
-	}
-</style>
-</defs>
-<?php if ( $cart_items ) : ?>
-  <title><?php _e( 'Checkout now', 'themedd' ); ?></title>
-<?php else : ?>
-  <title><?php _e( 'Go to checkout', 'themedd' ); ?></title>
-<?php endif; ?>
-<g id="frame">
-<rect class="cart-frame" width="48" height="48" />
-</g>
-<g id="cart">
-	<circle class="cart-wheel" cx="34.7" cy="37" r="3"/>
-	<circle class="cart-wheel" cx="22.6" cy="37" r="3"/>
-<?php if ( $cart_items && apply_filters( 'themedd_edd_cart_icon_full', false ) ) : ?>
-	<path class="cart-items" d="M40.7,13.2c0.3-0.7,0.1-1.5-0.5-1.9l-4.6-3c-0.1,0-0.1-0.1-0.2-0.1c-0.8-0.4-1.7-0.1-2,0.7l-3.3,6.4v-2.7v0
-		c0-0.8-0.7-1.5-1.5-1.5h-6c0,0,0,0-0.1,0c-0.8,0.1-1.5,0.8-1.4,1.6v3h3v-1.5h3v1.5h6.3l1.9-3.9l2,1.3l-1.3,2.5h3.4L40.7,13.2z"/>
-<?php endif; ?>
-<path class="cart-main" d="M16.5,9.5h-6.1v3h4.9l4.3,18.6c0.2,0.7,0.8,1.2,1.5,1.2h15.3c0.7,0,1.3-0.5,1.5-1.2l3-12.2c0-0.1,0-0.2,0-0.3
-	c0-0.8-0.7-1.5-1.5-1.5H19.4L18,10.7C17.8,10,17.2,9.5,16.5,9.5L16.5,9.5z"/>
-</g>
-
-
-	<g id="cart-lines">
-		<line class="cart-line" x1="2.6" y1="22.2" x2="15" y2="22.2"/>
-		<line class="cart-line" x1="7.8" y1="25.9" x2="16.7" y2="25.9"/>
-		<line class="cart-line" x1="3.7" y1="29.7" x2="14.4" y2="29.7"/>
-	</g>
-
-
-</svg>
-
-
-<?php
-
-	$content = ob_get_contents();
-	ob_end_clean();
-
-	return $content;
-
-}
-add_filter( 'themedd_edd_cart_icon', 'rcp_themedd_edd_cart_icon', 10, 2 );
 
 /**
  * Remove default class from cart icon anchor link
@@ -117,7 +103,6 @@ function rcp_edd_pre_add_to_cart( $download_id, $options ) {
 
 }
 add_action( 'edd_pre_add_to_cart', 'rcp_edd_pre_add_to_cart', 10, 2 );
-
 
 /**
  * Shows a download button for logged-in Professional or Ultimate license holders
