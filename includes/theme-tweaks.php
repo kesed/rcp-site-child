@@ -381,7 +381,7 @@ add_filter( 'themedd_get_sidebar', 'rcp_load_sidebars' );
  */
 function rcp_remove_sidebars( $ret ) {
 
-	if ( is_page( 'pro' ) || is_page( 'official-free' ) ) {
+	if ( is_page( 'pro' ) || is_page( 'official' ) ) {
 		$ret = false;
 	}
 

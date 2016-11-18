@@ -26,7 +26,7 @@ function rcp_themedd_primary_column_widths( $classes ) {
 	}
 
 	// remove primary column widths on add-on pages
-	if ( is_page( 'pro' ) || is_page( 'official-free' ) ) {
+	if ( is_page( 'pro' ) || is_page( 'official' ) ) {
 		$classes = array();
 	}
 
