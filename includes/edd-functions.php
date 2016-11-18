@@ -44,7 +44,7 @@ function rcp_themedd_secondary_column_widths( $classes ) {
 
 }
 add_filter( 'themedd_secondary_classes', 'rcp_themedd_secondary_column_widths' );
-]
+
 /**
  * Remove download meta styling
  */
