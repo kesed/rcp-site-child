@@ -320,6 +320,16 @@ function rcp_get_changelog() {
 }
 
 /**
+ * Clears the changelog transient when the RCP download is saved.
+ */
+function rcp_delete_changelog_transient( $post_id ) {
+	if ( rcp_get_download_id() == $post_id ) {
+		delete_site_transient( 'pp_rcp_changelog' );
+	}
+}
+add_action( 'save_post_download', 'rcp_delete_changelog_transient' );
+
+/**
  * Changelog
  *
  * @since 1.0.0
