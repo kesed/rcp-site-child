@@ -367,6 +367,19 @@ function rcp_load_sidebars( $sidebar ) {
 add_filter( 'themedd_get_sidebar', 'rcp_load_sidebars' );
 
 /**
+ * Remove sidebars
+ */
+function rcp_remove_sidebars( $ret ) {
+
+	if ( is_page( 'pro' ) || is_page( 'official-free' ) ) {
+		$ret = false;
+	}
+
+	return $ret;
+}
+add_filter( 'themedd_show_sidebar', 'rcp_remove_sidebars' );
+
+/**
  * Change primary column classes for payment gateway pages
  */
 function rcp_themedd_primary_classes( $classes ) {
@@ -388,6 +401,17 @@ function rcp_themedd_force_sidebar() {
 	}
 }
 add_action( 'template_redirect', 'rcp_themedd_force_sidebar' );
+
+/**
+ * Remove download info from beginning of content
+ */
+remove_action( 'themedd_entry_content_start', 'themedd_edd_download_info' );
+
+/**
+ * Remove sidebar download info
+ */
+remove_action( 'themedd_sidebar_download', 'themedd_edd_download_info' );
+
 
 /**
  * Add a purchase button to the feature subpages
