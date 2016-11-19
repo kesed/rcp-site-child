@@ -13,6 +13,11 @@ add_action( 'wp_enqueue_scripts', 'rcp_dequeue_style' );
  */
 function rcp_display_notice() {
 
+	// don't display notice if there's a discount being used
+	if ( isset( $_GET['discount'] ) ) {
+		return;
+	}
+
 	// this displays the notification area if the user has not read it before
 	global $user_ID;
 
@@ -79,3 +84,27 @@ function rcp_display_notice() {
 
 remove_action( 'wp_footer', 'pippin_display_notice' );
 add_action( 'themedd_site_before', 'rcp_display_notice' );
+
+
+
+/**
+ * Let the customer know the discount was applied to checkout
+ */
+function rcp_cf_discount_notice() {
+
+	$discount = isset( $_GET['discount'] ) && $_GET['discount'] ? $_GET['discount'] : '';
+	$text     = 'Woohoo! Your discount was successfully added to checkout.';
+
+	if ( ! $discount ) {
+		return;
+	}
+
+	?>
+	<div id="notification-area" class="discount-applied">
+		<div id="notice-content">
+			<p><?php echo $text; ?></p>
+		</div>
+	</div>
+		<?php
+}
+add_action( 'themedd_site_before', 'rcp_cf_discount_notice' );
