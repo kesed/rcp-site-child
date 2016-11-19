@@ -46,6 +46,9 @@ function rcp_setup() {
 	// Account tweaks
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'account.php' );
 
+	// Account tweaks
+	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'changelog.php' );
+
 	// Subtitles
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'compatibility/subtitles.php' );
 
