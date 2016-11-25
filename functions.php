@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'THEMEDD_VERSION' ) ) {
-	define( 'THEMEDD_VERSION', '1.5.8' );
+	define( 'THEMEDD_VERSION', '1.5.9' );
 }
 
 /**
