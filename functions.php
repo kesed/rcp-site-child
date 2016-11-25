@@ -9,7 +9,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 }
 
 if ( ! defined( 'THEMEDD_VERSION' ) ) {
-	define( 'THEMEDD_VERSION', '1.6.0' );
+	define( 'THEMEDD_VERSION', '1.6.1' );
 }
 
 /**
@@ -48,6 +48,12 @@ function rcp_setup() {
 
 	// Account tweaks
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'changelog.php' );
+
+	// checkout tweaks
+	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'checkout.php' );
+
+	// functions
+	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'functions.php' );
 
 	// Subtitles
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'compatibility/subtitles.php' );
