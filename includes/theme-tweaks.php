@@ -245,7 +245,7 @@ function rcp_footer_menu() {
 				<ul id="our-sites">
 
 					<li class="affwp">
-						<a href="https://affiliatewp.com/?ref=1" target="_blank">
+						<a href="https://affiliatewp.com/?ref=867" target="_blank">
 							<div class="mascot">
 								<img src="<?php echo get_stylesheet_directory_uri() . '/images/affwp.png'; ?>" />
 							</div>
@@ -259,7 +259,7 @@ function rcp_footer_menu() {
 					</li>
 
 					<li class="edd">
-						<a href="https://easydigitaldownloads.com/?ref=4632" target="_blank">
+						<a href="https://easydigitaldownloads.com/?ref=4680" target="_blank">
 							<div class="mascot">
 								<img src="<?php echo get_stylesheet_directory_uri() . '/images/eddwp.png'; ?>" />
 							</div>
