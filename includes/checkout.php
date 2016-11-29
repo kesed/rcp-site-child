@@ -85,7 +85,7 @@ if ( rcp_theme_was_sale() ) :
 
 <?php
 }
-add_action( 'rcp_theme_edd_success_page_the_content', 'rcp_theme_edd_share_purchase' );
+//add_action( 'rcp_theme_edd_success_page_the_content', 'rcp_theme_edd_share_purchase' );
 
 
 /**
