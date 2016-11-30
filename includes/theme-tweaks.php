@@ -1,6 +1,21 @@
 <?php
 
 /**
+ * Redirect any requests to the RCP download page back to the add-ons page
+ *
+ * @since 1.6.4
+ */
+function rcp_redirect_rcp_download() {
+
+	if ( is_singular( 'download' ) && get_the_ID() === rcp_get_download_id() ) {
+		wp_redirect( home_url( '/add-ons/' ) );
+		exit;
+	}
+
+}
+add_action( 'template_redirect', 'rcp_redirect_rcp_download' );
+
+/**
  * Load our new site logo
  *
  * @since 1.0.0
