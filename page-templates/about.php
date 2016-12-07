@@ -25,13 +25,13 @@ get_header(); ?>
 	</section>
 	</div>
 
-    <header class="page-header<?php echo themedd_page_header_classes(); ?>">
-        <h1 class="page-title"><span class="entry-title-primary">Meet the team</span></h1>
+	<header class="page-header<?php echo themedd_page_header_classes(); ?>">
+		<h1 class="page-title"><span class="entry-title-primary">Meet the team</span></h1>
 
-    </header>
+	</header>
 
 	<div class="mb-xs-2 wrapper wide">
-	    <section class="container-fluid about-team">
+		<section class="container-fluid about-team">
 
 			<div class="row mb-xs-2 mb-lg-4">
 				<div class="col-xs-12 col-sm-3 mb-xs-2">
@@ -51,43 +51,51 @@ get_header(); ?>
 			<div class="row mb-xs-2 mb-lg-4">
 
 				<div class="col-xs-12 col-sm-3 mb-xs-2 first-sm last-lg">
-	                <img class="profile" alt="About John Parris" src="<?php echo get_stylesheet_directory_uri() . '/images/about/john-parris.jpg'; ?>">
-	            </div>
+					<img class="profile" alt="About John Parris" src="<?php echo get_stylesheet_directory_uri() . '/images/about/john-parris.jpg'; ?>">
+				</div>
 
-	            <div class="col-xs-12 col-sm-9 mb-xs-2 mb-lg-4">
-	                <h2>John Parris</h2>
-	                <p>John has been a WordPress user since around 2008 (he doesn't really remember the year), and started developing WordPress software in 2012. As part of the Restrict Content Pro team, he helps develop, test, and support Restrict Content Pro and its add-ons.</p>
-	<p>Before joining the Restrict Content Pro team, John worked full-time with the Easy Digital Downloads team. Prior to entering the WordPress world, John spent 20 years in various network administration and IT management roles.</p>
+				<div class="col-xs-12 col-sm-9 mb-xs-2 mb-lg-4">
+					<h2>John Parris</h2>
+					
+					<p>John has been a WordPress user since around 2008 (he doesn't really remember the year), and started developing WordPress software in 2012. As part of the Restrict Content Pro team, he helps develop, test, and support Restrict Content Pro and its add-ons.</p>
+					
+					<p>Before joining the Restrict Content Pro team, John worked full-time with the Easy Digital Downloads team. Prior to entering the WordPress world, John spent 20 years in various network administration and IT management roles.</p>
 
-	<p class="mb-xs-0">In his spare time he enjoys hanging out with his wife, walking in the woods, and enjoying a nice cold-brewed coffee.</p>
-	            </div>
+					<p class="mb-xs-0">In his spare time he enjoys hanging out with his wife, walking in the woods, and enjoying a nice cold-brewed coffee.</p>
+				</div>
 
-	        </div>
+			</div>
 
-	        <div class="row mb-xs-2 mb-lg-4">
+			<div class="row mb-xs-2 mb-lg-4">
 
 				<div class="col-xs-12 col-sm-3 mb-xs-2">
 					<img class="profile" alt="About Michael Beil" src="<?php echo get_stylesheet_directory_uri() . '/images/about/michael-beil.jpg'; ?>">
-	            </div>
+				</div>
 
-	            <div class="col-xs-12 col-sm-9 mb-xs-2 mb-lg-4">
-	                <h2>Michael Beil</h2>
-	                <p>Michael Beil is an avid WordPress user. He began his WordPress journey as a side job when a friend asked for some help in 2011, and he has not looked back since. As part of the Restrict Content Pro crew, he helps with support, testing, and emoji sharing.</p>
-	                <p class="mb-xs-0">Michael is from the land of cheese and lakes, that is Madison, Wisconsin, where he enjoys playing hammered dulcimer, sailing, coffee brewing, and hanging out with his wife.</p>
-	            </div>
+				<div class="col-xs-12 col-sm-9 mb-xs-2 mb-lg-4">
+					<h2>Michael Beil</h2>
+					<p>Michael Beil is an avid WordPress user. He began his WordPress journey as a side job when a friend asked for some help in 2011, and he has not looked back since. As part of the Restrict Content Pro crew, he helps with support, testing, and emoji sharing.</p>
+					<p class="mb-xs-0">Michael is from the land of cheese and lakes, that is Madison, Wisconsin, where he enjoys playing hammered dulcimer, sailing, coffee brewing, and hanging out with his wife.</p>
+				</div>
 
-	        </div>
+			</div>
 
+			<div class="row mb-xs-2 mb-lg-4">
 
+				<div class="col-xs-12 col-sm-3 mb-xs-2 first-sm last-lg">
+					<img class="profile" alt="About John Parris" src="<?php echo get_stylesheet_directory_uri() . '/images/about/ashley-gibson.jpg'; ?>">
+				</div>
 
+				<div class="col-xs-12 col-sm-9 mb-xs-2 mb-lg-4">
+					<h2>Ashley Gibson</h2>
+					<p>Ashley got serious about WordPress development when she started her book review blog in 2012. That one blog kick-started her passion for WordPress and a full-time business creating WordPress plugins and themes for fellow book lovers. She then joined the Restrict Content Pro team to help with support and testing.</p>
+					<p class="mb-xs-0">Ashley is an American girl living in England (she fell in love with a Brit). When not WordPressing, she's weightlifting and reading 100 books a year.</p>
+				</div>
 
+			</div>
 
-	    </section>
+		</section>
 	</div>
-
-
-
-
 
 </div>
 <?php
