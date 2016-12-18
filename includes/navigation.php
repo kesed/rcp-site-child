@@ -26,50 +26,11 @@ function rcp_wp_nav_menu_items( $items, $args ) {
 function rcp_account_menu( $items ) {
     return $items . rcp_nav_account();
 }
-add_filter( 'themedd_wp_nav_menu_items', 'rcp_account_menu');
+add_filter( 'themedd_wp_nav_menu_items', 'rcp_account_menu' );
 
-/**
- * Prepend home link to main navigation
- *
- * @since 1.0.0
- */
-function rcp_nav_home() {
-	 ob_start();
-	?>
 
-	<li class="menu-item home">
-		<a href="<?php echo site_url(); ?>">Home</a>
-	</li>
 
-	<?php $content = ob_get_contents();
-    ob_end_clean();
 
-    return $content;
-
-    ?>
-
-<?php }
-
-/**
- * Highlight add-ons menu item if on single download page
- */
-function rcp_highlight_menu_item( $classes ) {
-
-	if ( is_singular( 'download' ) ) {
-	    if ( in_array ( 'add-ons', $classes ) ) {
-	      $classes[] = 'current-menu-item';
-	    }
-	}
-
-	if ( is_singular( 'post' ) ) {
-	    if ( in_array ( 'blog', $classes ) ) {
-	      $classes[] = 'current-menu-item';
-	    }
-	}
-
-	return $classes;
-}
-add_filter( 'nav_menu_css_class', 'rcp_highlight_menu_item' );
 
 /**
  * Append account to main navigation
@@ -120,3 +81,46 @@ function rcp_nav_account() {
     ?>
 
 <?php }
+
+/**
+ * Prepend home link to main navigation
+ *
+ * @since 1.0.0
+ */
+function rcp_nav_home() {
+	 ob_start();
+	?>
+
+	<li class="menu-item home">
+		<a href="<?php echo site_url(); ?>">Home</a>
+	</li>
+
+	<?php $content = ob_get_contents();
+    ob_end_clean();
+
+    return $content;
+
+    ?>
+
+<?php }
+
+/**
+ * Highlight add-ons menu item if on single download page
+ */
+function rcp_highlight_menu_item( $classes ) {
+
+	if ( is_singular( 'download' ) ) {
+	    if ( in_array ( 'add-ons', $classes ) ) {
+	      $classes[] = 'current-menu-item';
+	    }
+	}
+
+	if ( is_singular( 'post' ) ) {
+	    if ( in_array ( 'blog', $classes ) ) {
+	      $classes[] = 'current-menu-item';
+	    }
+	}
+
+	return $classes;
+}
+add_filter( 'nav_menu_css_class', 'rcp_highlight_menu_item' );
