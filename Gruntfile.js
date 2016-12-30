@@ -14,6 +14,13 @@ module.exports = function(grunt) {
            src: ['js/src/**/*.js'],
            dest: 'js/<%= pkg.name %>.min.js'
          },
+		 account: {
+ 			options: {
+ 				separator: ';'
+ 			},
+ 			src: ['js/account/**/*.js'],
+ 			dest: 'js/account.min.js'
+ 		}
        },
 
     // uglify
@@ -23,7 +30,8 @@ module.exports = function(grunt) {
         },
         js: {
           files: {
-            'js/<%= pkg.name %>.min.js': ['js/<%= pkg.name %>.min.js']
+            'js/<%= pkg.name %>.min.js': ['js/<%= pkg.name %>.min.js'],
+			'js/account.min.js': ['js/account.min.js']
           }
         }
       },
@@ -104,7 +112,7 @@ module.exports = function(grunt) {
     watch: {
       // JS
       js: {
-        files: ['js/src/**/*.js'],
+        files: ['js/src/**/*.js', 'js/account/**/*.js'],
         tasks: ['concat:js', 'uglify:js'],
       },
 

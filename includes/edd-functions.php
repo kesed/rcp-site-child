@@ -955,3 +955,35 @@ function themedd_currency_after( $formatted, $currency, $price ) {
 
 // remove decimal places when not needed
 add_filter( 'edd_' . strtolower( $currency ) . '_currency_filter_after', 'themedd_currency_after', 10, 3 );
+
+/**
+ * Remove the existing licenses tab content when "Manage Sites" or "View Upgrades" links are clicked
+ *
+ * @since 1.0.0
+ */
+function rcp_theme_edd_sl_remove_content() {
+
+	/**
+	 * Make sure this only runs from account page. Consider adding setting to EDD customizer to get correct account page
+	 */
+	if ( is_page( 'account' ) ) {
+		remove_filter( 'the_content', 'edd_sl_override_history_content', 9999 );
+	}
+
+	if ( empty( $_GET['action'] ) || 'manage_licenses' != $_GET['action'] ) {
+		return;
+	}
+
+	if ( empty( $_GET['payment_id'] ) ) {
+		return;
+	}
+
+	if ( isset( $_GET['license_id'] ) && isset( $_GET['view'] ) && 'upgrades' == $_GET['view'] ) {
+		// remove existing tab content
+		remove_action( 'themedd_licenses_tab', 'themedd_account_tab_licenses_content' );
+	} else {
+		remove_action( 'themedd_licenses_tab', 'themedd_account_tab_licenses_content' );
+	}
+
+}
+add_action( 'template_redirect', 'rcp_theme_edd_sl_remove_content' );

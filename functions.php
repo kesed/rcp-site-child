@@ -8,9 +8,16 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 	define( 'RCP_INCLUDES_DIR', trailingslashit( get_stylesheet_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
 }
 
-if ( ! defined( 'THEMEDD_VERSION' ) ) {
-	define( 'THEMEDD_VERSION', '1.6.5' );
+
+if ( ! defined( 'RCP_THEME_VERSION' ) ) {
+	define( 'RCP_THEME_VERSION', '1.6.5' );
 }
+
+function themedd_styles() {
+	// Theme stylesheet.
+	wp_enqueue_style( 'rcp', get_stylesheet_uri(), array(), RCP_THEME_VERSION );
+}
+add_action( 'wp_enqueue_scripts', 'themedd_styles' );
 
 /**
  * Setup
@@ -27,6 +34,12 @@ function rcp_setup() {
 
 	// Theme functions
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'theme-functions.php' );
+
+	// Scripts
+	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'scripts.php' );
+
+	// Affiliates
+	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'affiliates.php' );
 
 	// Tweaks to theme based on parent theme
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'theme-tweaks.php' );
