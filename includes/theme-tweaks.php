@@ -215,7 +215,7 @@ function rcp_footer_menu() {
 					<li><a href="<?php echo site_url( 'pricing' ); ?>">Pricing</a></li>
 					<li><a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">Refund policy</a></li>
 					<li><a href="<?php echo site_url( 'support' ); ?>">Support</a></li>
-					<li><a href="http://docs.pippinsplugins.com/collection/4-restrict-content-pro" target="_blank">Documentation</a></li>
+					<li><a href="http://docs.restrictcontentpro.com" target="_blank">Documentation</a></li>
 					<li><a href="<?php echo site_url( 'screenshots' ); ?>">Screenshots</a></li>
                     <?php /* <li><a href="<?php echo get_stylesheet_directory_uri() . '/changelog.php'; ?>" id="rcp-changelog" class="popup-content download-meta-link" data-effect="mfp-move-from-bottom">Changelog</a></li> */ ?>
 					<li><a href="<?php echo site_url( 'changelog' ); ?>">Changelog</a></li>
