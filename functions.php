@@ -14,8 +14,9 @@ if ( ! defined( 'RCP_THEME_VERSION' ) ) {
 }
 
 function themedd_styles() {
+
 	// Theme stylesheet.
-	wp_enqueue_style( 'rcp', get_stylesheet_uri(), array(), RCP_THEME_VERSION );
+	wp_enqueue_style( 'rcp', get_stylesheet_uri(), array(), filemtime( get_stylesheet_directory() . '/style.css' ) );
 }
 add_action( 'wp_enqueue_scripts', 'themedd_styles' );
 

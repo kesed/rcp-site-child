@@ -83,10 +83,63 @@
  function themedd_account_tab_licenses_content() {
  	edd_get_template_part( 'license', 'keys' );
  }
- add_action( 'themedd_licenses_tab', 'themedd_account_tab_licenses_content' );
+add_action( 'themedd_licenses_tab', 'themedd_account_tab_licenses_content' );
 
+/**
+ * Show notice if customer needs to upgrade their payment information in the case of failing subscription renewals
+ *
+ * @since 1.0.0
+ */
+function rcp_theme_licenses_update_payment_information() {
 
- /**
+	// don't show on actual upgrade page
+	if ( isset( $_GET['view'] ) ) {
+		return;
+	}
+
+	$subscriber            = new EDD_Recurring_Subscriber( get_current_user_id(), true );
+	$failing_subscriptions = $subscriber->get_subscriptions( 0, 'failing' );
+
+	if ( is_array( $failing_subscriptions ) && ! empty( $failing_subscriptions ) ) {
+
+		/**
+		 * Customer has multiple failing subscriptions
+		 */
+		if ( count( $failing_subscriptions ) > 1 ) {
+			?>
+			<div class="edd_errors">
+				<p>You have multiple subscriptions that could not be renewed.</p>
+				<ul>
+					<?php foreach ( $failing_subscriptions as $failing_subscription ) :
+						$product_id = $failing_subscription->product_id;
+						$sub_id     = $failing_subscription->id;
+					?>
+					<li>
+						<?php echo get_the_title( $product_id ); ?> - <a href="/account/?action=update&amp;subscription_id=<?php echo $sub_id; ?>#tabs=1">Update your payment information</a>
+					</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+
+			<?php
+
+		} else {
+
+			/**
+			 * Customer has 1 failing subscription
+			 */
+			$sub_id = $failing_subscriptions[0]->id;
+			?>
+			<p class="edd_errors">Your subscription could not be renewed. Please <a href="/account/?action=update&amp;subscription_id=<?php echo $sub_id; ?>#tabs=1">update your payment information</a>.</p>
+			<?php
+		}
+
+	}
+
+}
+add_action( 'themedd_licenses_tab', 'rcp_theme_licenses_update_payment_information', 2 );
+
+/**
   * Profile editor
   *
   * @since 1.0.0
