@@ -215,7 +215,7 @@ function rcp_footer_menu() {
 					<li><a href="<?php echo site_url( 'pricing' ); ?>">Pricing</a></li>
 					<li><a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">Refund policy</a></li>
 					<li><a href="<?php echo site_url( 'support' ); ?>">Support</a></li>
-					<li><a href="http://docs.pippinsplugins.com/collection/4-restrict-content-pro" target="_blank">Documentation</a></li>
+					<li><a href="http://docs.restrictcontentpro.com" target="_blank">Documentation</a></li>
 					<li><a href="<?php echo site_url( 'screenshots' ); ?>">Screenshots</a></li>
                     <?php /* <li><a href="<?php echo get_stylesheet_directory_uri() . '/changelog.php'; ?>" id="rcp-changelog" class="popup-content download-meta-link" data-effect="mfp-move-from-bottom">Changelog</a></li> */ ?>
 					<li><a href="<?php echo site_url( 'changelog' ); ?>">Changelog</a></li>
@@ -229,13 +229,13 @@ function rcp_footer_menu() {
 			<div class="col-xs-12 col-sm-6 col-lg-3">
 				<h4>Quick help</h4>
 				<ul>
-					<li><a href="http://docs.pippinsplugins.com/category/27-installation" target="_blank">Installation</a></li>
-					<li><a href="http://docs.pippinsplugins.com/category/815-payment-gateways" target="_blank">Payment gateways</a></li>
-					<li><a href="http://docs.pippinsplugins.com/category/45-common-issues" target="_blank">Common issues and FAQs</a></li>
-					<li><a href="http://docs.pippinsplugins.com/category/37-restricting-content" target="_blank">Restricting content</a></li>
-					<li><a href="http://docs.pippinsplugins.com/category/38-short-codes" target="_blank">Shortcodes</a></li>
-					<li><a href="http://docs.pippinsplugins.com/category/48-add-ons" target="_blank">Add-ons</a></li>
-					<li><a href="http://docs.pippinsplugins.com/category/41-developer-documentation" target="_blank">Developer documentation</a></li>
+					<li><a href="http://docs.restrictcontentpro.com/category/1499-installation" target="_blank">Installation</a></li>
+					<li><a href="http://docs.restrictcontentpro.com/category/1504-payment-gateways" target="_blank">Payment gateways</a></li>
+					<li><a href="http://docs.restrictcontentpro.com/category/1506-troubleshooting" target="_blank">Common issues and FAQs</a></li>
+					<li><a href="http://docs.restrictcontentpro.com/category/1541-restricting-content" target="_blank">Restricting content</a></li>
+					<li><a href="http://docs.restrictcontentpro.com/category/1508-shortcodes" target="_blank">Shortcodes</a></li>
+					<li><a href="http://docs.restrictcontentpro.com/collection/1496-add-ons" target="_blank">Add-ons</a></li>
+					<li><a href="http://docs.restrictcontentpro.com/collection/1493-developer-docs" target="_blank">Developer documentation</a></li>
 
 				</ul>
 			</div>
