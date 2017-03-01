@@ -167,12 +167,6 @@ add_action( 'themedd_licenses_tab', 'rcp_theme_licenses_update_payment_informati
  }
 
 
-
-
-
-
-
-
 /**
  *
  */

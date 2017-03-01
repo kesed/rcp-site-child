@@ -1,6 +1,58 @@
 <?php
 
 /**
+ * Link to terms page
+ * @return [type] [description]
+ */
+function rcp_edd_terms_agreement() {
+	global $edd_options;
+
+	// Does the cart contain a recurring subscription?
+	$cart_contains_recurring = function_exists( 'EDD_Recurring' ) && EDD_Recurring()->cart_contains_recurring() ? true: false;
+
+	// Tweak the agreement text if a subscription in being purchased.
+	$extra_text = $cart_contains_recurring ? ' am purchasing a subscription and' : '';
+
+	if ( isset( $edd_options['show_agree_to_terms'] ) ) : ?>
+
+
+	<fieldset id="edd_terms_agreement">
+		<input name="edd_agree_to_terms" class="required" type="checkbox" id="edd_agree_to_terms" value="1" />
+		<label for="edd_agree_to_terms">
+			I acknowledge and agree that I<?php echo $extra_text; ?> have read the <?php echo '<a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">purchase terms and refund policy</a>'; ?>
+		</label>
+	</fieldset>
+
+	<?php // seems to only work when placed here ?>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+
+		// inline
+		$('.popup-content').magnificPopup({
+			type: 'inline',
+			fixedContentPos: true,
+			fixedBgPos: true,
+			overflowY: 'scroll',
+			closeBtnInside: true,
+			preloader: false,
+			callbacks: {
+				beforeOpen: function() {
+				this.st.mainClass = this.st.el.attr('data-effect');
+				}
+			},
+			midClick: true,
+			removalDelay: 300
+        });
+
+		});
+	</script>
+
+	<?php endif;
+}
+remove_action( 'edd_purchase_form_before_submit', 'edd_terms_agreement' );
+add_action( 'edd_purchase_form_before_submit', 'rcp_edd_terms_agreement' );
+
+/**
  * Add a hook before the content, but only on the EDD success page
  */
 function rcp_theme_edd_success_page_the_content( $content ) {

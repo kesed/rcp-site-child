@@ -28,7 +28,6 @@ a.external {
 .length {
 		display: block;
 	    font-size: 1rem;
-	    font-weight: 400;
 	    margin-top: 0.25rem;
 		color: @body-text-color;
 	}
@@ -37,14 +36,32 @@ a.external {
 .table-option li.pricing {
     color: #222;
     font-size: 3rem;
-    font-weight: 500;
     line-height: 1;
+	padding: 0.5rem 0 2rem 0;
 
+}
+
+
+
+.link-highlight {
+	font-size: 1.5rem;
+}
+
+.add-on-value {
+	display: block;
+}
+
+.add-on-value span,
+.plus {
+	font-size: 1.2rem;
+}
+
+.plus {
+	margin-right: 0.25rem;
 }
 
 .pricing .price {
     position: relative;
-    font-weight: 500;
 }
 
 .pricing .price.old {
@@ -69,13 +86,11 @@ a.external {
     position: absolute;
     top: 4px;
     right: 105%;
-	font-weight: 300;
 }
 
 .pricing .button {
 	text-transform: uppercase;
 }
-
 
 .pricing > .best-value {
     flex-flow: wrap;
@@ -85,11 +100,8 @@ a.external {
     padding: 0 1rem;
 }
 
-
 .table-option > span {
-//    background: @primary-color;
     color: #fff;
-    font-weight: 600;
 	bottom: 100%;
 	left: 0;
 	right: 0;
@@ -98,16 +110,4 @@ a.external {
     margin-right: -4px;
     padding: 1rem;
     display: block;
-}
-
-@media only screen and ( min-width: @screen-sm-min ) {
-
-    .row.pricing {
-    //    margin-top: 6rem;
-    }
-
-	.table-option > span {
-
-	}
-
 }

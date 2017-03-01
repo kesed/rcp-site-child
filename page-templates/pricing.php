@@ -70,7 +70,7 @@ get_header(); ?>
 
 		        <div class="col-xs-12 col-sm-5 ph-sm-0 mb-sm-2">
 					<p><strong>Do I need to renew my license?</strong></p>
-					<p>Your license key is valid for one year from the purchase date. You need an active license key for continued access to automatic updates and support. License keys automatically renew at a 30% discount from the purchase price.</p>
+					<p>Your license key is valid for one year from the purchase date. You need an active license key for continued access to automatic updates and support.</p>
 		        </div>
 
 				<div class="col-xs-12 col-sm-5 ph-sm-0 mb-sm-2">

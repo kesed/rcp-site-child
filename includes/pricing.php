@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * Determine the value of the pro add-ons included with the Professional or Ultimate license
+ *
+ * @since 1.0.0
+ */
+function rcp_theme_pro_add_ons_value() {
+	return 60 * rcp_get_add_on_count( 'pro' );
+}
+
+/**
  * Pricing table
  */
 function rcp_pricing_table() {
@@ -44,15 +53,22 @@ function rcp_pricing_table() {
 
                         <ul class="mb-xs-2">
                             <li class="pricing">
-								<span class="price"><span class="currency">$</span>449</span>
+								<span class="price"><span class="currency">$</span>499</span>
 								<span class="length">one-time payment</span>
 							</li>
-							<li class="feature"><strong><a href="#modal-pro-add-ons" class="popup-content" data-effect="mfp-move-from-bottom"><?php echo $count_pro_add_ons; ?> pro add-ons</a></strong><br/>+ any we release in the future!</li>
+
+							<li class="feature price">
+								<a href="#modal-pro-add-ons" class="popup-content link-highlight" data-effect="mfp-move-from-bottom"><strong><?php echo $count_pro_add_ons; ?> pro add-ons</strong></a>
+								<span class="add-on-value">(a massive <span>$<?php echo rcp_theme_pro_add_ons_value(); ?></span> value!)</span>
+							</li>
+							<li class="feature"><span class="plus">PLUS</span> all future pro add-ons</li>
+
+
 							<li class="feature"><strong><a href="#modal-offical-free-add-ons" class="popup-content" data-effect="mfp-move-from-bottom"><?php echo $count_official_free_add_ons; ?> official free add-ons</a></strong></li>
                             <li class="feature"><strong>Lifetime updates</strong></li>
                             <li class="feature"><strong>Lifetime support</strong></li>
 							<li class="feature"><strong>Unlimited sites</strong></li>
-							<li class="feature">All features included</li>
+							<li class="feature">All core features included</li>
 
                         </ul>
 
@@ -100,16 +116,21 @@ function rcp_pricing_table() {
 	                            <li class="pricing">
 
 									<span class="price">
-										<span class="currency">$</span>199</span>
+										<span class="currency">$</span>249</span>
 										<span class="length">per year</span>
 								</li>
 
-								<li class="feature"><strong><a href="#modal-pro-add-ons" class="popup-content" data-effect="mfp-move-from-bottom"><?php echo $count_pro_add_ons; ?> pro add-ons</a></strong><br/>+ any we release in the future!</li>
+								<li class="feature price">
+									<a href="#modal-pro-add-ons" class="popup-content link-highlight" data-effect="mfp-move-from-bottom"><strong><?php echo $count_pro_add_ons; ?> pro add-ons</strong></a>
+									<span class="add-on-value">(a massive <span>$<?php echo rcp_theme_pro_add_ons_value(); ?></span> value!)</span>
+								</li>
+								<li class="feature"><span class="plus">PLUS</span> all future pro add-ons</li>
+
 								<li class="feature"><strong><a href="#modal-offical-free-add-ons" class="popup-content" data-effect="mfp-move-from-bottom"><?php echo $count_official_free_add_ons; ?> official free add-ons</a></strong></li>
 	                            <li class="feature">Plugin updates *</li>
 	                            <li class="feature">Email support *</li>
 								<li class="feature"><strong>Unlimited sites</strong></li>
-								<li class="feature">All features included</li>
+								<li class="feature">All core features included</li>
 	                        </ul>
 
 							<div class="footer">
@@ -119,7 +140,7 @@ function rcp_pricing_table() {
 										$text = 'Checkout';
 									} else {
 										$button_link = $download_url . '&amp;edd_options[price_id]=' . $price_id;
-										$text = 'Purchase';
+										$text = 'Sign up';
 									}
 								?>
 								<a class="button" href="<?php echo $button_link; ?>"><?php echo $text; ?></a>
@@ -142,7 +163,7 @@ function rcp_pricing_table() {
 	                        <ul class="mb-xs-2">
 
 								<li class="pricing">
-									<span class="price"><span class="currency">$</span>99</span>
+									<span class="price"><span class="currency">$</span>149</span>
 									<span class="length">per year</span>
 								</li>
 								<li class="feature"><strong><a href="#modal-offical-free-add-ons" class="popup-content" data-effect="mfp-move-from-bottom"><?php echo $count_official_free_add_ons; ?> official free add-ons</a></strong></li>
@@ -150,7 +171,7 @@ function rcp_pricing_table() {
 	                            <li class="feature">Plugin updates *</li>
 	                            <li class="feature">Email support *</li>
 								<li class="feature">5 sites</li>
-								<li class="feature">All features included</li>
+								<li class="feature">All core features included</li>
 	                        </ul>
 
 							<div class="footer">
@@ -160,7 +181,7 @@ function rcp_pricing_table() {
 										$text = 'Checkout';
 									} else {
 										$button_link = $download_url . '&amp;edd_options[price_id]=' . $price_id;
-										$text = 'Purchase';
+										$text = 'Sign up';
 									}
 								?>
 								<a class="button" href="<?php echo $button_link; ?>"><?php echo $text; ?></a>
@@ -183,7 +204,7 @@ function rcp_pricing_table() {
 	                        <ul class="mb-xs-2">
 
 								<li class="pricing">
-									<span class="price"><span class="currency">$</span>49</span>
+									<span class="price"><span class="currency">$</span>99</span>
 									<span class="length">per year</span>
 								</li>
 
@@ -192,7 +213,7 @@ function rcp_pricing_table() {
 								<li class="feature">Plugin updates *</li>
 	                            <li class="feature">Email support *</li>
 								<li class="feature">1 site</li>
-								<li class="feature">All features included</li>
+								<li class="feature">All core features included</li>
 	                        </ul>
 
 							<div class="footer">
@@ -202,7 +223,7 @@ function rcp_pricing_table() {
 										$text = 'Checkout';
 									} else {
 										$button_link = $download_url . '&amp;edd_options[price_id]=' . $price_id;
-										$text = 'Purchase';
+										$text = 'Sign up';
 									}
 								?>
 								<a class="button" href="<?php echo $button_link; ?>"><?php echo $text; ?></a>
@@ -215,7 +236,7 @@ function rcp_pricing_table() {
 
 			<div class="row center-sm">
 				<div class="col-xs-12 col-sm-10">
-					<p><small>* Plugin updates and support are provided for the duration of your current subscription. Renewals discounted at 30%. Pro add-ons are only available with Professional and Ultimate licenses. See FAQs below for details. All purchases are subject to our terms of use.</small></p>
+					<p><small>* Plugin updates and email support are provided for the duration of your current subscription. Pro add-ons are only available with Professional and Ultimate licenses. See FAQs below for details. All purchases are subject to our terms of use.</small></p>
 				</div>
 			</div>
 
