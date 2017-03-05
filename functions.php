@@ -10,7 +10,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.6.5' );
+	define( 'RCP_THEME_VERSION', '1.6.6' );
 }
 
 function themedd_styles() {
@@ -35,6 +35,9 @@ function rcp_setup() {
 
 	// Theme functions
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'theme-functions.php' );
+
+	// Theme functions
+	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'countdown.php' );
 
 	// Scripts
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'scripts.php' );
