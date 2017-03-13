@@ -18,6 +18,11 @@ function rcp_display_notice() {
 		return;
 	}
 
+	// Don't show notice on purchase confirmation page.
+	if ( edd_is_success_page() ) {
+		return;
+	}
+	
 	// this displays the notification area if the user has not read it before
 	global $user_ID;
 
