@@ -107,7 +107,9 @@ function rcp_theme_licenses_update_payment_information() {
 		 */
 		if ( count( $failing_subscriptions ) > 1 ) {
 			?>
-			<div class="edd_errors">
+
+
+			<div class="edd-alert edd-alert-warn">
 				<p>You have multiple subscriptions that could not be renewed.</p>
 				<ul>
 					<?php foreach ( $failing_subscriptions as $failing_subscription ) :
