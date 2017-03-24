@@ -57,6 +57,10 @@ add_action( 'edd_purchase_form_before_submit', 'rcp_edd_terms_agreement' );
  */
 function rcp_theme_edd_success_page_the_content( $content ) {
 
+	if ( ! function_exists( 'edd_is_success_page' ) ) {
+		return $content;
+	}
+
 	global $post;
 
 	if ( $post && edd_is_success_page() && is_main_query() && ! post_password_required() ) {
