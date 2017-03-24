@@ -42,8 +42,13 @@ function rcp_setup() {
 	// Scripts
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'scripts.php' );
 
-	// Affiliates
-	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'affiliates.php' );
+	if ( themedd_is_affiliatewp_active() ) {
+		// Affiliates
+		require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'affiliates.php' );
+	}
+
+	// General.
+	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'general.php' );
 
 	// Tweaks to theme based on parent theme
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'theme-tweaks.php' );
@@ -66,10 +71,10 @@ function rcp_setup() {
 	// Account tweaks
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'changelog.php' );
 
-	// checkout tweaks
+	// Checkout tweaks
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'checkout.php' );
 
-	// functions
+	// Functions
 	require_once( trailingslashit( RCP_INCLUDES_DIR ) . 'functions.php' );
 
 	// Subtitles
@@ -96,42 +101,7 @@ function rcp_setup() {
 add_action( 'after_setup_theme', 'rcp_setup' );
 
 
-/**
- * Adds custom classes to the array of body classes.
- *
- * @since 1.0
- */
-function rcp_body_classes( $classes ) {
 
-	global $post;
-
-	if ( isset( $post) && has_shortcode( $post->post_content, 'gallery' ) ) {
-		$classes[] = 'has-gallery';
-	}
-
-	if ( is_page( 'about' ) ) {
-		$classes[] = 'about';
-	}
-
-	if ( is_page( 'features' ) ) {
-		$classes[] = 'features';
-	}
-
-	if ( rcp_is_single_feature() ) {
-		$classes[] = 'single-features';
-	}
-
-	if ( is_page_template( 'page-templates/account.php' ) ) {
-		$classes[] = 'account';
-	}
-
-	if ( rcp_is_template_child_page() ) {
-		$classes[] = 'has-sidebar';
-	}
-
-	return $classes;
-}
-add_filter( 'body_class', 'rcp_body_classes' );
 
 /**
  * Enqueue scripts
