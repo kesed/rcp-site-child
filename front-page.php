@@ -59,7 +59,7 @@ get_header(); ?>
 
                     <div class="col-xs-12 col-lg-9">
                         <h4 class="">Built-in Integrations</h4>
-                        <p>Accept credit cards with Stripe, Braintree, 2Checkout, or PayPal Website Payments Pro. Restrict Content Pro also supports PayPal Standard and Express, as well as multiple payment options at the same time.</p>
+                        <p>Accept credit cards with Stripe, Braintree, 2Checkout, Authorize.net or PayPal Website Payments Pro. Restrict Content Pro also supports PayPal Standard and Express, as well as multiple payment options at the same time.</p>
                     </div>
 
                 </div>
@@ -286,22 +286,26 @@ get_header(); ?>
 </div>
 
 <div class="wrapper">
-    <section class="container-fluid aligncenter pv-xs-2 pv-sm-4">
+    <section class="container-fluid aligncenter pv-xs-2 pv-sm-4 payment-integrations">
         <h1 class="ph-lg-6 mb-xs-1">Payment integrations</h1>
         <p class="ph-lg-6 subtitle mb-lg-4">Support for Stripe.com, 2Checkout, Braintree, PayPal Standard, PayPal Express, and PayPal Website Payments Pro.</p>
 
         <div class="row middle-sm ph-md-10">
 
-            <div class="col-xs-12 col-sm-4 pv-xs-1 pv-lg-0 ph-lg-0">
+            <div class="col-xs-12 col-sm-3 pv-xs-1 pv-lg-0">
                 <img src="<?php echo get_stylesheet_directory_uri() . '/images/stripe.svg'; ?>" alt="Stripe" />
             </div>
 
-            <div class="col-xs-12 col-sm-4 pv-xs-1 pv-lg-0 ph-lg-0">
+            <div class="col-xs-12 col-sm-3 pv-xs-1 pv-lg-0">
                 <img src="<?php echo get_stylesheet_directory_uri() . '/images/braintree.svg'; ?>" alt="Braintree" />
             </div>
 
-            <div class="col-xs-12 col-sm-4 pv-xs-1 pv-lg-0 ph-lg-0">
+            <div class="col-xs-12 col-sm-3 pv-xs-1 pv-lg-0">
                 <img src="<?php echo get_stylesheet_directory_uri() . '/images/paypal.svg'; ?>" alt="PayPal" />
+            </div>
+
+			<div class="col-xs-12 col-sm-3 pv-xs-1 pv-lg-0">
+                <img src="<?php echo get_stylesheet_directory_uri() . '/images/authorizenet.svg'; ?>" alt="Authorize.Net" />
             </div>
 
         </div>
