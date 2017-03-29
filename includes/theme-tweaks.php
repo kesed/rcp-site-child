@@ -83,7 +83,7 @@ function rcp_embed_refund_policy() {
 		return;
 	}
 
-	$refund_policy = get_page_by_title( 'refund policy' );
+	$refund_policy = get_page_by_title( 'purchase terms and refund policy' );
 
 	if ( ! $refund_policy ) {
 		return;
