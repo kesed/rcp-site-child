@@ -223,6 +223,7 @@ function rcp_footer_menu() {
 					<li><a href="<?php echo site_url( 'about' ); ?>">About</a></li>
 					<li><a href="<?php echo site_url( 'consultants' ); ?>">Consultants</a></li>
 					<li><a href="https://twitter.com/rcpwp" target="blank">Follow on Twitter</a></li>
+					<li><a href="<?php echo site_url( '/affiliates/' ); ?>">Become an affiliate</a></li>
 				</ul>
 			</div>
 
