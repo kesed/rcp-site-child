@@ -40,7 +40,7 @@ function rcp_nav_account() {
 
 	$account_link_text 	= 'Account';
 	$account_page 		= '/account';
-	$affiliates_page 	= '/affiliates';
+	$affiliates_page 	= '/affiliates/';
 	$active 			= is_page( 'account' ) || is_page( 'affiliates' ) ? ' current-menu-item' : '';
 
 	ob_start();
@@ -55,7 +55,7 @@ function rcp_nav_account() {
 				<?php endif; ?>
                 <?php if ( function_exists( 'affwp_is_affiliate' ) && affwp_is_affiliate() ) : ?>
 				<li>
-					<a title="<?php _e( 'Affiliates', 'rcp' ); ?>" href="<?php echo site_url( $account_page . $affiliates_page ); ?>"><?php _e( 'Affiliates', 'rcp' ); ?></a>
+					<a title="<?php _e( 'Affiliates', 'rcp' ); ?>" href="<?php echo site_url( $affiliates_page ); ?>"><?php _e( 'Affiliates', 'rcp' ); ?></a>
 				</li>
                 <?php endif; ?>
 				<?php if( ! is_user_logged_in() ) : ?>
