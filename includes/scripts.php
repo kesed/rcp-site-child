@@ -34,3 +34,24 @@ function rcp_theme_account_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'rcp_theme_account_scripts' );
+
+/*
+ * Ouput Perfect Audience conversion tracking script
+ */
+function rcp-_perfect_audience_tracking() {
+?>
+<script type="text/javascript">
+  (function() {
+    window._pa = window._pa || {};
+    <?php if( $session = edd_get_purchase_session() ) : $payment_id = edd_get_purchase_id_by_key( $session['purchase_key'] ); ?>
+    _pa.orderId = "<?php echo $payment_id; ?>";
+    _pa.revenue = "<?php echo edd_get_payment_amount( $payment_id ); ?>";
+    <?php endif; ?>
+    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.marinsm.com/serve/58eb9cd0abc468e5fd0000ac.js";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+  })();
+</script>
+<?php
+}
+add_action( 'wp_footer', 'rcp-_perfect_audience_tracking' );
