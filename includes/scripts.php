@@ -38,7 +38,7 @@ add_action( 'wp_enqueue_scripts', 'rcp_theme_account_scripts' );
 /*
  * Ouput Perfect Audience conversion tracking script
  */
-function rcp-_perfect_audience_tracking() {
+function rcp_perfect_audience_tracking() {
 ?>
 <script type="text/javascript">
   (function() {
@@ -54,4 +54,4 @@ function rcp-_perfect_audience_tracking() {
 </script>
 <?php
 }
-add_action( 'wp_footer', 'rcp-_perfect_audience_tracking' );
+add_action( 'wp_footer', 'rcp_perfect_audience_tracking' );
