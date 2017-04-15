@@ -22,7 +22,7 @@ function rcp_display_notice() {
 	if ( edd_is_success_page() ) {
 		return;
 	}
-	
+
 	// this displays the notification area if the user has not read it before
 	global $user_ID;
 
@@ -103,6 +103,10 @@ add_action( 'themedd_site_before', 'rcp_display_notice' );
  */
 function rcp_cf_discount_notice() {
 
+	if ( edd_is_checkout() ) {
+		return;
+	}
+	
 	$discount = isset( $_GET['discount'] ) && $_GET['discount'] ? $_GET['discount'] : '';
 	$text     = 'Woohoo! Your discount was successfully added to checkout.';
 
