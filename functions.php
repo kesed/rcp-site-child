@@ -10,7 +10,7 @@ if ( ! defined( 'RCP_INCLUDES_DIR' ) ) {
 
 
 if ( ! defined( 'RCP_THEME_VERSION' ) ) {
-	define( 'RCP_THEME_VERSION', '1.7.2' );
+	define( 'RCP_THEME_VERSION', '1.7.3' );
 }
 
 function themedd_styles() {
